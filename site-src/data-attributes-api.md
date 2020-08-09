@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Data Attributes API - Remake Framework Docs
+title: Data Attributes API
 ---
 
 # Data Attributes API

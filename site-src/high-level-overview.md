@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: A High Level Overview - Remake Framework Docs
+title: A High Level Overview
 ---
 
 ## A High Level Overview

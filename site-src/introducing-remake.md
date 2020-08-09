@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Introducing Remake - Remake Framework Docs
+title: Introducing Remake
 ---
 
 ## Introducing Remake

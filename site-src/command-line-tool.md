@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Command Line Tool - Remake Framework Docs
+title: Command Line Tool
 ---
 
 ## Command Line Tool

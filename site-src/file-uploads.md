@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: File Uploads - Remake Framework Docs
+title: File Uploads
 meta:
   <meta name="description" content="Upload files instantly with a few lines of HTML">
   <meta name="twitter:card" content="summary_large_image">

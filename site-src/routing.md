@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Routing - Remake Framework Docs
+title: Routing
 ---
 
 ### Routing basics

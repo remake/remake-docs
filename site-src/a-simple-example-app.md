@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: A Simple Example App - Remake Framework Docs
+title: A Simple Example App
 ---
 
 ## A Simple, Working Todo List App:

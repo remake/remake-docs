@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Sorting Lists of Items - Remake Framework Docs
+title: Sorting Lists of Items
 ---
 
 ## Sorting Lists of Items

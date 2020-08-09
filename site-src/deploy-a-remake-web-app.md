@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Deploy a Remake Web App - Remake Framework Docs
+title: Deploy a Remake Web App
 ---
 
 ## Deploy a Remake Web App

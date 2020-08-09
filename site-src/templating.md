@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Templating - Remake Framework Docs
+title: Templating
 ---
 
 ### Handlebars.js

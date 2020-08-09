@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Why Remake? - Remake Framework Docs
+title: Why Remake?
 ---
 
 ### Why Remake?

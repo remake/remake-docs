@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Remake Docs - A framework for building CRUD web apps quickly
+title: Build Web Apps With HTML
 meta:
   <meta name="description" content="Remake is a framework that you build interactive websites with only HTML">
   <meta name="image" content="https://docs.remaketheweb.com/static/og/og-site.png">

@@ -44,12 +44,12 @@ All of the work Remake allows us to do — creating a complete Kanban app from s
   * For an element marked as an `"object"`, this attribute defines a key/value pair.
     * The key name is whatever dash-case value follows `"data-l-key-"` and, when extracted, will be converted to camelCase
     * The value is, by default, either:
-      * The `innerText` of a child element with a matching `data-target-key-` attribute
+      * The `innerText` of a child element with a matching `data-l-target-` attribute
       * Or, if that's not found, it's the `innerText` of the current element
       * It can also be customized to look at different properties if necessary
 * **data-l-target-***
   * If an element with this attribute is included inside an element with a matching `data-l-key-` attribute, then Remake will assume this element has the key's value
-    * An example of matching attributes: `data-l-key-blog-post-header` matches `data-target-key-blog-post-header` because the part after `-key-` matches
+    * An example of matching attributes: `data-l-key-blog-post-header` matches `data-l-target-blog-post-header` because the part after `-key-` matches
 * **data-i-editable**
   * This marks an element as able to trigger an editable popover.
   * By default, when an element with this attribute is clicked, Remake will look for data on the current element — inside `data-o-key-` and `data-l-key-` attributes. If it finds some keys with data in them, it will trigger editable areas for each of them.

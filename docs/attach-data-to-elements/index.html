@@ -137,7 +137,7 @@
 <li>The key name is whatever dash-case value follows <code>&quot;data-l-key-&quot;</code> and, when extracted, will be converted to camelCase</li>
 <li>The value is, by default, either:
 <ul>
-<li>The <code>innerText</code> of a child element with a matching <code>data-target-key-</code> attribute</li>
+<li>The <code>innerText</code> of a child element with a matching <code>data-l-target-</code> attribute</li>
 <li>Or, if that's not found, it's the <code>innerText</code> of the current element</li>
 <li>It can also be customized to look at different properties if necessary</li>
 </ul>
@@ -150,7 +150,7 @@
 <ul>
 <li>If an element with this attribute is included inside an element with a matching <code>data-l-key-</code> attribute, then Remake will assume this element has the key's value
 <ul>
-<li>An example of matching attributes: <code>data-l-key-blog-post-header</code> matches <code>data-target-key-blog-post-header</code> because the part after <code>-key-</code> matches</li>
+<li>An example of matching attributes: <code>data-l-key-blog-post-header</code> matches <code>data-l-target-blog-post-header</code> because the part after <code>-key-</code> matches</li>
 </ul>
 </li>
 </ul>

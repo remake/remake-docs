@@ -9,7 +9,7 @@ title: Attach Data to Elements
 
 ### An app in a single file
 
-The entire app we're building in these tutorial videos fits inside of only one file, `app/app-index.hbs` (called <code>username.hbs</code> before <code>v1.11</code>), and is 73 lines long.
+The entire app we're building in these tutorial videos fits inside of only one file, `app/pages/app-index.hbs` (called <code>username.hbs</code> before <code>v1.11</code>), and is 73 lines long.
 
 If you want to start with a blank slate, with only an HTML file, like we do in the video, you can replace your current `app-index.hbs` template with this one: [starter-app-index.hbs](https://gist.github.com/panphora/a1f39772ebc837b29173c5fb18887a8d).
 
@@ -75,7 +75,7 @@ All of the work Remake allows us to do — creating a complete Kanban app from s
   * To use this, attach it to the same element that a `data-o-key-` or `data-l-key-` attribute is on and match its key to their key
     * Example of matching key names: `data-o-key-favorite-color` and `data-o-default-favorite-color` match
 
-To learn more, check out the [Data Attributes API](http://localhost:8080/data-attributes-api/) page!
+To learn more, check out the [Data Attributes API](/data-attributes-api/) page!
 
 <div class="spacer--8"></div>
 

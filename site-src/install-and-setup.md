@@ -5,56 +5,43 @@ title: Install & Setup
 
 <img class="image--small image--center" src="https://remake.s3.amazonaws.com/smartsharp/03.svg">
 
-# Install & Setup
+### 🦄 Install & Setup
 
-**🛠 1. Install the Remake command line tool**
+
+**⚡️ 1. Generate a Remake project**
 
 ```bash
-npm install remake -g
+npx remake create my-app
 ```
 
-**⚡️ 2. Generate a Remake project**
+**🚀 2. Start the local server**
 
 ```bash
-remake create <project-dir>
-```
-
-**🚜 3. Start the local server**
-
-```bash
-cd projectName
+cd my-app
 npm run dev
 ```
 
-**📺 4. View your Remake app**
-
-<br>
-<a href="http://localhost:3000" target="_blank"><img class="border rounded image--small image--center" src="/static/kanban-screenshot.png"></a>
-<br>
+**📺 3. View your Remake app**
 
 Go to [http://localhost:3000](http://localhost:3000) in your browser to view the example app.
 
-**🎨 5. Make your own app**
+**🎨 4. Make your own app**
 
-The HTML & CSS used to create a Remake app is in the `app/` directory.
+All of the code for your Remake app is in the `app/` directory.
 
-To start from scratch with an blank slate, simply replace the files in `app/` with the files in `_remake/empty-project/`.
+Learn how to create an app from [the step-by-step tutorial](https://docs.remaketheweb.com/introducing-remake/).
 
-**👩‍🎓 6. Learn Remake**
-
-Learn how to create an app from [the official step-by-step tutorial](https://docs.remaketheweb.com/introducing-remake/).
-
-In no time, you'll be making web apps faster than ever!
-
-**🌏 7. Deploy your app**
-
-After you're done creating your own app, share it with the world:
+**🌏 5. Deploy your first Remake app!**
 
 ```bash
 remake deploy
 ```
 
-This will publish your app to **https://YOUR-APP-NAME.remakeapps.com** and you can share it with anyone!
+Now anyone will be able to sign up for an account and use your app!
 
-See an example: [https://kanban.remakeapps.com/](https://kanban.remakeapps.com/)
+### 🍕 Remake Recipes
+
+#### 👉 [Check out Remake Recipes!](https://recipes.remaketheweb.com/)
+
+It's a quick &amp; easy way to learn what you can build with Remake.
 

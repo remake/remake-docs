@@ -35,7 +35,6 @@
             <div class="sidebar__list-heading">INTRO</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/">What is Remake?</a>
-              <a class="sidebar__list-item " href="/what-is-crud">What is CRUD?</a>
               <a class="sidebar__list-item sidebar__list-item--selected" href="/high-level-overview">High-level Overview</a>
               <a class="sidebar__list-item " href="/a-simple-example-app">A Simple Example App</a>
             </div>
@@ -75,9 +74,9 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">DATA ATTRIBUTES API</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item " href="/data-attributes-api">Output attributes</a>
-              <a class="sidebar__list-item " href="/data-attributes-api#data-i">Input attributes</a>
-              <a class="sidebar__list-item " href="/data-attributes-api#data-w">Watcher attributes</a>
+              <a class="sidebar__list-item " href="/data-attributes-api">Saving data</a>
+              <a class="sidebar__list-item " href="/data-attributes-api#update">Updating data</a>
+              <a class="sidebar__list-item " href="/data-attributes-api#watch">Reacting to data</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -87,48 +86,45 @@
               <a class="sidebar__list-item " href="/contributors">Contributors</a>
             </div>
           </div>
+          <div class="sidebar__list-container">
+            <div class="sidebar__list-heading">TECHNICAL CONCEPTS</div>
+            <div class="sidebar__list">
+              <a class="sidebar__list-item " href="/what-is-crud">What is a CRUD web app?</a>
+            </div>
+          </div>
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
           <h2>A High Level Overview</h2>
-<h4>In Remake, data is embedded directly in HTML.</h4>
+<h4>In Remake, HTML is converted to data</h4>
+<p>Attach the following attributes to your page to convert static HTML into an interactive web app.</p>
 <ul>
-<li>Attributes prefixed with <code>data-o</code> or <code>data-l</code> are responsible for attaching data to HTML elements
+<li>Tag an element as an <code>object</code> or <code>array</code> and they'll be converted to <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a></li>
+<li><code>object</code> and <code>array</code> are the two data structures Remake exports from the page
 <ul>
-<li>The <code>o</code> in <code>data-o</code> attributes stands for &quot;output&quot; because this data is outputted from the page</li>
-<li>The <code>l</code> in the single <code>data-l</code> attribute stands for &quot;location&quot; because it tells Remake to look for the data in a specific location, <em>not</em> inside the attribute's value</li>
+<li>The <code>object</code> attribute marks an HTML element as a JSON object</li>
+<li>The <code>array</code> attribute marks an HTML element as a JSON array</li>
 </ul>
 </li>
-<li>Remake sees HTML elements with <code>data-o-type</code> attributes on them as representing either an <code>object</code> or an <code>array</code>. These are the two types of data structures that Remake exports from the page</li>
-<li>Attributes prefixed with <code>data-i</code> are responsible for changing the data on the page.
-<ul>
-<li>The <code>i</code> stands for &quot;input&quot; because these attributes input data into the page, but don't output it</li>
-</ul>
-</li>
+<li>An attribute starting with <code>key:</code> is used for adding data to an object</li>
+<li>An attribute starting with <code>edit:</code> creates a popover where your users can easily edit the page data</li>
+<li>An attribute starting with <code>update:</code> is used for changing data inside <code>key:</code> attribute</li>
 </ul>
 <img class="image--small" src="/static/data-mockup.png">
-<p><em>Remake's ultimate goal is to make HTML feel like it was designed for building web apps.</em></p>
-<p><strong>Note:</strong> Remake is not required (or even loaded) when a user can't edit the page.</p>
-<p>Remake's primary use is to make make sure the data on a dynamic page stays in sync with a backend. If the user is a viewer and not an editor, <a href="https://handlebarsjs.com/">Handlebars.js</a> simply renders the page.</p>
 <h4>Data flow through a Remake web app</h4>
 <p>In practice, this is how data usually flows in Remake:</p>
 <ol>
-<li>The user clicks an element with a <code>data-i-editable</code> attribute</li>
-<li>A popover will appear directly on top of the clicked element, by default editing all of the data on the <code>closest</code> element with data (&quot;closest&quot; is highlighted here because it refers to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">Element.closest()</a> method)</li>
-<li>The user edits the information inside the popover</li>
-<li>The user clicks a button to save the information inside the popover</li>
-<li>Data from the popover is automatically synced back into the originally clicked on element</li>
-<li>All of the data on the page will be extracted as a nested object and saved to the current user's data
-<ul>
-<li>It's possible to get around this and only save the current element by attaching a unique id the page. See the <a href="/saving/">Saving</a> for more info.</li>
-</ul>
-</li>
+<li>A user logs in to your application</li>
+<li>They click an element with an <code>edit:</code> attribute</li>
+<li>A built-in popover pops up</li>
+<li>The user edits the data in the popover</li>
+<li>The user clicks the &quot;save&quot; button</li>
+<li>Data from the popover is synced back into the page</li>
+<li>The data on the page is saved into the user's account</li>
 </ol>
-<h4>Customizing Remake with plugins</h4>
-<p>There are many low-level Remake data attributes that aren't documented thoroughly yet. A few of them are responsible for making the <code>data-i-editable</code> attribute work, under the hood, for example.</p>
-<p>These low-level attributes can be used to create custom editable components. See <a href="https://requestcreative.com/">this production web app</a>, built in Remake, to see an example of what's possible when developers can build your own editable areas.</p>
-<p>In the near future, Remake will ship with many more types of editable areas (for file uploads, image cropping, calendar input, etc.), as well as a plugin architecture that will let developers expand this further.</p>
-<p>In the meantime, however, if you want to learn more about the low-level Remake attributes that make all of this possible, please <a href="https://remaketheweb.com/contact-us/">contact me</a> and I'll send you some tutorial videos.</p>
+<h4>Plugins</h4>
+<p>In the future, Remake will ship with more types of editable areas (for file uploads, image cropping, calendar input, etc.), as well as a plugin architecture that will let developers build on them.</p>
+<p><a href="https://form.remaketheweb.com/">Subscribe for updates</a></p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

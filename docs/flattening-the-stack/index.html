@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Routing - Remake Docs</title>
+    <title>Flattening the stack - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=899">
     <link rel="stylesheet" href="/static/prism.css?v=899">
@@ -65,7 +65,7 @@
               <a class="sidebar__list-item " href="/data">Data</a>
               <a class="sidebar__list-item " href="/saving">Saving</a>
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/routing">Routing</a>
+              <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
@@ -89,44 +89,32 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">TECHNICAL CONCEPTS</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item " href="/flattening-the-stack">Flattening the stack</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/flattening-the-stack">Flattening the stack</a>
               <a class="sidebar__list-item " href="/what-is-crud">What is a CRUD web app?</a>
             </div>
           </div>
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h3>Routing basics</h3>
-<p>Currently, in order to get the <code>data</code> from a user loaded into a template, you need to be on a route like this: <code>/{username}/{pageName}?/{id}?</code>, where <code>username</code> matches a user's username.</p>
-<p>Here, <code>pageName</code> and <code>id</code> are optional. For example, if <code>username</code> is the only param, then <code>pages/app-index.hbs</code> (called <code>username.hbs</code> before <code>v1.11</code>) is rendered. However, if <code>pageName</code> is there, then <code>pages/pageName.hbs</code> is rendered.</p>
-<p>And, finally, if <code>id</code> is also provided in the route, then <code>pages/pageName.hbs</code> is rendered and the <code>id</code> is looked up in the current username's data and loaded in under a template variable called <code>currentItem</code>.</p>
-<h3>Three routes defined by one template</h3>
-<p>A single page template in Remake, for example <code>pages/tasks.hbs</code>, will automatically defines 3 different types of routes.</p>
-<p>These routes are:</p>
+          <h3>Flattening the stack</h3>
+<p>Most frameworks try to simplify or remove a layer of <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks">the web application stack</a>. This is why people switch to them — they're tired of the old way.</p>
+<p>This is what I'm calling &quot;flattening the stack&quot; and here's how different tools approach it:</p>
 <ul>
-<li><strong>/{templateName}</strong> (e.g. <code>/tasks</code> for <code>tasks.hbs</code>)
-<ul>
-<li>This kind of route is useful for defining static pages. For example, if you want to tell your users about your web app's &quot;tasks&quot; feature, this would be the perfect place to put it. This type of page can display data from the current user, but no user can't modify data on this page.</li>
-</ul>
+<li>
+<p><strong>Rails</strong> removes a lot of configuration and boilerplate code.</p>
 </li>
-<li><strong>/{username}/{templateName}</strong> (e.g. <code>/john/tasks</code> for <code>tasks.hbs</code>)
-<ul>
-<li>This kind of route will include a user's data. If the user that matches this username happens to be logged in and viewing this page, then they can modify the data on this page. This type of page is great for loading a particular type of data and displaying it in a list or on some kind of dashboard (e.g. a list of &quot;tasks&quot;).</li>
-</ul>
+<li>
+<p><strong>Blitz.js</strong> removes API endpoints and lets you use server code in your templates.</p>
 </li>
-<li><strong>/{username}/{templateName}/{id}</strong> (e.g. <code>/john/tasks/3456</code> for <code>tasks.hbs</code>)
-<ul>
-<li>Everything on this type of route works the same as for the last type (i.e. <code>/{username}/{templateName}</code>), except the final param is a unique id that wants to match an item in the page author's data. Since every nested object in your data automatically gets a unique id assigned to it by Remake, this route is able to look up that data and load into the current template under a variable called <code>currentItem</code>. This route is perfect for displaying an individual item or nested list of data (e.g. a single task and its sub-tasks).</li>
-</ul>
+<li>
+<p><strong>Firebase</strong> removes the need to think about database, authentication, and server management.</p>
 </li>
 </ul>
-<p>These are all the routes you'll define by creating a single template file (e.g. <code>/pages/tasks.hbs</code>). They're pretty flexible, so you don't have to worry about setting up your own routing at all!</p>
-<h3>Two other special routes</h3>
-<p>Remake also has two other special routes that only render specific templates.</p>
-<p>The first, is the base path of your app: <strong>your homepage.</strong></p>
-<p>Remake expects to find an <code>index.hbs</code> template in your page templates and it will render that index file whenever a user goes to your home page.</p>
-<p>The other special route is &quot;username&quot; route, like <code>/eric</code> or <code>/kate</code> or <code>/paul</code>. It's the base path for a particular user — and it's the page that will be loaded right after a user signs up or logs in.</p>
-<p>For this case, Remake expects to find a <code>app-index.hbs</code> (called <code>username.hbs</code> before <code>v1.11</code>) template in your page templates and it will render that file whenever a user goes to <code>/{username}</code>.</p>
+<p>The most powerful frameworks remove as much as possible from the stack, without limiting what you can build.</p>
+<p>New tools are coming out every day in <a href="https://blog.remaketheweb.com/the-low-code-ecosystem/">the low code space</a> that try to remove as many layers of the stack as possible.</p>
+<h3>Remake's approach</h3>
+<p>Remake flattens the stack down to a single layer — HTML. If you love HTML and always thought of it as a programming language, Remake is for you!</p>
+<p><em><strong>Why HTML?</strong></em> HTML hasn't changed in a long time, even though the web has moved forward and dynamic applications have become the norm. Remake thinks HTML needs an update so it's easier to build on.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

@@ -7,21 +7,29 @@ title: Introducing Remake
 
 <img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
 
-#### Welcome to the first step in the Remake tutorial!
+#### Let's build a Trello clone!
 
-In this tutorial, we'll learn how to build a fully-functional Kanban application (similar to [Trello](https://trello.com/)) in about 30 minutes.
+We're going to build a simple, but fully-functional Trello clone in about 30 minutes.
 
-**Follow along in the videos!**
+### Introducing Remake
 
-### What makes Remake Different
+Remake takes a simpler approach to web development.
 
-Remake takes a much different approach than a lot of other frameworks.
+1. You only have to learn about 9 new HTML attributes to build a full application
+2. You only need to know HTML and [JSON](https://www.w3schools.com/whatis/whatis_json.asp)
+3. You retain complete control over your front-end design
+4. User accounts, edit popovers, and persistent data are taken care of for you
 
-1. Remake doesn't separate the data of your app from the view layer of your app. This makes it much easier for you to see exactly what you app is doing and how from a single location: your HTML templates.
-2. Remake treats HTML elements on the page just like objects in a database. It's able to automatically extract data from your elements into a big, nested object, using the page's [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) hierarchy to determine the data's hierachy.
-3. Remake has [smart routing](/routing) and [data saving capabilities](/saving) built in, allowing you to build new pages in your application — or save elements to specific areas in your data — without really thinking.
+### How Remake's different
 
-Also, because it's built on top a traditional, server-rendered architecture, the front-end Remake library that handles editing and saving data isn't required if the page isn't editable — leaving your pages lightweight for most users!
+1. Most frameworks store data separately from your templates. Remake merges them. We call this "[flattening-the-stack](/flattening-the-stack)"
+2. Remake is able to convert deeply nested HTML into deeply nested JSON
+3. Remake treats HTML values as your app's source of truth. But it remains flexible with [flexible routing](/routing) and [advanced data saving](/saving). 
+
+**Fun facts:** 
+
+* Remake is SEO-friendly and more reliable because it's server rendered. 
+* The Remake front-end framework isn't loaded if the current user isn't the page owner.
 
 <div class="spacer--8"></div>
 

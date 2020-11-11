@@ -5,7 +5,7 @@ title: Installing & Setting Up Remake
 
 ## Installing & Setting Up Remake
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jvBXoTKRHWY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
 
 ### Install Node.js
 

@@ -5,7 +5,7 @@ title: How Data Works
 
 ## How Data Works in Remake
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WaqYHrslkrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
 
 ### How Remake stores data
 

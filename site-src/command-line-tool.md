@@ -8,7 +8,7 @@ title: Command Line Tool
 Run the help command to see the full list of commands:
 
 ```bash
-remake -h
+npx remake -h
 ```
 
 Then you'll get this:

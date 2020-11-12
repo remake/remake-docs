@@ -9,14 +9,14 @@ title: Deploy a Remake Web App
 
 ### A single command deploy!
 
-Run this in your app directory:
+Run this in your app's directory and follow the instructions:
 
 ```bash
-remake deploy
+npx remake deploy
 ```
 
-You may need to create an account if this is your first deploy.
+You'll need to create an account with Remake if this is your first deploy.
 
-**Now you have a web app!**
+🥳 **Now you have a public web app you can share with friends!**
 
 

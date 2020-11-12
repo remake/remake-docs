@@ -34,7 +34,7 @@ Learn how to create an app from [the step-by-step tutorial](https://docs.remaket
 **🌏 5. Deploy your first Remake app!**
 
 ```bash
-remake deploy
+npx remake deploy
 ```
 
 Now anyone will be able to sign up for an account and use your app!

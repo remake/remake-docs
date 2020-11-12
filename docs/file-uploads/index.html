@@ -100,15 +100,22 @@
 <div style="max-width: 520px; margin-bottom: 2rem;">
   <img src="/static/images/uploading-mockup-final.png">
 </div>
+<h3>File upload</h3>
 <p>Remake can trigger a file upload using a single line of HTML.</p>
-<pre><code class="language-html">&lt;input data-i type=&quot;file&quot;&gt;
+<pre><code class="language-html">&lt;input update:image-file type=&quot;file&quot;&gt;
 </code></pre>
+<h3>Displaying an uploaded file</h3>
 <p>To display the file after it's uploaded, you just need to add a couple more lines:</p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot; data-l-key-uploaded-image&gt;
-  &lt;input data-i type=&quot;file&quot; name=&quot;uploadedImage&quot;&gt;
-  &lt;img data-l-target-uploaded-image src=&quot;&quot;&gt;
+<pre><code class="language-html">&lt;div object key:image-file=&quot;@search&quot;&gt;
+  &lt;input update:image-file type=&quot;file&quot;&gt;
+  &lt;img target:image-file=&quot;@src&quot; src=&quot;&quot;&gt;
 &lt;/div&gt;
 </code></pre>
+<p>☝️ <strong>This is a complete file-upload application.</strong></p>
+<ul style="margin-top: -8px; margin-left: 20px;">
+  <li>If you added this to <code>app/pages/app-index.hbs</code>, you'd have an app where your users could upload and share a single file at a time.</li>
+</ul>
+<h3>What Remake does</h3>
 <p><strong>Remake takes care of:</strong></p>
 <div class="side-by-side">
   <div class="three-fifths">
@@ -128,30 +135,7 @@
 <li>Tell Remake where to insert the file after it's done uploading</li>
 </ol>
 <div class="spacer--8"></div>
-<p><strong>That's it! 🎉</strong></p>
-<h3>How file uploading works</h3>
-<p>With a minimal amount of code, you get:</p>
-<ol>
-<li>File uploading</li>
-<li>A progress bar notification</li>
-<li>The file is inserted into the page</li>
-<li>All your data is saved</li>
-</ol>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot; data-l-key-uploaded-image&gt;
-  &lt;input data-i type=&quot;file&quot; name=&quot;uploadedImage&quot;&gt;
-  &lt;img data-l-target-uploaded-image src=&quot;&quot;&gt;
-&lt;/div&gt;
-</code></pre>
-<h4>How this code works</h4>
-<ol>
-<li>A user clicks on the file <code>&lt;input&gt;</code> element</li>
-<li>They choose a file to upload</li>
-<li>Remake automatically shows the progress of the file upload</li>
-<li>Remake returns the path of the uploaded file back to your front-end</li>
-<li>Remake will insert the path of the uploaded file into the closest <code>data-o-key-*</code> or <code>data-l-key-*</code> attribute, as long as it matches the <code>name</code> attribute that's on the <code>&lt;input&gt;</code> element</li>
-<li>If the file can be displayed on the page, for example as an image or video, then it'll be displayed immediately</li>
-</ol>
-<p>That's all there is to file uploads in Remake! 🌈</p>
+<p><strong>That's it! File uploading is finally easy! 🎉</strong></p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

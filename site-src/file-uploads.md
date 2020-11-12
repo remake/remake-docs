@@ -22,20 +22,31 @@ meta:
   <img src="/static/images/uploading-mockup-final.png">
 </div>
 
+### File upload
+
 Remake can trigger a file upload using a single line of HTML.
 
 ```html
-<input data-i type="file">
+<input update:image-file type="file">
 ```
+
+### Displaying an uploaded file
 
 To display the file after it's uploaded, you just need to add a couple more lines:
 
 ```html
-<div data-o-type="object" data-l-key-uploaded-image>
-  <input data-i type="file" name="uploadedImage">
-  <img data-l-target-uploaded-image src="{{uploadedImage}}">
+<div object key:image-file="@search">
+  <input update:image-file type="file">
+  <img target:image-file="@src" src="{{imageFile}}">
 </div>
 ```
+
+☝️ **This is a complete file-upload application.**
+<ul style="margin-top: -8px; margin-left: 20px;">
+  <li>If you added this to <code>app/pages/app-index.hbs</code>, you'd have an app where your users could upload and share a single file at a time.</li>
+</ul>
+
+### What Remake does
 
 **Remake takes care of:**
 
@@ -59,32 +70,5 @@ To display the file after it's uploaded, you just need to add a couple more line
 
 <div class="spacer--8"></div>
 
-**That's it! 🎉**
-
-### How file uploading works
-
-With a minimal amount of code, you get:
-
-1. File uploading
-2. A progress bar notification
-3. The file is inserted into the page
-4. All your data is saved
-
-```html
-<div data-o-type="object" data-l-key-uploaded-image>
-  <input data-i type="file" name="uploadedImage">
-  <img data-l-target-uploaded-image src="{{uploadedImage}}">
-</div>
-```
-
-#### How this code works
-
-1. A user clicks on the file `<input>` element
-2. They choose a file to upload
-3. Remake automatically shows the progress of the file upload
-4. Remake returns the path of the uploaded file back to your front-end
-5. Remake will insert the path of the uploaded file into the closest `data-o-key-*` or `data-l-key-*` attribute, as long as it matches the `name` attribute that's on the `<input>` element 
-6. If the file can be displayed on the page, for example as an image or video, then it'll be displayed immediately
-
-That's all there is to file uploads in Remake! 🌈
+**That's it! File uploading is finally easy! 🎉**
 

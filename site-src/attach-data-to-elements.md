@@ -49,9 +49,9 @@ All of the functionality that Remake allows us to build so quickly — creating 
   * If a user edits a piece of data and sets it to nothing, that `key:` will be set to this matching `default:` value instead
 * <b>`new:`</b>
   * Adds a new item to the page. 
-    * The item's name must match a partial template's name or an item from a `{{#for}}` loop
+    * The item's name must match a partial template's name or an item from a {% raw %}`{{#for}}`{% endraw %} loop
     * The item is rendered automatically by Remake and added to the nearest `array` element
-    * For example, if you have a for loop like `{{#for item in items}}...` then you can use `<button new:item>Create new item!</button>` to render a new item and add it to the list!
+    * For example, if you have a for loop like {% raw %}`{{#for item in items}}...`{% endraw %} then you can use `<button new:item>Create new item!</button>` to render a new item and add it to the list!
 * <b>`sortable`</b>
   * All elements directly inside this element can be dragged and reordered
     * For example: `<div array sortable><!--All elements in here could be sorted--></div>`.

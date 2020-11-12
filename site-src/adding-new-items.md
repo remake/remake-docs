@@ -9,13 +9,30 @@ title: Adding New Items
 
 ### Rendering new items
 
-Remake is different from most frameworks in that it mixes the state of your web app with the presentation.
+If you want to render a new item to the page:
 
-This makes a lot of things easier — including styling the page based on the state of your data.
+1. Render items using a {% raw %}`{{#for}}`{% endraw %} loop
 
-Another thing it makes easier is adding new items. Because Remake understands where your "Add" button is, it can make a smart guess about which list you want to add your item into.
+{% raw %}
+```html
+{{#for item in items}}
+  <div object key:name="@innerText">{{item.name}}</div>
+{{/for}}
+```
+{% endraw %}
 
-So, usually a simple `data-i-new` attribute with a value set to a template name (or an item referenced in a #for loop) is enough to render and add a new item to the page.
+2. Reference the name in the for loop in a `new:` attribute
+
+```html
+<button new:item>Create new item</button>
+```
+
+3. Remake will take care of the rest
+
+- Remake searches the page for a matching `name` in a {% raw %}`{{#for}}`{% endraw %} loop on the page (if none is found, it searches the `app/partials` directory)
+- Remake renders the inner part of the {% raw %}`{{#for}}`{% endraw %} loop
+- Remake adds the rendered item to the nearest element with a `list` tag (tip: you can customize where it adds the item by specifying a selector as the value of the `new:` attribute)
+
 
 <div class="spacer--8"></div>
 

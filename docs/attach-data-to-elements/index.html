@@ -167,9 +167,9 @@
 <ul>
 <li>Adds a new item to the page.
 <ul>
-<li>The item's name must match a partial template's name or an item from a `` loop</li>
+<li>The item's name must match a partial template's name or an item from a <code>{{#for}}</code> loop</li>
 <li>The item is rendered automatically by Remake and added to the nearest <code>array</code> element</li>
-<li>For example, if you have a for loop like <code>...</code> then you can use <code>&lt;button new:item&gt;Create new item!&lt;/button&gt;</code> to render a new item and add it to the list!</li>
+<li>For example, if you have a for loop like <code>{{#for item in items}}...</code> then you can use <code>&lt;button new:item&gt;Create new item!&lt;/button&gt;</code> to render a new item and add it to the list!</li>
 </ul>
 </li>
 </ul>

@@ -9,25 +9,46 @@ title: Attach Data to Elements
 
 ### An app in a single file
 
-The entire app we're building in these tutorial videos fits inside of only one file, `app/pages/app-index.hbs` (called <code>username.hbs</code> before <code>v1.11</code>), and is 73 lines long.
-
-If you want to start with a blank slate, with only an HTML file, like we do in the video, you can replace your current `app-index.hbs` template with this one: [starter-app-index.hbs](https://gist.github.com/panphora/a1f39772ebc837b29173c5fb18887a8d).
-
-Also, make sure you're logged in to the app.
+The entire app we're building in this tutorial fits inside of one file, `app/pages/app-index.hbs` and is only 73 lines of HTML!
 
 ### A quick note on saving
 
-If you're following along with the video and you want your data to auto-save whenever the page loads (not a great idea in production, but fine in development), then comment out the last line in your `remake-init.js` file:
+If you're following along with the video and you want your data to auto-save whenever the page loads (not a great idea in production, but fine in development), then add this to the end of your `app/assets/js/remake-init.js` file:
 
 ```js
-Remake.callSaveFunction({targetElement: document.body});
+Remake.callSaveFunction(document.body)
 ```
 
 ### Remake's Custom Data Attributes
 
-All of the work Remake allows us to do — creating a complete Kanban app from scratch in record time — is done by only 8 custom attributes (used a total of 22 times).
+All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).
 
-**Learning what the following custom attributes do is the single most important thing you can do to learn Remake.**
+**If you learn only the following 9 custom attributes, you'll be able to build some pretty powerful apps with Remake!**
+
+* <b>`object`</b>
+  * This marks an element as a [JSON](https://www.w3schools.com/whatis/whatis_json.asp) object
+  * Elements nested inside this element will be nested inside the object
+    * For example, if you add an `array` element with a `key` inside this element, then Remake will see the data like this: `{keyName: []}`
+* <b>`array`</b>
+  * This marks an element as a [JSON](https://www.w3schools.com/whatis/whatis_json.asp) array
+  * Elements nested inside this element will be nested inside the array
+    * For example, if you add a series of three elements inside this element that all have the `object` attribute, then Remake will see the data like this: `[{}, {}, {}]`
+* <b>`key:`</b>
+  * Only elements with the `object` attribute can have this attribute
+  * This attribute lets you name a piece of data and tell Remake where it is located
+    * For example, this HTML: `<div object key:name="@innerText">David</div>` produces this data: `{name:"David"}`
+* <b>`key`</b>
+  * 
+* <b>`default:`</b>
+  * 
+* <b>`edit:`</b>
+  * 
+* <b>`new:`</b>
+  * 
+* <b>`sortable`</b>
+  * 
+* <b>`target:`</b>
+  * 
 
 * **data-o-type**
   * This can mark an element as representating either an `"object"` or a `"list"`.

@@ -99,18 +99,74 @@
           <h2>Attach Data to Elements</h2>
 <img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
 <h3>An app in a single file</h3>
-<p>The entire app we're building in these tutorial videos fits inside of only one file, <code>app/pages/app-index.hbs</code> (called <code>username.hbs</code> before <code>v1.11</code>), and is 73 lines long.</p>
-<p>If you want to start with a blank slate, with only an HTML file, like we do in the video, you can replace your current <code>app-index.hbs</code> template with this one: <a href="https://gist.github.com/panphora/a1f39772ebc837b29173c5fb18887a8d">starter-app-index.hbs</a>.</p>
-<p>Also, make sure you're logged in to the app.</p>
+<p>The entire app we're building in this tutorial fits inside of one file, <code>app/pages/app-index.hbs</code> and is only 73 lines of HTML!</p>
 <h3>A quick note on saving</h3>
-<p>If you're following along with the video and you want your data to auto-save whenever the page loads (not a great idea in production, but fine in development), then comment out the last line in your <code>remake-init.js</code> file:</p>
-<pre><code class="language-js">Remake.callSaveFunction({targetElement: document.body});
+<p>If you're following along with the video and you want your data to auto-save whenever the page loads (not a great idea in production, but fine in development), then add this to the end of your <code>app/assets/js/remake-init.js</code> file:</p>
+<pre><code class="language-js">Remake.callSaveFunction(document.body)
 </code></pre>
 <h3>Remake's Custom Data Attributes</h3>
-<p>All of the work Remake allows us to do — creating a complete Kanban app from scratch in record time — is done by only 8 custom attributes (used a total of 22 times).</p>
-<p><strong>Learning what the following custom attributes do is the single most important thing you can do to learn Remake.</strong></p>
+<p>All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).</p>
+<p><strong>If you learn only the following 9 custom attributes, you'll be able to build some pretty powerful apps with Remake!</strong></p>
 <ul>
-<li><strong>data-o-type</strong>
+<li>
+<p><b><code>object</code></b></p>
+<ul>
+<li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> object</li>
+<li>Elements nested inside this element will be nested inside the object
+<ul>
+<li>For example, if you add an <code>array</code> element with a <code>key</code> inside this element, then Remake will see the data like this: <code>{keyName: []}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b><code>array</code></b></p>
+<ul>
+<li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> array</li>
+<li>Elements nested inside this element will be nested inside the array
+<ul>
+<li>For example, if you add a series of three elements inside this element that all have the <code>object</code> attribute, then Remake will see the data like this: <code>[{}, {}, {}]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b><code>key:</code></b></p>
+<ul>
+<li>Only elements with the <code>object</code> attribute can have this attribute</li>
+<li>This attribute lets you name a piece of data and tell Remake where it is located
+<ul>
+<li>For example, this HTML: <code>&lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;</code> produces this data: <code>{name:&quot;David&quot;}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><b><code>key</code></b>
+*</p>
+</li>
+<li>
+<p><b><code>default:</code></b>
+*</p>
+</li>
+<li>
+<p><b><code>edit:</code></b>
+*</p>
+</li>
+<li>
+<p><b><code>new:</code></b>
+*</p>
+</li>
+<li>
+<p><b><code>sortable</code></b>
+*</p>
+</li>
+<li>
+<p><b><code>target:</code></b>
+*</p>
+</li>
+<li>
+<p><strong>data-o-type</strong></p>
 <ul>
 <li>This can mark an element as representating either an <code>&quot;object&quot;</code> or a <code>&quot;list&quot;</code>.</li>
 <li>Elements with this attribute can be nested inside of each other and Remake will do its best to also nest the data that's extracted from them.
@@ -121,12 +177,14 @@
 </li>
 </ul>
 </li>
-<li><strong>data-o-key</strong>
+<li>
+<p><strong>data-o-key</strong></p>
 <ul>
 <li>Attaching this attribute to an <code>object</code> or <code>list</code> marks it as belonging a key inside the parent object.</li>
 </ul>
 </li>
-<li><strong>data-o-key-</strong>*
+<li>
+<p><strong>data-o-key-</strong>*</p>
 <ul>
 <li>For an element marked as an <code>&quot;object&quot;</code>, this attribute defines a key/value pair.
 <ul>
@@ -136,7 +194,8 @@
 </li>
 </ul>
 </li>
-<li><strong>data-l-key-</strong>*
+<li>
+<p><strong>data-l-key-</strong>*</p>
 <ul>
 <li>For an element marked as an <code>&quot;object&quot;</code>, this attribute defines a key/value pair.
 <ul>
@@ -152,7 +211,8 @@
 </li>
 </ul>
 </li>
-<li><strong>data-l-target-</strong>*
+<li>
+<p><strong>data-l-target-</strong>*</p>
 <ul>
 <li>If an element with this attribute is included inside an element with a matching <code>data-l-key-</code> attribute, then Remake will assume this element has the key's value
 <ul>
@@ -161,7 +221,8 @@
 </li>
 </ul>
 </li>
-<li><strong>data-i-editable</strong>
+<li>
+<p><strong>data-i-editable</strong></p>
 <ul>
 <li>This marks an element as able to trigger an editable popover.</li>
 <li>By default, when an element with this attribute is clicked, Remake will look for data on the current element — inside <code>data-o-key-</code> and <code>data-l-key-</code> attributes. If it finds some keys with data in them, it will trigger editable areas for each of them.
@@ -172,7 +233,8 @@
 </li>
 </ul>
 </li>
-<li><strong>data-i-new</strong>
+<li>
+<p><strong>data-i-new</strong></p>
 <ul>
 <li>This marks an element as able to render new data onto the page.</li>
 <li>At minimum, this attribute needs its value to be set to <strong>either</strong>:
@@ -190,7 +252,8 @@
 <li>It's possible to use a custom syntax for the value of this attribute to define exactly which element the template will be rendered into and where (i.e. &quot;top&quot; or &quot;bottom&quot;)</li>
 </ul>
 </li>
-<li><strong>data-i-sortable</strong>
+<li>
+<p><strong>data-i-sortable</strong></p>
 <ul>
 <li>Attach this attribute to an element to mark it as a sortable list. All the elements inside of the current element will be draggable and sortable.</li>
 <li>This attribute requires a value.
@@ -201,7 +264,8 @@
 </li>
 </ul>
 </li>
-<li><strong>data-o-default-</strong>*
+<li>
+<p><strong>data-o-default-</strong>*</p>
 <ul>
 <li>This attribute lets you set a default value for a <code>data-o-key-</code> or <code>data-l-key-</code> attribute if one of those attributes value is set to an empty string
 <ul>

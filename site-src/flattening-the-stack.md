@@ -5,9 +5,9 @@ title: Flattening the stack
 
 ### Flattening the stack
 
-Most frameworks try to simplify or remove a layer of [the web application stack](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks). This is why people switch to them &mdash; they're tired of the old way.
+The authors of web app frameworks are usually annoyed by having to re-implement the same code over and over again.
 
-This is what I'm calling "flattening the stack" and here's how different tools approach it:
+They try to address this by removing a layer of [the web app stack](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks). 
 
 * **Rails** removes a lot of configuration and boilerplate code.
 

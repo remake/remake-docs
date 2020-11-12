@@ -96,16 +96,39 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h2>Sortable Items</h2>
-<p>Simply add a <code>data-i-sortable</code> attribute to any element that <strong>contains</strong> elements you want to sort.</p>
-<p>Set the value of the <code>data-i-sortable</code> attribute to the group name you want to assign to the elements.</p>
-<p>For example:</p>
-<pre><code class="language-html">&lt;div data-i-sortable=&quot;todos&quot;&gt;
-  &lt;div&gt;Get milk&lt;/div&gt;
-  &lt;div&gt;Go to the store&lt;/div&gt;
+          <h3>Sortable items</h3>
+<p>To make a list of items sortable when a user drags them around, simple add a <code>sortable</code> attribute to the parent element:</p>
+<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>If there's another <code>data-i-sortable</code> attribute on the page with the same value, then items from each element will be able to be moved between each other!</p>
+<h3>Sortable across different lists</h3>
+<p>If you want two lists to be able to sort items across each other, give their <code>sortable</code> attributes a matching value:</p>
+<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
+&lt;/div&gt;
+&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Janne&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Erica&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Felix&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>If you want two lists to not be able to drag items between each other, give their <code>sortable</code> attributes different values:</p>
+<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
+&lt;/div&gt;
+&lt;div array key=&quot;items&quot; sortable=&quot;cars&quot;&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Jet car&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Flying car&lt;/div&gt;
+  &lt;div object key:name=&quot;@innerText&quot;&gt;Robot car&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

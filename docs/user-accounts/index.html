@@ -98,12 +98,13 @@
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
           <h3>User Accounts</h3>
 <ul>
-<li>User accounts are built in to Remake.</li>
-<li>User passwords are stored securely, using best practices (hashing &amp; salting).</li>
+<li>Remake comes with user accounts</li>
+<li>You don't need to worry about saving or loading data from the current user account — it's taken care of automatically</li>
+<li>User accounts created with your Remake app are secure and protected. We use more than a dozen rounds of a <code>bcrypt</code> salt and <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#modern-algorithms">modern password storage best practices</a></li>
 </ul>
 <h3>Password Reset for Users</h3>
-<p>If you use the free Remake deployment service, password reset emails are also supported.</p>
-<p>If you host a Remake app on your own, you can easily add your own email service to send password reset emails (more docs on this coming soon).</p>
+<p>If you use the free Remake deployment service, password reset emails for your users are built in.</p>
+<p>If you host a Remake app on your own, you can easily add your own email sending, as long as you're okay with using Mailgun (for now the only service we support). Simply add these environment variables to your <code>.remake</code> file: <code>MAILGUN_API_KEY</code>, <code>EMAIL_FROM</code> (the email address your users will see), and <code>MAILGUN_DOMAIN</code>.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

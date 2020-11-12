@@ -3,20 +3,47 @@ layout: layout.hbs
 title: Sortable Items
 ---
 
-## Sortable Items
+### Sortable items
 
-Simply add a `data-i-sortable` attribute to any element that **contains** elements you want to sort.
-
-Set the value of the `data-i-sortable` attribute to the group name you want to assign to the elements.
-
-For example:
+To make a list of items sortable when a user drags them around, simple add a `sortable` attribute to the parent element:
 
 ```html
-<div data-i-sortable="todos">
-  <div>Get milk</div>
-  <div>Go to the store</div>
+<div array key="items" sortable>
+  <div object key:name="@innerText">David</div>
+  <div object key:name="@innerText">Nick</div>
+  <div object key:name="@innerText">Sarah</div>
 </div>
 ```
 
-If there's another `data-i-sortable` attribute on the page with the same value, then items from each element will be able to be moved between each other!
+### Sortable across different lists
+
+If you want two lists to be able to sort items across each other, give their `sortable` attributes a matching value:
+
+```html
+<div array key="items" sortable="people">
+  <div object key:name="@innerText">David</div>
+  <div object key:name="@innerText">Nick</div>
+  <div object key:name="@innerText">Sarah</div>
+</div>
+<div array key="items" sortable="people">
+  <div object key:name="@innerText">Janne</div>
+  <div object key:name="@innerText">Erica</div>
+  <div object key:name="@innerText">Felix</div>
+</div>
+```
+
+If you want two lists to not be able to drag items between each other, give their `sortable` attributes different values:
+
+```html
+<div array key="items" sortable="people">
+  <div object key:name="@innerText">David</div>
+  <div object key:name="@innerText">Nick</div>
+  <div object key:name="@innerText">Sarah</div>
+</div>
+<div array key="items" sortable="cars">
+  <div object key:name="@innerText">Jet car</div>
+  <div object key:name="@innerText">Flying car</div>
+  <div object key:name="@innerText">Robot car</div>
+</div>
+```
 

@@ -9,11 +9,15 @@ title: Rendering Data
 
 ### How to render data
 
-After you bootstrap the data for your application, inside a JSON file in `_remake-data/user-app-data/{username}.json`, you can render it to the page using Handlebars.
+Every new user will receive the data inside your `app/data/bootstrap.json` file. You can use this to start them off with some demo data they can edit right away.
 
-Remake uses [Handlebars.js](https://handlebarsjs.com/) to render every template. All templates are server-rendered.
+All the data for each user is in the file `app/data/database/user-app-data/{username}.json`, where `{username}` is the name of the user.
+
+You can modify the [JSON](https://www.w3schools.com/whatis/whatis_json.asp) data in this user file to edit what's displayed by your application.
 
 ### Handlebars.js
+
+Remake uses [Handlebars.js](https://handlebarsjs.com/) to render every layout, page, and partial template. All templates are server-rendered.
 
 Read the [official Handlebars.js documentation](https://handlebarsjs.com/) to learn more about how render data in templates.
 

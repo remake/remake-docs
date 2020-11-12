@@ -99,9 +99,11 @@
           <h2>Rendering Data</h2>
 <img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
 <h3>How to render data</h3>
-<p>After you bootstrap the data for your application, inside a JSON file in <code>_remake-data/user-app-data/{username}.json</code>, you can render it to the page using Handlebars.</p>
-<p>Remake uses <a href="https://handlebarsjs.com/">Handlebars.js</a> to render every template. All templates are server-rendered.</p>
+<p>Every new user will receive the data inside your <code>app/data/bootstrap.json</code> file. You can use this to start them off with some demo data they can edit right away.</p>
+<p>All the data for each user is in the file <code>app/data/database/user-app-data/{username}.json</code>, where <code>{username}</code> is the name of the user.</p>
+<p>You can modify the <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> data in this user file to edit what's displayed by your application.</p>
 <h3>Handlebars.js</h3>
+<p>Remake uses <a href="https://handlebarsjs.com/">Handlebars.js</a> to render every layout, page, and partial template. All templates are server-rendered.</p>
 <p>Read the <a href="https://handlebarsjs.com/">official Handlebars.js documentation</a> to learn more about how render data in templates.</p>
 <div class="spacer--8"></div>
 <p><a class="slanted-link" href="/making-data-editable/"><span>→ Next: Making Data Editable</span></a></p>

@@ -7,11 +7,49 @@ title: Sorting Lists of Items
 
 <img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
 
-### Sorting enabled by default
+### Sortable items
 
-Be default, all Remake requires is a `data-i-sortable` attribute with a unique value to make all the items in a list sortable.
+To make a list of items sortable when a user drags them around, simple add a `sortable` attribute to the parent element:
 
-If the value of your `data-i-sortable` attribute isn't unique, it will be able to be sorted with other list items that have the same value.
+```html
+<div array key="items" sortable>
+  <div object key:name="@innerText">David</div>
+  <div object key:name="@innerText">Nick</div>
+  <div object key:name="@innerText">Sarah</div>
+</div>
+```
+
+### Sortable across different lists
+
+If you want two lists to be able to sort items across each other, give their `sortable` attributes a matching value:
+
+```html
+<div array key="items" sortable="people">
+  <div object key:name="@innerText">David</div>
+  <div object key:name="@innerText">Nick</div>
+  <div object key:name="@innerText">Sarah</div>
+</div>
+<div array key="items" sortable="people">
+  <div object key:name="@innerText">Janne</div>
+  <div object key:name="@innerText">Erica</div>
+  <div object key:name="@innerText">Felix</div>
+</div>
+```
+
+If you want two lists to not be able to drag items between each other, give their `sortable` attributes different values:
+
+```html
+<div array key="items" sortable="people">
+  <div object key:name="@innerText">David</div>
+  <div object key:name="@innerText">Nick</div>
+  <div object key:name="@innerText">Sarah</div>
+</div>
+<div array key="items" sortable="cars">
+  <div object key:name="@innerText">Jet car</div>
+  <div object key:name="@innerText">Flying car</div>
+  <div object key:name="@innerText">Robot car</div>
+</div>
+```
 
 <div class="spacer--8"></div>
 

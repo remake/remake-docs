@@ -20,16 +20,16 @@ Remake takes a simpler approach to web development.
 3. You retain complete control over your front-end design
 4. User accounts, inline edit popovers, and persistent data are taken care of!
 
-### How Remake's different
+### How Remake is different
 
 1. Most frameworks store data separately from your templates. Remake merges them. We call this "[flattening-the-stack](/flattening-the-stack)"
-2. Remake is able to convert deeply nested HTML into deeply nested JSON
-3. Remake treats HTML values as your app's source of truth. But it remains flexible with [flexible routing](/routing) and [advanced data saving](/saving). 
+2. Remake is able to convert deeply nested HTML into deeply nested JSON (and then automatically sync it with the backend)
+3. Remake treats your HTML as your app's source of truth. But it remains powerful with [flexible routing](/routing) and [advanced data saving](/saving). 
 
 **Fun facts:** 
 
-* Remake is SEO-friendly and more reliable because it's server rendered. 
-* The Remake front-end framework isn't loaded if the current user isn't the page owner.
+* Remake is SEO-friendly and prone to fewer front-end bugs because it's server rendered. 
+* The client-side Remake JS framework isn't even loaded if the current user isn't the page owner. Remake is only necessary if you can edit the page.
 
 <div class="spacer--8"></div>
 

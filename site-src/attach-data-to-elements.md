@@ -38,7 +38,9 @@ All of the functionality that Remake allows us to build so quickly — creating 
   * This attribute lets you name a piece of data and tell Remake where it is located
     * For example, this HTML: `<div object key:name="@innerText">David</div>` produces this data: `{name:"David"}`
 * <b>`key`</b>
-  * 
+  * If you want to nest the data of one element inside another one, use this attribute
+  * Whatever value you give to key will be the label that the nested has inside the parent element
+    * For example, this HTML: `<div object><div array key="myArray"></div></div>` produces this data: `{myArray:[]}`
 * <b>`default:`</b>
   * 
 * <b>`edit:`</b>
@@ -50,11 +52,6 @@ All of the functionality that Remake allows us to build so quickly — creating 
 * <b>`target:`</b>
   * 
 
-* **data-o-type**
-  * This can mark an element as representating either an `"object"` or a `"list"`.
-  * Elements with this attribute can be nested inside of each other and Remake will do its best to also nest the data that's extracted from them.
-    * For example, multiple elements representing `object`s can be nested inside of an element representing a `list`, and a `list` of `object`s will be extracted.
-    * If an `object` is nested inside another `object`, it will be merged with the parent object unless it belong to a key inside the parent object.
 * **data-o-key**
   * Attaching this attribute to an `object` or `list` marks it as belonging a key inside the parent object.
 * **data-o-key-***

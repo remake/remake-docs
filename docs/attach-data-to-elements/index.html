@@ -142,8 +142,15 @@
 </ul>
 </li>
 <li>
-<p><b><code>key</code></b>
-*</p>
+<p><b><code>key</code></b></p>
+<ul>
+<li>If you want to nest the data of one element inside another one, use this attribute</li>
+<li>Whatever value you give to key will be the label that the nested has inside the parent element
+<ul>
+<li>For example, this HTML: <code>&lt;div object&gt;&lt;div array key=&quot;myArray&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code> produces this data: <code>{myArray:[]}</code></li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p><b><code>default:</code></b>
@@ -164,18 +171,6 @@
 <li>
 <p><b><code>target:</code></b>
 *</p>
-</li>
-<li>
-<p><strong>data-o-type</strong></p>
-<ul>
-<li>This can mark an element as representating either an <code>&quot;object&quot;</code> or a <code>&quot;list&quot;</code>.</li>
-<li>Elements with this attribute can be nested inside of each other and Remake will do its best to also nest the data that's extracted from them.
-<ul>
-<li>For example, multiple elements representing <code>object</code>s can be nested inside of an element representing a <code>list</code>, and a <code>list</code> of <code>object</code>s will be extracted.</li>
-<li>If an <code>object</code> is nested inside another <code>object</code>, it will be merged with the parent object unless it belong to a key inside the parent object.</li>
-</ul>
-</li>
-</ul>
 </li>
 <li>
 <p><strong>data-o-key</strong></p>

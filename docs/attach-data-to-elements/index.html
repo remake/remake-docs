@@ -108,8 +108,7 @@
 <p>All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).</p>
 <p><strong>If you learn only the following 9 custom attributes, you'll be able to build some pretty powerful apps with Remake!</strong></p>
 <ul>
-<li>
-<p><b><code>object</code></b></p>
+<li><b><code>object</code></b>
 <ul>
 <li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> object</li>
 <li>Elements nested inside this element will be nested inside the object
@@ -119,8 +118,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><b><code>array</code></b></p>
+<li><b><code>array</code></b>
 <ul>
 <li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> array</li>
 <li>Elements nested inside this element will be nested inside the array
@@ -130,8 +128,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><b><code>key:</code></b></p>
+<li><b><code>key:</code></b>
 <ul>
 <li>Only elements with the <code>object</code> attribute can have this attribute</li>
 <li>This attribute lets you name a piece of data and tell Remake where it is located
@@ -141,8 +138,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><b><code>key</code></b></p>
+<li><b><code>key</code></b>
 <ul>
 <li>If you want to nest the data of one element inside another one, use this attribute</li>
 <li>Whatever value you give to key will be the label that the nested has inside the parent element
@@ -152,34 +148,25 @@
 </li>
 </ul>
 </li>
-<li>
-<p><b><code>default:</code></b>
-*</p>
-</li>
-<li>
-<p><b><code>edit:</code></b>
-*</p>
-</li>
-<li>
-<p><b><code>new:</code></b>
-*</p>
-</li>
-<li>
-<p><b><code>sortable</code></b>
-*</p>
-</li>
-<li>
-<p><b><code>target:</code></b>
-*</p>
-</li>
-<li>
-<p><strong>data-o-key</strong></p>
+<li><b><code>default:</code></b>
+*</li>
+<li><b><code>edit:</code></b>
+*</li>
+<li><b><code>new:</code></b>
+*</li>
+<li><b><code>sortable</code></b>
+*</li>
+<li><b><code>target:</code></b>
+*</li>
+</ul>
+<h4><strong>OUTDATED:</strong></h4>
+<ul>
+<li><strong>data-o-key</strong>
 <ul>
 <li>Attaching this attribute to an <code>object</code> or <code>list</code> marks it as belonging a key inside the parent object.</li>
 </ul>
 </li>
-<li>
-<p><strong>data-o-key-</strong>*</p>
+<li><strong>data-o-key-</strong>*
 <ul>
 <li>For an element marked as an <code>&quot;object&quot;</code>, this attribute defines a key/value pair.
 <ul>
@@ -189,8 +176,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><strong>data-l-key-</strong>*</p>
+<li><strong>data-l-key-</strong>*
 <ul>
 <li>For an element marked as an <code>&quot;object&quot;</code>, this attribute defines a key/value pair.
 <ul>
@@ -206,8 +192,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><strong>data-l-target-</strong>*</p>
+<li><strong>data-l-target-</strong>*
 <ul>
 <li>If an element with this attribute is included inside an element with a matching <code>data-l-key-</code> attribute, then Remake will assume this element has the key's value
 <ul>
@@ -216,8 +201,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><strong>data-i-editable</strong></p>
+<li><strong>data-i-editable</strong>
 <ul>
 <li>This marks an element as able to trigger an editable popover.</li>
 <li>By default, when an element with this attribute is clicked, Remake will look for data on the current element — inside <code>data-o-key-</code> and <code>data-l-key-</code> attributes. If it finds some keys with data in them, it will trigger editable areas for each of them.
@@ -228,8 +212,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><strong>data-i-new</strong></p>
+<li><strong>data-i-new</strong>
 <ul>
 <li>This marks an element as able to render new data onto the page.</li>
 <li>At minimum, this attribute needs its value to be set to <strong>either</strong>:
@@ -247,8 +230,7 @@
 <li>It's possible to use a custom syntax for the value of this attribute to define exactly which element the template will be rendered into and where (i.e. &quot;top&quot; or &quot;bottom&quot;)</li>
 </ul>
 </li>
-<li>
-<p><strong>data-i-sortable</strong></p>
+<li><strong>data-i-sortable</strong>
 <ul>
 <li>Attach this attribute to an element to mark it as a sortable list. All the elements inside of the current element will be draggable and sortable.</li>
 <li>This attribute requires a value.
@@ -259,8 +241,7 @@
 </li>
 </ul>
 </li>
-<li>
-<p><strong>data-o-default-</strong>*</p>
+<li><strong>data-o-default-</strong>*
 <ul>
 <li>This attribute lets you set a default value for a <code>data-o-key-</code> or <code>data-l-key-</code> attribute if one of those attributes value is set to an empty string
 <ul>

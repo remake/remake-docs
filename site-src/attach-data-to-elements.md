@@ -52,6 +52,8 @@ All of the functionality that Remake allows us to build so quickly — creating 
 * <b>`target:`</b>
   * 
 
+#### **OUTDATED:**
+
 * **data-o-key**
   * Attaching this attribute to an `object` or `list` marks it as belonging a key inside the parent object.
 * **data-o-key-***

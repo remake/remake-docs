@@ -35,65 +35,30 @@ All of the functionality that Remake allows us to build so quickly — creating 
     * For example, if you add a series of three elements inside this element that all have the `object` attribute, then Remake will see the data like this: `[{}, {}, {}]`
 * <b>`key:`</b>
   * Only elements with the `object` attribute can have this attribute
-  * This attribute lets you name a piece of data and tell Remake where it is located
+  * This attribute lets you name a piece of data and tell Remake where it's located
     * For example, this HTML: `<div object key:name="@innerText">David</div>` produces this data: `{name:"David"}`
 * <b>`key`</b>
   * If you want to nest the data of one element inside another one, use this attribute
   * Whatever value you give to key will be the label that the nested has inside the parent element
     * For example, this HTML: `<div object><div array key="myArray"></div></div>` produces this data: `{myArray:[]}`
-* <b>`default:`</b>
-  * 
 * <b>`edit:`</b>
-  * 
+  * The easiest way to make a `key:` editable
+  * Just pass in a key name and put this on the same element as the key (or inside it) and Remake will automatically make it editable!
+    * For example, the data in this element will be editable: `<div object key:name="@innerText" edit:name>David</div>`
+* <b>`default:`</b>
+  * If a user edits a piece of data and sets it to nothing, that `key:` will be set to this matching `default:` value instead
 * <b>`new:`</b>
-  * 
+  * Adds a new item to the page. 
+    * The item's name must match a partial template's name or an item from a `{{#for}}` loop
+    * The item is rendered automatically by Remake and added to the nearest `array` element
+    * For example, if you have a for loop like `{{#for item in items}}...` then you can use `<button new:item>Create new item!</button>` to render a new item and add it to the list!
 * <b>`sortable`</b>
-  * 
+  * All elements directly inside this element can be dragged and reordered
+    * For example: `<div array sortable><!--All elements in here could be sorted--></div>`.
 * <b>`target:`</b>
-  * 
-
-#### **OUTDATED:**
-
-* **data-o-key**
-  * Attaching this attribute to an `object` or `list` marks it as belonging a key inside the parent object.
-* **data-o-key-***
-  * For an element marked as an `"object"`, this attribute defines a key/value pair. 
-    * The key name is whatever dash-case value follows `"data-o-key-"` and, when extracted, will be converted to camelCase
-    * The value is whatever `string` value the attribute is set to
-* **data-l-key-***
-  * For an element marked as an `"object"`, this attribute defines a key/value pair.
-    * The key name is whatever dash-case value follows `"data-l-key-"` and, when extracted, will be converted to camelCase
-    * The value is, by default, either:
-      * The `innerText` of a child element with a matching `data-l-target-` attribute
-      * Or, if that's not found, it's the `innerText` of the current element
-      * It can also be customized to look at different properties if necessary
-* **data-l-target-***
-  * If an element with this attribute is included inside an element with a matching `data-l-key-` attribute, then Remake will assume this element has the key's value
-    * An example of matching attributes: `data-l-key-blog-post-header` matches `data-l-target-blog-post-header` because the part after `-key-` matches
-* **data-i-editable**
-  * This marks an element as able to trigger an editable popover.
-  * By default, when an element with this attribute is clicked, Remake will look for data on the current element — inside `data-o-key-` and `data-l-key-` attributes. If it finds some keys with data in them, it will trigger editable areas for each of them.
-    * If no data is found on the current element (i.e. it doesn't have a `data-o-type="object"` attribute), the parent element will be examined for data — and then its parent... on and on until an element with editable data is found.
-    * Using a custom syntax for the value of this attribute, you can control which keys are edited and which types of editable areas are triggered.
-* **data-i-new**
-  * This marks an element as able to render new data onto the page.
-  * At minimum, this attribute needs its value to be set to **either**:
-    * The name of a partial template
-    * The name of an item that was iterated over with a `#for` loop
-  * By default, this attribute will:
-    1. Find a template whose name matches the name of the attribute's value
-    2. Render the template it found into the nearest element with a `data-o-type="list"` attribute ("nearest" is defined as inside the same parent, or grandparent, or great grandparent, etc., until a match is found)
-  * It's possible to use a custom syntax for the value of this attribute to define exactly which element the template will be rendered into and where (i.e. "top" or "bottom")
-* **data-i-sortable**
-  * Attach this attribute to an element to mark it as a sortable list. All the elements inside of the current element will be draggable and sortable.
-  * This attribute requires a value. 
-    * If the value matches the value of other `data-i-sortable` elements on the page, then the sortable elements will be able to be shared and dragged between them
-    * If the value of this attribute is unique across the page, elements inside the current element will only be sortable within the current element
-* **data-o-default-***
-  * This attribute lets you set a default value for a `data-o-key-` or `data-l-key-` attribute if one of those attributes value is set to an empty string
-    * Use case: sometimes you don't want editable elements to have empty values
-  * To use this, attach it to the same element that a `data-o-key-` or `data-l-key-` attribute is on and match its key to their key
-    * Example of matching key names: `data-o-key-favorite-color` and `data-o-default-favorite-color` match
+  * This is a special, but important attribute. It lets you attach a `key:` on higher-level element, but reference a value on a lower-level element.
+  * If you pass the `@search` command into a `key:` attribute, then that key will look for its value inside its element until it finds a matching `target:` element
+    * For example, with: `<div object key:name="@search"><span target:name="@innerText">Sam</span></div>`, the value of the key "name" is "Sam".
 
 To learn more, check out the [Data Attributes API](/data-attributes-api/) page!
 

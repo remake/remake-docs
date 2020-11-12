@@ -1,9 +1,9 @@
 ---
 layout: layout.hbs
-title: Data Attributes API
+title: Remake Attributes
 ---
 
-# Data Attributes API
+# Remake Attributes
 
 Remake relies on custom attributes for storing data and adding behavior.
 
@@ -11,7 +11,7 @@ With Remake, you can create a fully working web application by just using HTML a
 
 **Summary:** Here's [a quick summary of all the main attributes](/attach-data-to-elements/) if you don't want to go into detail yet.
 
-<h2 class="api" id="data-o">Attaching Data to Elements</h2>
+<h2 class="api" id="saving">Saving Data</h2>
 
 ### `object`
 
@@ -141,7 +141,7 @@ Is converted into: `{text: "Hello, world!"}`.
 
 * This attribute is useful for using data from an element's properties (e.g. `innerText`, `src`, `innerHTML`, `style`).
 
-<h2 class="api" id="data-w">Reacting To Data Changes</h2>
+<h2 class="api" id="watch">Reacting To Data Changes</h2>
 
 ### `data-w-key-[some-key-name]`
 
@@ -181,7 +181,7 @@ For example, let's say you wanted to have a button on a landing page that had th
 
 With this setup, if the value of `buttonText` ever changes on the parent element, all of the buttons will get the new value inserted into their `innerText`.
 
-<h2 class="api" id="data-i">Modifying Data</h2>
+<h2 class="api" id="update">Updating Data</h2>
 
 ### `data-i-editable`
 

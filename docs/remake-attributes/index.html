@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Data Attributes API - Remake Docs</title>
+    <title>Remake Attributes - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=899">
     <link rel="stylesheet" href="/static/prism.css?v=899">
@@ -74,7 +74,7 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/remake-attributes">Saving data</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/remake-attributes#saving">Saving data</a>
               <a class="sidebar__list-item " href="/remake-attributes#update">Updating data</a>
               <a class="sidebar__list-item " href="/remake-attributes#watch">Reacting to data</a>
             </div>
@@ -103,11 +103,11 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h1>Data Attributes API</h1>
+          <h1>Remake Attributes</h1>
 <p>Remake relies on custom attributes for storing data and adding behavior.</p>
 <p>With Remake, you can create a fully working web application by just using HTML attributes. See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples.</p>
 <p><strong>Summary:</strong> Here's <a href="/attach-data-to-elements/">a quick summary of all the main attributes</a> if you don't want to go into detail yet.</p>
-<h2 class="api" id="data-o">Attaching Data to Elements</h2>
+<h2 class="api" id="saving">Saving Data</h2>
 <h3><code>object</code></h3>
 <p>Add this <code>object</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>object</code> attribute and converts them into data.</p>
 <p><strong>Example of an <code>object</code> element:</strong></p>
@@ -188,7 +188,7 @@
 <ul>
 <li>This attribute is useful for using data from an element's properties (e.g. <code>innerText</code>, <code>src</code>, <code>innerHTML</code>, <code>style</code>).</li>
 </ul>
-<h2 class="api" id="data-w">Reacting To Data Changes</h2>
+<h2 class="api" id="watch">Reacting To Data Changes</h2>
 <h3><code>data-w-key-[some-key-name]</code></h3>
 <p>Use this attribute to react to changes in another key's value.</p>
 <p>If the key name you use to define this attribute matches the key name of either a <code>data-o-key-*</code> or <code>data-l-key-*</code> attribute, then this attribute will be triggered when their data changes.</p>
@@ -216,7 +216,7 @@
 &lt;/div&gt;
 </code></pre>
 <p>With this setup, if the value of <code>buttonText</code> ever changes on the parent element, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
-<h2 class="api" id="data-i">Modifying Data</h2>
+<h2 class="api" id="update">Updating Data</h2>
 <h3><code>data-i-editable</code></h3>
 <p>Add this attribute to an element if you want to make clicking on it trigger an inline edit popover.</p>
 <p>This is the primary way of making data on a page editable.</p>

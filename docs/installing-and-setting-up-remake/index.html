@@ -101,21 +101,16 @@
 <h3>Install Node.js</h3>
 <p>Go to the main website for Node.js, download the installer, and run it.</p>
 <p>👉 <a href="https://nodejs.org/en/">Node.js Website</a></p>
-<h3>Install Remake</h3>
-<p>After you're done installing Node, you'll be able to install Remake.</p>
-<p>Node comes with a command line program called <code>npm</code>, which allows you to install packages through your terminal.</p>
-<p>Open your terminal and run this command to install Remake globally:</p>
-<pre><code class="language-bash">npm install remake -g
+<h3>Create your first Remake project</h3>
+<p>After you're done installing Node, you'll be able to create a Remake app.</p>
+<p>Node comes with a command line program called <code>npx</code>, which lets you run packages in your terminal.</p>
+<p>Open your terminal and run this command to create a new app:</p>
+<pre><code class="language-bash">npx remake create my-app
 </code></pre>
-<p>Once it's done installing, you'll have access to the <code>remake</code> command in your terminal.</p>
-<h3>Create the starter project</h3>
-<p>Remake comes with a working Kanban app project that you can play around with.</p>
-<p>You can generate this starter project with the following command:</p>
-<pre><code class="language-bash">remake create example-app
-</code></pre>
-<p>Here, <code>example-app</code> is the name of the directory you want your new Remake app to live in.</p>
-<p>Change into that directory after the starter app is finished being created:</p>
-<pre><code class="language-bash">cd example-app
+<p>You can change the &quot;my-app&quot; part to whatever you want your app to be called.</p>
+<p>You'll be given the option to install an empty app or a Kanban app. I'd recommend starting with the Kanban, so you can see how Remake works up close.</p>
+<p>Change into your app's directory after the app is finished being created:</p>
+<pre><code class="language-bash">cd my-app
 </code></pre>
 <h3>Run the dev server</h3>
 <p>In order to use and build a Remake application on your local computer, you need to run Remake's local servier.</p>
@@ -123,7 +118,7 @@
 <pre><code class="language-bash">npm run dev
 </code></pre>
 <p><em><strong>Great!</strong></em> Now you have a local Remake server running on your computer!</p>
-<h3>Check out in a browser!</h3>
+<h3>Check it out in a browser!</h3>
 <p>In a web browser, go to <a href="http://localhost:3000">http://localhost:3000</a> to see your new Kanban starter application.</p>
 <p><strong>Important:</strong></p>
 <ul>

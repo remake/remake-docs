@@ -13,36 +13,26 @@ Go to the main website for Node.js, download the installer, and run it.
 
 👉 <a href="https://nodejs.org/en/">Node.js Website</a>
 
-### Install Remake
+### Create your first Remake project
 
-After you're done installing Node, you'll be able to install Remake.
+After you're done installing Node, you'll be able to create a Remake app.
 
-Node comes with a command line program called `npm`, which allows you to install packages through your terminal.
+Node comes with a command line program called `npx`, which lets you run packages in your terminal.
 
-Open your terminal and run this command to install Remake globally:
+Open your terminal and run this command to create a new app:
 
 ```bash
-npm install remake -g
+npx remake create my-app
 ```
 
-Once it's done installing, you'll have access to the `remake` command in your terminal.
+You can change the "my-app" part to whatever you want your app to be called.
 
-### Create the starter project
+You'll be given the option to install an empty app or a Kanban app. I'd recommend starting with the Kanban, so you can see how Remake works up close.
 
-Remake comes with a working Kanban app project that you can play around with.
-
-You can generate this starter project with the following command:
+Change into your app's directory after the app is finished being created:
 
 ```bash
-remake create example-app
-```
-
-Here, `example-app` is the name of the directory you want your new Remake app to live in.
-
-Change into that directory after the starter app is finished being created:
-
-```bash
-cd example-app
+cd my-app
 ```
 
 ### Run the dev server
@@ -57,7 +47,7 @@ npm run dev
 
 ***Great!*** Now you have a local Remake server running on your computer!
 
-### Check out in a browser!
+### Check it out in a browser!
 
 In a web browser, go to [http://localhost:3000](http://localhost:3000) to see your new Kanban starter application.
 

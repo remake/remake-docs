@@ -100,7 +100,7 @@
 <p><strong>This is a fully-functional application in Remake:</strong></p>
 <div class="line-numbers">
 <pre><code class="language-html">&lt;div object&gt;
-  &lt;ul key=&quot;todos&quot; array&gt;
+  &lt;ul array key=&quot;todos&quot; sortable&gt;
     {{#for todo in todos}}
       &lt;li 
         object 
@@ -114,25 +114,30 @@
 </code></pre>
 </div>
 <img class="image--small image--border" src="/static/todo-app.gif">
-<p>Features of this app:</p>
+<p>⭐️ <strong>Features:</strong></p>
 <ul>
-<li>User can sign up for an account to create their own todo list</li>
-<li>User can add new items to a list</li>
-<li>User can edit the text of each item</li>
-<li>User can remove each item</li>
-<li>User can share thier todo list with a friend</li>
+<li>A user can sign up for an account to create their own todo list</li>
+<li>A user can add new items to a list</li>
+<li>A user can edit the text of each item</li>
+<li>A user can remove each item</li>
+<li>A user can reorder their todos by dragging them</li>
+<li>A user can share thier todo list with a friend</li>
 </ul>
+<p>This is a real app. You can try it by <a href="/install-and-setup">installing Remake</a>, adding this code to your <code>app/pages/app-index.hbs</code> template, and opening <code>http://localhost:3000</code>!</p>
 <h3>How is this possible?</h3>
-<p>While most frameworks treat HTML as static, Remake treats it as the source of dynamic data, letting you add web app capabilities directly to an HTML page.</p>
-<p>This is different the status quo, but open up a lot of possibilities.</p>
+<p>While most frameworks treat HTML as static, Remake treats HTML as the source of dynamic data, letting you add web app capabilities directly to an HTML template.</p>
+<p>This is a different approach from the status quo, but opens up a lot of possibilities.</p>
 <div class="spacer--16"></div>
 <h3>How does this code work?</h3>
 <p>Line by line documentation:</p>
 <div class="line-numbers">
 <pre><code class="language-html">&lt;!-- This element is converted into an object --&gt;
 &lt;div object&gt; 
-  &lt;!-- This element is converted into an array and labeled with &quot;todos&quot; --&gt;
-  &lt;ul key=&quot;todos&quot; array&gt;
+  &lt;!-- This element is converted into an array,
+       labeled with &quot;todos&quot;, and all the elements
+       inside it can be reordered with drag-and-drop
+  --&gt;
+  &lt;ul array key=&quot;todos&quot; sortable&gt;
     &lt;!-- We loop through any existing todos --&gt;
     {{#for todo in todos}}
       &lt;!-- 

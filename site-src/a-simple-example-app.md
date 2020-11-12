@@ -11,7 +11,7 @@ title: A Simple Example App
 {% raw %}
 ```html
 <div object>
-  <ul key="todos" array>
+  <ul array key="todos" sortable>
     {{#for todo in todos}}
       <li 
         object 
@@ -28,18 +28,21 @@ title: A Simple Example App
 
 <img class="image--small image--border" src="/static/todo-app.gif">
 
-Features of this app:
-* User can sign up for an account to create their own todo list
-* User can add new items to a list
-* User can edit the text of each item
-* User can remove each item
-* User can share thier todo list with a friend
+⭐️ **Features:**
+* A user can sign up for an account to create their own todo list
+* A user can add new items to a list
+* A user can edit the text of each item
+* A user can remove each item
+* A user can reorder their todos by dragging them
+* A user can share thier todo list with a friend
+
+This is a real app. You can try it by [installing Remake](/install-and-setup), adding this code to your `app/pages/app-index.hbs` template, and opening `http://localhost:3000`!
 
 ### How is this possible?
 
-While most frameworks treat HTML as static, Remake treats it as the source of dynamic data, letting you add web app capabilities directly to an HTML page.
+While most frameworks treat HTML as static, Remake treats HTML as the source of dynamic data, letting you add web app capabilities directly to an HTML template.
 
-This is different the status quo, but open up a lot of possibilities.
+This is a different approach from the status quo, but opens up a lot of possibilities. 
 
 <div class="spacer--16"></div>
 
@@ -52,8 +55,11 @@ Line by line documentation:
 ```html
 <!-- This element is converted into an object -->
 <div object> 
-  <!-- This element is converted into an array and labeled with "todos" -->
-  <ul key="todos" array>
+  <!-- This element is converted into an array,
+       labeled with "todos", and all the elements
+       inside it can be reordered with drag-and-drop
+  -->
+  <ul array key="todos" sortable>
     <!-- We loop through any existing todos -->
     {{#for todo in todos}}
       <!-- 

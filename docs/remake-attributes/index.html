@@ -74,9 +74,16 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item " href="/remake-attributes">Saving data</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/remake-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/remake-attributes#update">Updating data</a>
               <a class="sidebar__list-item " href="/remake-attributes#watch">Reacting to data</a>
+            </div>
+          </div>
+          <div class="sidebar__list-container">
+            <div class="sidebar__list-heading">REMAKE CORE</div>
+            <div class="sidebar__list">
+              <a class="sidebar__list-item " href="/remake-setup-and-callbacks">Setup and Callbacks</a>
+              <a class="sidebar__list-item " href="/remake-methods">Remake API Methods</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -97,21 +104,22 @@
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
           <h1>Data Attributes API</h1>
-<p>Remake relies on data attributes for storing data inside of elements and defining an application's behavior.</p>
-<p>In fact, you can create a fully working web application in Remake by just using data attributes.</p>
+<p>Remake relies on custom attributes for storing data and adding behavior.</p>
+<p>With Remake, you can create a fully working web application by just using HTML attributes. See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples.</p>
+<p><strong>Summary:</strong> Here's <a href="/attach-data-to-elements/">a quick summary of all the main attributes</a> if you don't want to go into detail yet.</p>
 <h2 class="api" id="data-o">Attaching Data to Elements</h2>
-<h3><code>data-o-type</code></h3>
-<p>By adding this attribute to an HTML element, you're telling Remake that there's data on (and possibly inside) the element. Remake scans the page for all elements with a <code>data-o-type</code> attribute and converts them into data.</p>
-<p>Remake can convert an element into one of two data structures: an <strong>object</strong> or <strong>array</strong>.</p>
-<p>To define an array, use <code>data-o-type=&quot;list&quot;</code>.</p>
-<p>To define an object, use <code>data-o-type=&quot;object&quot;</code>.</p>
-<p>These will be converted into <code>[]</code> and <code>{}</code>, respectively.</p>
-<p><strong>Example of an object nested inside an array:</strong></p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;list&quot;&gt;
-  &lt;div data-o-type=&quot;object&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+<h3><code>object</code></h3>
+<p>Add this <code>object</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>object</code> attribute and converts them into data.</p>
+<p><strong>Example of an <code>object</code> element:</strong></p>
+<pre><code class="language-html">&lt;div object&gt;&lt;/div&gt;
 </code></pre>
-<p>This is valid Remake code and will be converted into <code>[{}]</code>.</p>
+<p>This is valid Remake code and will be converted into <code>{}</code> when the page is saved.</p>
+<p>Remake can convert an element into one of two data structures:</p>
+<ul>
+<li>object</li>
+<li>array</li>
+</ul>
+<p>Next, we'll learn about arrays.</p>
 <h3><code>data-o-key=&quot;someKeyName&quot;</code></h3>
 <p>This attribute allows you to namespace data inside an object.</p>
 <p>Normally, if there's an object nested in another object, they'll be merged into a single object:</p>

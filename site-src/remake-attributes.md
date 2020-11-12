@@ -5,33 +5,31 @@ title: Data Attributes API
 
 # Data Attributes API
 
-Remake relies on data attributes for storing data inside of elements and defining an application's behavior.
+Remake relies on custom attributes for storing data and adding behavior.
 
-In fact, you can create a fully working web application in Remake by just using data attributes.
+With Remake, you can create a fully working web application by just using HTML attributes. See the [Remake Recipes](https://recipes.remaketheweb.com/) for some step-by-step examples.
+
+**Summary:** Here's [a quick summary of all the main attributes](/attach-data-to-elements/) if you don't want to go into detail yet.
 
 <h2 class="api" id="data-o">Attaching Data to Elements</h2>
 
-### `data-o-type`
+### `object`
 
-By adding this attribute to an HTML element, you're telling Remake that there's data on (and possibly inside) the element. Remake scans the page for all elements with a `data-o-type` attribute and converts them into data.
+Add this `object` attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all `object` attribute and converts them into data.
 
-Remake can convert an element into one of two data structures: an **object** or **array**.
-
-To define an array, use `data-o-type="list"`.
-
-To define an object, use `data-o-type="object"`.
-
-These will be converted into `[]` and `{}`, respectively.
-
-**Example of an object nested inside an array:**
+**Example of an `object` element:**
 
 ```html
-<div data-o-type="list">
-  <div data-o-type="object"></div>
-</div>
+<div object></div>
 ```
 
-This is valid Remake code and will be converted into `[{}]`.
+This is valid Remake code and will be converted into `{}` when the page is saved.
+
+Remake can convert an element into one of two data structures: 
+- object
+- array
+
+Next, we'll learn about arrays.
 
 
 ### `data-o-key="someKeyName"`

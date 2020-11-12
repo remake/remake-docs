@@ -75,6 +75,7 @@ h3 {
 }
 
 h3 code {
+  font-size: 1em;
   padding: 0;
   color: #212529;
   background-color: transparent;

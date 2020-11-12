@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Rendering Data - Remake Docs</title>
+    <title>Remake Init and Callbacks - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=899">
     <link rel="stylesheet" href="/static/prism.css?v=899">
@@ -51,7 +51,7 @@
               <a class="sidebar__list-item " href="/introducing-remake">Introducing Remake</a>
               <a class="sidebar__list-item " href="/installing-and-setting-up-remake">Installing & Setting Up Remake</a>
               <a class="sidebar__list-item " href="/attach-data-to-elements">Attach Data to Elements</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/rendering-data">Rendering Data</a>
+              <a class="sidebar__list-item " href="/rendering-data">Rendering Data</a>
               <a class="sidebar__list-item " href="/making-data-editable">Making Data Editable</a>
               <a class="sidebar__list-item " href="/adding-new-items">Adding New Items</a>
               <a class="sidebar__list-item " href="/sorting-lists-of-items">Sorting Lists of Items</a>
@@ -103,18 +103,15 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h2>Rendering Data</h2>
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
-<h3>How to render data</h3>
-<p>Every new user will receive the data inside your <code>app/data/bootstrap.json</code> file. You can use this to start them off with some demo data they can edit right away.</p>
-<p>All the data for each user is in the file <code>app/data/database/user-app-data/{username}.json</code>, where <code>{username}</code> is the name of the user.</p>
-<p>You can modify the <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> data in this user file to edit what's displayed by your application.</p>
-<p>Read the <a href="/templating">official Templating docs</a> to learn more about all the template variables you can access.</p>
-<h3>Handlebars.js</h3>
-<p>Remake uses <a href="https://handlebarsjs.com/">Handlebars.js</a> to render every layout, page, and partial template. All templates are server-rendered.</p>
-<p>Read the <a href="https://handlebarsjs.com/">official Handlebars.js documentation</a> to learn more about how render data in templates.</p>
-<div class="spacer--8"></div>
-<p><a class="slanted-link" href="/making-data-editable/"><span>→ Next: Making Data Editable</span></a></p>
+          <h1>Remake Init and Callbacks</h1>
+<p>When you're setting up Remake for the first time, you might want to know all of the options available for you.</p>
+<p>These callbacks</p>
+<p>init
+onSave
+onFileUpload
+onFileUploadProgress
+onAddItem
+onSync</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

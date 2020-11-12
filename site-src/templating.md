@@ -11,12 +11,10 @@ Remake uses [Handlebars.js](https://handlebarsjs.com/) to render every template.
 
 These are all the possible template variables you'll have access to in a Handlebars template:
 
-- **appName**
-  - This is only relevant if you're deploying using Remake's deploy service. It's your unique app name.
-- **data**
-  - This is only loaded on a page that's preceded by a username. so `/john` or `/john/tasks` or `/john/tasks/3456`. It will contain all the data that's in the database for the user that matches the username in the current route.
+- **Your app's data**
+  - On routes preceded by a username, e.g. `/john` or `/john/tasks`, all of the data for that user is loaded into the template and made available
 - **globalData**
-  - This is static data shared by all templates and all users (loaded from the file `app/data/global-app-data.json`). It's useful for defining page names for global navigation items or static page titles you want to use for everyone.
+  - This is static data shared by all templates and all users (loaded from the file `app/data/global-app-data.json`). It's useful for defining global navigation items or page titles you want to use across all users.
 - **params**
   - These are the url parameters. For example, you can get the username, the pageName, the itemId from here.
 - **query**
@@ -44,12 +42,3 @@ These are all the possible template variables you'll have access to in a Handleb
 ### Extra helpers
 
 Remake also ships with all [188 Handlebars Helpers](https://github.com/helpers/handlebars-helpers), so you can have lots of flexibility with how you render your data.
-
-### Custom #for loop
-
-You may have noticed that the `#for` loop we use in the tutorial video doesn't use a standard Handlebars [block helpers](https://handlebarsjs.com/guide/block-helpers.html) syntax.
-
-We did this for two reasons:
-
-1. We hook into this custom `#for` loop in order to make the `data-i-new` attribute work with it
-2. We prefer `#for todo in todos` over something like `#for todos item="todo"` (which would've been more standard).

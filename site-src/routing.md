@@ -7,7 +7,7 @@ title: Routing
 
 Currently, in order to get the `data` from a user loaded into a template, you need to be on a route like this: `/{username}/{pageName}?/{id}?`, where `username` matches a user's username.
 
-Here, `pageName` and `id` are optional. For example, if `username` is the only param, then `pages/app-index.hbs` (called <code>username.hbs</code> before <code>v1.11</code>) is rendered. However, if `pageName` is there, then `pages/pageName.hbs` is rendered. 
+Here, `pageName` and `id` are optional. For example, if `username` is the only param, then `app/pages/app-index.hbs` (called <code>username.hbs</code> before <code>v1.11</code>) is rendered. However, if `pageName` is there, then `app/pages/pageName.hbs` is rendered. 
 
 And, finally, if `id` is also provided in the route, then `pages/pageName.hbs` is rendered and the `id` is looked up in the current username's data and loaded in under a template variable called `currentItem`.
 

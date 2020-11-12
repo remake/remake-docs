@@ -15,6 +15,8 @@ All the data for each user is in the file `app/data/database/user-app-data/{user
 
 You can modify the [JSON](https://www.w3schools.com/whatis/whatis_json.asp) data in this user file to edit what's displayed by your application.
 
+Read the [official Templating docs](/templating) to learn more about all the template variables you can access.
+
 ### Handlebars.js
 
 Remake uses [Handlebars.js](https://handlebarsjs.com/) to render every layout, page, and partial template. All templates are server-rendered.

@@ -228,32 +228,38 @@
 </code></pre>
 <p>With this setup, if the value of <code>buttonText</code> ever changed, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
 <h2 class="api" id="update">Updating Data</h2>
-<h3><code>data-i-editable</code></h3>
-<p>Add this attribute to an element if you want to make clicking on it trigger an inline edit popover.</p>
-<p>This is the primary way of making data on a page editable.</p>
-<p>The syntax for the value of this attribute is:</p>
-<pre><code class="language-javascript">someKeyName1(the-type-of-edit-field) someKeyName2(the-type-of-edit-field)
-</code></pre>
-<p>A <code>data-i-editable</code> attribute with this value will trigger a popover that edits two fields at once.</p>
-<p><strong>Defaults:</strong></p>
-<ul>
-<li>If no value is provided, this attribute defaults to editing <em>all of the data</em> on the <code>closest</code> ancestor element with data.</li>
-</ul>
-<p>For example:</p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot; data-o-key-first-name=&quot;David&quot;&gt;
-    &lt;button data-i-editable&gt;Edit First Name&lt;/button&gt;
+<h3><code>edit:some-key-name</code></h3>
+<p>Clicking on an element with this attribute will trigger an inline edit popover. The key it's editing must be on the same element or an ancestor element.</p>
+<h4>A simple example:</h4>
+<pre><code class="language-html">&lt;div object key:my-text=&quot;A simple note&quot;&gt;
+  &lt;button edit:my-text&gt;Edit text&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<p>The above will create an inline edit popover after you click on the button. Since no value is provided, it will default to editing the key <code>firstName</code> since that's the <code>closest</code> data it can find.</p>
+<p>If you want to edit two keys at the same time, simply add another <code>edit:</code> attribute.</p>
+<h4>Editing two keys at once:</h4>
+<pre><code class="language-html">&lt;div object key:my-age=&quot;34&quot; key:my-name=&quot;David&quot;&gt;
+  &lt;button edit:my-age edit:my-name&gt;Edit my info&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<h4>Removing the &quot;remove&quot; button</h4>
+<p>Remake supports removing the &quot;remove&quot; button from the inline edit popover.</p>
+<pre><code class="language-html">&lt;div object key:my-text=&quot;A simple note&quot;&gt;
+  &lt;button edit:my-text:without-remake&gt;Edit text&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p>This is useful if there's a piece of data in your app that you want to be editable, but not deletable.</p>
+<h4>Other edit areas</h4>
+<p>Remake supports editing multi-line text inside the popover. The following example will trigger an auto-expanding <code>textarea</code> instead of a single line input:</p>
+<pre><code class="language-html">&lt;div object key:my-text=&quot;A simple note&quot;&gt;
+  &lt;button edit:my-text:textarea&gt;Edit text&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>On the roadmap:</strong> Support for other edit areas, like radio buttons and dropdowns and color pickers is coming soon. <a href="https://form.remaketheweb.com/">Sign up</a> to hear about when they're released.</p>
 <p><strong>Good to know:</strong></p>
 <ul>
-<li>Currently, only two types of edit fields are available, one for short text (<code>text-single-line</code>) and one for long text (<code>text-multi-line</code>), but in the near future there will be edit fields for images, numbers, dates, choices, toggles, etc.</li>
-<li>If, when a user clicks the &quot;remove&quot; button inside the inline edit popover, you want it to set all of the target data to empty strings (instead of removing the data source element altogether), use the alternate attribute <code>data-i-editable-with-hide</code></li>
-<li>If you don't want to provide a &quot;remove&quot; button in the inline edit popover, use the altnernate attribute <code>data-i-editable-without-remove</code>.</li>
+<li>If, when a user clicks the &quot;remove&quot; button inside the inline edit popover, you want to set all of the data to empty strings instead of removing the data from the page altogether, use this modifier <code>edit:some-key-name:with-erase</code></li>
 </ul>
-<hr>
-<p><strong>Note:</strong> You only need to know about the following <code>data-i</code> attributes if you need more advanced editing capabilities beyond what the <code>data-i-editable</code> popovers provide.</p>
-<h3><code>data-i</code></h3>
+<h3><code>update:some-key-name</code></h3>
 <p>Use this attribute on any type of <code>&lt;input&gt;</code> element in order to make it able to edit data on the page.</p>
 <p>It will find the data its supposed to edit by finding the closest ancestor element with a data key that matches the <code>input</code>'s <code>name</code> attribute.</p>
 <p>For example:</p>
@@ -263,7 +269,7 @@
   &lt;input type=&quot;radio&quot; name=&quot;favoriteAnimal&quot; value=&quot;zebra&quot;&gt;
 &lt;/div&gt;
 </code></pre>
-<p><strong>Goot to know:</strong></p>
+<p><strong>Good to know:</strong></p>
 <ul>
 <li>If you want to a <code>data-i</code> attribute outside an inline edit popover and have them trigger a save every time the data changes, give the <code>data-i</code> attribute a value of <code>triggerSaveOnChange</code> (e.g. <code>data-i=&quot;triggerSaveOnChange&quot;</code>)</li>
 </ul>

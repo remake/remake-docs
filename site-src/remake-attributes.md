@@ -41,7 +41,7 @@ Add this `array` attribute to an HTML element to let Remake know there's data on
 
 This is valid Remake code and will be converted into `[]` when the page is saved.
 
-### `key="someKeyName"`
+### `key`
 
 This attribute allows you to label data inside a parent object.
 
@@ -81,84 +81,71 @@ Output:
 
 Now the nested object is inside the other object and labeled as `someKeyName`.
 
-### `data-o-key-[some-key-name]`
+### `key:some-key-name`
 
-This attribute lets you attach key/value pairs to an element. 
+This attribute lets you attach key/value pairs to an `object` element. 
 
-You must always use the `data-o-type="object"` attribute in addition to this attribute.
-
-You can attach as many key/value pairs to the same element as you want, as long as their key names are unique.
+This attribute is how Remake stores data in HTML.
 
 For example:
 
 ```html
 <div 
-  data-o-type="object" 
-  data-o-key-first-name="David" 
-  data-o-key-favorite-color="green"
+  object
+  key:first-name="David" 
+  key:favorite-color="green"
 ></div>
 ```
 
-Remake will convert this HTML into an object that has two key/value pairs: 
+Remake will convert this element into an `object` that has two keys and two values: 
 
 ```javascript
 {firstName: "David", favoriteColor: "green"}
 ```
 
-Remake extracts the key name from the part of the attribute immediately following `data-o-key-`.
-
 **Good to know:**
 
-* Remake can only export strings as values
-* Key names are automatically camel-cased for you
-* By convention, a key that's being used as a boolean is considered `false` when it has no value. This will come into play later when we start to toggle values with checkboxes.
-* There's one special type of key in Remake: `data-o-key-id`. Read more in the [Saving Data](not-available) tutorial step.
+* You can attach as many key/value pairs to the same element as you want.
+* Remake only understands text as a value (no numbers or dates for now, but this will change)
+* Key names are automatically camel-cased for you when they're saved (e.g. `key:some-key` is converted into `someKey`)
+* There's one special key in Remake: `key:id`. It's useful for storing data to a specific place.
 
-### `data-l-key-[some-key-name]`
+### `key:some-key-name="@"`
 
-This attribute behaves exactly like the `data-o-key-*` attribute, except its value lives somewhere else.
+If you set a key equal to `@` followed by a valid command, Remake will look elsewhere for the value of they key.
 
-The value of this attribute lets you tell Remake where to look for the actual value.
+Read on to learn about all the valid commands.
 
-The syntax for this attribute's value is: `selector property`.
+#### Native property commands
 
-The CSS `selector` argument will be used to look for an element inside the current element.
+Every native HTML property is a valid command:
 
-The `property` argument will be used to get the correct property from that element.
+- `@id`
+- `@className`
+- `@type`
+- `@src`
+- `@href`
+- `@value`
+- `@checked`
+- `@innerText`
+- `@innerHTML`
+- `@style`
+- `@title`
+- `@alt`
+- `@for`
+- `@placeholder`
 
-For example:
+Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. `elem.innerText`).
 
-```html
-<div data-o-type="object" data-l-key-img-src="img src">
-  <img src="/images/beautiful.jpg">
-</div>
-```
+#### Special commands
 
-Remake will use `"img"` as a CSS selector to find an element within the current element.
+There are two special commands:
 
-It will then get the `src` property of this element to use as the final value.
-
-When it's done, the resulting data will look like this:
-
-```javascript
-{imgSrc: "/images/beautiful.jpg"} // e.g. elem.querySelector("img").src
-```
-
-**Defaults:**
-
-* If no attribute value is provided, this attribute will default to using the `innerText` of the current element.
-
-For example:
-
-```html
-<div data-o-type="object" data-l-key-text>Hello, world!</div>
-```
-
-Is converted into: `{text: "Hello, world!"}`.
-
-**Good to know:**
-
-* This attribute is useful for using data from an element's properties (e.g. `innerText`, `src`, `innerHTML`, `style`).
+- `@attr:`
+  - Useful for looking up the value of custom attributes (e.g. `@attr:data-x`)
+- `@search`
+  - Searches the current element for a `target:` attribute that matches the original key name
+  - Executes any commands on that `target:` element to get the final value
 
 <h2 class="api" id="watch">Reacting To Data Changes</h2>
 

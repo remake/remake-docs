@@ -125,7 +125,7 @@
 <pre><code class="language-html">&lt;div array&gt;&lt;/div&gt;
 </code></pre>
 <p>This is valid Remake code and will be converted into <code>[]</code> when the page is saved.</p>
-<h3><code>key=&quot;someKeyName&quot;</code></h3>
+<h3><code>key</code></h3>
 <p>This attribute allows you to label data inside a parent object.</p>
 <p>Normally, in Remake, if there's an <code>object</code> inside another <code>object</code>, their data will be merged into a single object:</p>
 <p>The following code, for example, produces a single object.</p>
@@ -149,55 +149,62 @@
 }
 </code></pre>
 <p>Now the nested object is inside the other object and labeled as <code>someKeyName</code>.</p>
-<h3><code>data-o-key-[some-key-name]</code></h3>
-<p>This attribute lets you attach key/value pairs to an element.</p>
-<p>You must always use the <code>data-o-type=&quot;object&quot;</code> attribute in addition to this attribute.</p>
-<p>You can attach as many key/value pairs to the same element as you want, as long as their key names are unique.</p>
+<h3><code>key:some-key-name</code></h3>
+<p>This attribute lets you attach key/value pairs to an <code>object</code> element.</p>
+<p>This attribute is how Remake stores data in HTML.</p>
 <p>For example:</p>
 <pre><code class="language-html">&lt;div 
-  data-o-type=&quot;object&quot; 
-  data-o-key-first-name=&quot;David&quot; 
-  data-o-key-favorite-color=&quot;green&quot;
+  object
+  key:first-name=&quot;David&quot; 
+  key:favorite-color=&quot;green&quot;
 &gt;&lt;/div&gt;
 </code></pre>
-<p>Remake will convert this HTML into an object that has two key/value pairs:</p>
+<p>Remake will convert this element into an <code>object</code> that has two keys and two values:</p>
 <pre><code class="language-javascript">{firstName: &quot;David&quot;, favoriteColor: &quot;green&quot;}
 </code></pre>
-<p>Remake extracts the key name from the part of the attribute immediately following <code>data-o-key-</code>.</p>
 <p><strong>Good to know:</strong></p>
 <ul>
-<li>Remake can only export strings as values</li>
-<li>Key names are automatically camel-cased for you</li>
-<li>By convention, a key that's being used as a boolean is considered <code>false</code> when it has no value. This will come into play later when we start to toggle values with checkboxes.</li>
-<li>There's one special type of key in Remake: <code>data-o-key-id</code>. Read more in the <a href="not-available">Saving Data</a> tutorial step.</li>
+<li>You can attach as many key/value pairs to the same element as you want.</li>
+<li>Remake only understands text as a value (no numbers or dates for now, but this will change)</li>
+<li>Key names are automatically camel-cased for you when they're saved (e.g. <code>key:some-key</code> is converted into <code>someKey</code>)</li>
+<li>There's one special key in Remake: <code>key:id</code>. It's useful for storing data to a specific place.</li>
 </ul>
-<h3><code>data-l-key-[some-key-name]</code></h3>
-<p>This attribute behaves exactly like the <code>data-o-key-*</code> attribute, except its value lives somewhere else.</p>
-<p>The value of this attribute lets you tell Remake where to look for the actual value.</p>
-<p>The syntax for this attribute's value is: <code>selector property</code>.</p>
-<p>The CSS <code>selector</code> argument will be used to look for an element inside the current element.</p>
-<p>The <code>property</code> argument will be used to get the correct property from that element.</p>
-<p>For example:</p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot; data-l-key-img-src=&quot;img src&quot;&gt;
-  &lt;img src=&quot;/images/beautiful.jpg&quot;&gt;
-&lt;/div&gt;
-</code></pre>
-<p>Remake will use <code>&quot;img&quot;</code> as a CSS selector to find an element within the current element.</p>
-<p>It will then get the <code>src</code> property of this element to use as the final value.</p>
-<p>When it's done, the resulting data will look like this:</p>
-<pre><code class="language-javascript">{imgSrc: &quot;/images/beautiful.jpg&quot;} // e.g. elem.querySelector(&quot;img&quot;).src
-</code></pre>
-<p><strong>Defaults:</strong></p>
+<h3><code>key:some-key-name=&quot;@&quot;</code></h3>
+<p>If you set a key equal to <code>@</code> followed by a valid command, Remake will look elsewhere for the value of they key.</p>
+<p>Read on to learn about all the valid commands.</p>
+<h4>Native property commands</h4>
+<p>Every native HTML property is a valid command:</p>
 <ul>
-<li>If no attribute value is provided, this attribute will default to using the <code>innerText</code> of the current element.</li>
+<li><code>@id</code></li>
+<li><code>@className</code></li>
+<li><code>@type</code></li>
+<li><code>@src</code></li>
+<li><code>@href</code></li>
+<li><code>@value</code></li>
+<li><code>@checked</code></li>
+<li><code>@innerText</code></li>
+<li><code>@innerHTML</code></li>
+<li><code>@style</code></li>
+<li><code>@title</code></li>
+<li><code>@alt</code></li>
+<li><code>@for</code></li>
+<li><code>@placeholder</code></li>
 </ul>
-<p>For example:</p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot; data-l-key-text&gt;Hello, world!&lt;/div&gt;
-</code></pre>
-<p>Is converted into: <code>{text: &quot;Hello, world!&quot;}</code>.</p>
-<p><strong>Good to know:</strong></p>
+<p>Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. <code>elem.innerText</code>).</p>
+<h4>Special commands</h4>
+<p>There are two special commands:</p>
 <ul>
-<li>This attribute is useful for using data from an element's properties (e.g. <code>innerText</code>, <code>src</code>, <code>innerHTML</code>, <code>style</code>).</li>
+<li><code>@attr:</code>
+<ul>
+<li>Useful for looking up the value of custom attributes (e.g. <code>@attr:data-x</code>)</li>
+</ul>
+</li>
+<li><code>@search</code>
+<ul>
+<li>Searches the current element for a <code>target:</code> attribute that matches the original key name</li>
+<li>Executes any commands on that <code>target:</code> element to get the final value</li>
+</ul>
+</li>
 </ul>
 <h2 class="api" id="watch">Reacting To Data Changes</h2>
 <h3><code>data-w-key-[some-key-name]</code></h3>

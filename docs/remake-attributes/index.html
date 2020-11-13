@@ -104,9 +104,8 @@
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
           <h1>Remake Attributes</h1>
-<p>Remake relies on custom attributes for storing data and adding behavior.</p>
-<p>With Remake, you can create a fully working web application by just using HTML attributes. See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples.</p>
-<p><strong>Summary:</strong> Here's <a href="/attach-data-to-elements/">a quick summary of all the main attributes</a> if you don't want to go into detail yet.</p>
+<p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
+<p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
 <h2 class="api" id="saving">Saving Data</h2>
 <h3><code>object</code></h3>
 <p>Add this <code>object</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>object</code> attribute and converts them into data.</p>
@@ -120,24 +119,36 @@
 <li>array</li>
 </ul>
 <p>Next, we'll learn about arrays.</p>
-<h3><code>data-o-key=&quot;someKeyName&quot;</code></h3>
-<p>This attribute allows you to namespace data inside an object.</p>
-<p>Normally, if there's an object nested in another object, they'll be merged into a single object:</p>
+<h3><code>array</code></h3>
+<p>Add this <code>array</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>array</code> attribute and converts them into data.</p>
+<p><strong>Example of an <code>array</code> element:</strong></p>
+<pre><code class="language-html">&lt;div array&gt;&lt;/div&gt;
+</code></pre>
+<p>This is valid Remake code and will be converted into <code>[]</code> when the page is saved.</p>
+<h3><code>key=&quot;someKeyName&quot;</code></h3>
+<p>This attribute allows you to label data inside a parent object.</p>
+<p>Normally, in Remake, if there's an <code>object</code> inside another <code>object</code>, their data will be merged into a single object:</p>
+<p>The following code, for example, produces a single object.</p>
 <pre><code class="language-html">&lt;div data-o-type=&quot;object&quot;&gt;
   &lt;div data-o-type=&quot;object&quot;&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>The above, for example, is converted into <code>{}</code>.</p>
-<p>However, if you give the nested element a key name with the <code>data-o-key</code> attribute, it'll use that key to nest itself inside the parent object.</p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot;&gt;
-  &lt;div data-o-key=&quot;someData&quot; data-o-type=&quot;object&quot;&gt;
+<p>Output:</p>
+<pre><code class="language-js">{}
+</code></pre>
+<p>To prevent this merge from happening and instead label the nested object, you can use the <code>key</code> attribute.</p>
+<pre><code class="language-html">&lt;div object&gt;
+  &lt;div object key=&quot;someKeyName&quot;&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>Now the nested object is inside the provided key name: <code>{someData: {}}</code>.</p>
-<hr>
-<p>Now that we know how to attach data structures like arrays and objects to the page, but what about storing things like strings and numbers?</p>
+<p>Output:</p>
+<pre><code class="language-js">{
+  someKeyName: {}
+}
+</code></pre>
+<p>Now the nested object is inside the other object and labeled as <code>someKeyName</code>.</p>
 <h3><code>data-o-key-[some-key-name]</code></h3>
 <p>This attribute lets you attach key/value pairs to an element.</p>
 <p>You must always use the <code>data-o-type=&quot;object&quot;</code> attribute in addition to this attribute.</p>

@@ -5,11 +5,9 @@ title: Remake Attributes
 
 # Remake Attributes
 
-Remake relies on custom attributes for storing data and adding behavior.
+Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.
 
-With Remake, you can create a fully working web application by just using HTML attributes. See the [Remake Recipes](https://recipes.remaketheweb.com/) for some step-by-step examples.
-
-**Summary:** Here's [a quick summary of all the main attributes](/attach-data-to-elements/) if you don't want to go into detail yet.
+See the [Remake Recipes](https://recipes.remaketheweb.com/) for some step-by-step examples or the [TLDR summary of all the attributes](/attach-data-to-elements/).
 
 <h2 class="api" id="saving">Saving Data</h2>
 
@@ -31,12 +29,25 @@ Remake can convert an element into one of two data structures:
 
 Next, we'll learn about arrays.
 
+### `array`
 
-### `data-o-key="someKeyName"`
+Add this `array` attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all `array` attribute and converts them into data.
 
-This attribute allows you to namespace data inside an object.
+**Example of an `array` element:**
 
-Normally, if there's an object nested in another object, they'll be merged into a single object:
+```html
+<div array></div>
+```
+
+This is valid Remake code and will be converted into `[]` when the page is saved.
+
+### `key="someKeyName"`
+
+This attribute allows you to label data inside a parent object.
+
+Normally, in Remake, if there's an `object` inside another `object`, their data will be merged into a single object:
+
+The following code, for example, produces a single object.
 
 ```html
 <div data-o-type="object">
@@ -45,22 +56,30 @@ Normally, if there's an object nested in another object, they'll be merged into 
 </div>
 ```
 
-The above, for example, is converted into `{}`.
+Output:
 
-However, if you give the nested element a key name with the `data-o-key` attribute, it'll use that key to nest itself inside the parent object.
+```js
+{}
+```
+
+To prevent this merge from happening and instead label the nested object, you can use the `key` attribute.
 
 ```html
-<div data-o-type="object">
-  <div data-o-key="someData" data-o-type="object">
+<div object>
+  <div object key="someKeyName">
   </div>
 </div>
 ```
 
-Now the nested object is inside the provided key name: `{someData: {}}`.
+Output:
 
----
+```js
+{
+  someKeyName: {}
+}
+```
 
-Now that we know how to attach data structures like arrays and objects to the page, but what about storing things like strings and numbers?
+Now the nested object is inside the other object and labeled as `someKeyName`.
 
 ### `data-o-key-[some-key-name]`
 

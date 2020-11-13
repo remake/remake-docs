@@ -135,7 +135,7 @@ Every native HTML property is a valid command:
 - `@for`
 - `@placeholder`
 
-Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. `elem.innerText`).
+Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. `elem.src`).
 
 #### Special commands
 
@@ -149,43 +149,36 @@ There are two special commands:
 
 <h2 class="api" id="watch">Reacting To Data Changes</h2>
 
-### `data-w-key-[some-key-name]`
+### `watch:some-key-name`
 
-Use this attribute to react to changes in another key's value.
+Use this attribute to react to changes on another key's value. The key it reacts to must be on the same element or an ancestor element.
 
-If the key name you use to define this attribute matches the key name of either a `data-o-key-*` or `data-l-key-*` attribute, then this attribute will be triggered when their data changes.
+The value for this attribute can be any of the **native property commands** listed in the section above this one (e.g. `@innerText` or `@src`).
 
-The value for this attribute uses the following syntax:
+You can also use this attribute to call custom functions.
 
-```javascript
-customFunction1(arg1, arg2, ...) customFunction2(arg1, arg2, ...)
+```html
+watch:some-key-name="customFunction1(arg1, arg2) customFunction2(arg1, arg2)"
 ```
 
-In this example, `customFunction1` and `customFunction2` would be defined when you first initialize Remake.
-
-**Defaults:**
-
-* If no value is provided, Remake will default to setting the `innerText` of the current element to the new value.
-* If a value matching a valid HTML element property is provided (e.g. `innerText`, `src`, `innerHTML`, `style`), Remake will default to setting that attribute's value on the current element to the new value.
+In this example, `customFunction1` and `customFunction2` would be defined when you first initialize Remake, inside the `watchFunctions` object.
 
 **Good to know:**
 
-* In order for a watch function to be called, this attribute needs to be on or inside the data source element.
-* If you have two `data-o-key-*` attributes with the same name on your page and they are nested inside of each other (**tip:** try not to do this), the watch attribute will only watch its `closest` ancestor. This makes it possible to have different levels of data on the same page.
-* By convention, a this attribute should be attached to the element it's modifying.
+* By convention, this attribute should be attached to the element it's modifying.
 * This attribute is very useful for displaying the same values in multiple places across a page while using the same data source.
 
 For example, let's say you wanted to have a button on a landing page that had the same text no matter where it was displayed, you could do this:
 
 ```html
-<div data-o-type="object" data-o-key-button-text="Buy Now!">
-  <button data-w-key-button-text>Buy Now!</button>
-  <button data-w-key-button-text>Buy Now!</button>
-  <button data-w-key-button-text>Buy Now!</button>
+<div object key:button-text="Buy Now!">
+  <button watch:button-text="@innerText">{{buttonText}}</button>
+  <button watch:button-text="@innerText">{{buttonText}}</button>
+  <button watch:button-text="@innerText">{{buttonText}}</button>
 </div>
 ```
 
-With this setup, if the value of `buttonText` ever changes on the parent element, all of the buttons will get the new value inserted into their `innerText`.
+With this setup, if the value of `buttonText` ever changed, all of the buttons will get the new value inserted into their `innerText`.
 
 <h2 class="api" id="update">Updating Data</h2>
 

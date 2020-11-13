@@ -190,7 +190,7 @@
 <li><code>@for</code></li>
 <li><code>@placeholder</code></li>
 </ul>
-<p>Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. <code>elem.innerText</code>).</p>
+<p>Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. <code>elem.src</code>).</p>
 <h4>Special commands</h4>
 <p>There are two special commands:</p>
 <ul>
@@ -207,33 +207,26 @@
 </li>
 </ul>
 <h2 class="api" id="watch">Reacting To Data Changes</h2>
-<h3><code>data-w-key-[some-key-name]</code></h3>
-<p>Use this attribute to react to changes in another key's value.</p>
-<p>If the key name you use to define this attribute matches the key name of either a <code>data-o-key-*</code> or <code>data-l-key-*</code> attribute, then this attribute will be triggered when their data changes.</p>
-<p>The value for this attribute uses the following syntax:</p>
-<pre><code class="language-javascript">customFunction1(arg1, arg2, ...) customFunction2(arg1, arg2, ...)
+<h3><code>watch:some-key-name</code></h3>
+<p>Use this attribute to react to changes on another key's value. The key it reacts to must be on the same element or an ancestor element.</p>
+<p>The value for this attribute can be any of the <strong>native property commands</strong> listed in the section above this one (e.g. <code>@innerText</code> or <code>@src</code>).</p>
+<p>You can also use this attribute to call custom functions.</p>
+<pre><code class="language-html">watch:some-key-name=&quot;customFunction1(arg1, arg2) customFunction2(arg1, arg2)&quot;
 </code></pre>
-<p>In this example, <code>customFunction1</code> and <code>customFunction2</code> would be defined when you first initialize Remake.</p>
-<p><strong>Defaults:</strong></p>
-<ul>
-<li>If no value is provided, Remake will default to setting the <code>innerText</code> of the current element to the new value.</li>
-<li>If a value matching a valid HTML element property is provided (e.g. <code>innerText</code>, <code>src</code>, <code>innerHTML</code>, <code>style</code>), Remake will default to setting that attribute's value on the current element to the new value.</li>
-</ul>
+<p>In this example, <code>customFunction1</code> and <code>customFunction2</code> would be defined when you first initialize Remake, inside the <code>watchFunctions</code> object.</p>
 <p><strong>Good to know:</strong></p>
 <ul>
-<li>In order for a watch function to be called, this attribute needs to be on or inside the data source element.</li>
-<li>If you have two <code>data-o-key-*</code> attributes with the same name on your page and they are nested inside of each other (<strong>tip:</strong> try not to do this), the watch attribute will only watch its <code>closest</code> ancestor. This makes it possible to have different levels of data on the same page.</li>
-<li>By convention, a this attribute should be attached to the element it's modifying.</li>
+<li>By convention, this attribute should be attached to the element it's modifying.</li>
 <li>This attribute is very useful for displaying the same values in multiple places across a page while using the same data source.</li>
 </ul>
 <p>For example, let's say you wanted to have a button on a landing page that had the same text no matter where it was displayed, you could do this:</p>
-<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot; data-o-key-button-text=&quot;Buy Now!&quot;&gt;
-  &lt;button data-w-key-button-text&gt;Buy Now!&lt;/button&gt;
-  &lt;button data-w-key-button-text&gt;Buy Now!&lt;/button&gt;
-  &lt;button data-w-key-button-text&gt;Buy Now!&lt;/button&gt;
+<pre><code class="language-html">&lt;div object key:button-text=&quot;Buy Now!&quot;&gt;
+  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
+  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
+  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<p>With this setup, if the value of <code>buttonText</code> ever changes on the parent element, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
+<p>With this setup, if the value of <code>buttonText</code> ever changed, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
 <h2 class="api" id="update">Updating Data</h2>
 <h3><code>data-i-editable</code></h3>
 <p>Add this attribute to an element if you want to make clicking on it trigger an inline edit popover.</p>

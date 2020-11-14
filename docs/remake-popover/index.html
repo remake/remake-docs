@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Adding New Items - Remake Docs</title>
+    <title>Remake Popover - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=899">
     <link rel="stylesheet" href="/static/prism.css?v=899">
@@ -53,7 +53,7 @@
               <a class="sidebar__list-item " href="/attach-data-to-elements">Attach Data to Elements</a>
               <a class="sidebar__list-item " href="/rendering-data">Rendering Data</a>
               <a class="sidebar__list-item " href="/making-data-editable">Making Data Editable</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/adding-new-items">Adding New Items</a>
+              <a class="sidebar__list-item " href="/adding-new-items">Adding New Items</a>
               <a class="sidebar__list-item " href="/sorting-lists-of-items">Sorting Lists of Items</a>
               <a class="sidebar__list-item " href="/deploy-a-remake-web-app">Deploy a Remake Web App</a>
             </div>
@@ -104,32 +104,7 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h2>Adding New Items</h2>
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
-<h3>Rendering new items</h3>
-<p>If you want to render a new item to the page:</p>
-<ol>
-<li>Render items using a <code>{{#for}}</code> loop</li>
-</ol>
-<pre><code class="language-html">{{#for item in items}}
-  &lt;div object key:name=&quot;@innerText&quot;&gt;{{item.name}}&lt;/div&gt;
-{{/for}}
-</code></pre>
-<ol start="2">
-<li>Reference the name in the for loop in a <code>new:</code> attribute</li>
-</ol>
-<pre><code class="language-html">&lt;button new:item&gt;Create new item&lt;/button&gt;
-</code></pre>
-<ol start="3">
-<li>Remake will take care of the rest</li>
-</ol>
-<ul>
-<li>Remake searches the page for a matching <code>name</code> in a <code>{{#for}}</code> loop on the page (if none is found, it searches the <code>app/partials</code> directory)</li>
-<li>Remake renders the inner part of the <code>{{#for}}</code> loop</li>
-<li>Remake adds the rendered item to the nearest element with a <code>list</code> tag (tip: you can customize where it adds the item by specifying a selector as the value of the <code>new:</code> attribute)</li>
-</ul>
-<div class="spacer--8"></div>
-<p><a class="slanted-link" href="/sorting-lists-of-items/"><span>→ Sorting Lists of Items</span></a></p>
+          <h1>Remake Popover</h1>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

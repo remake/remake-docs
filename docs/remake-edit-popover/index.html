@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Adding New Items - Remake Docs</title>
+    <title>Remake Popover - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=899">
     <link rel="stylesheet" href="/static/prism.css?v=899">
@@ -53,7 +53,7 @@
               <a class="sidebar__list-item " href="/attach-data-to-elements">Attach Data to Elements</a>
               <a class="sidebar__list-item " href="/rendering-data">Rendering Data</a>
               <a class="sidebar__list-item " href="/making-data-editable">Making Data Editable</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/adding-new-items">Adding New Items</a>
+              <a class="sidebar__list-item " href="/adding-new-items">Adding New Items</a>
               <a class="sidebar__list-item " href="/sorting-lists-of-items">Sorting Lists of Items</a>
               <a class="sidebar__list-item " href="/deploy-a-remake-web-app">Deploy a Remake Web App</a>
             </div>
@@ -84,7 +84,7 @@
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/remake-setup-and-callbacks">Setup and Callbacks</a>
               <a class="sidebar__list-item " href="/remake-methods">Remake Methods</a>
-              <a class="sidebar__list-item " href="/remake-edit-popover">Remake Edit Popover</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/remake-edit-popover">Remake Edit Popover</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -104,32 +104,117 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h2>Adding New Items</h2>
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
-<h3>Rendering new items</h3>
-<p>If you want to render a new item to the page:</p>
-<ol>
-<li>Render items using a <code>{{#for}}</code> loop</li>
-</ol>
-<pre><code class="language-html">{{#for item in items}}
-  &lt;div object key:name=&quot;@innerText&quot;&gt;{{item.name}}&lt;/div&gt;
-{{/for}}
+          <h1>Remake Popover</h1>
+<p>When you click an <code>edit:</code> attribute, a popover appears where the user can edit page data.</p>
+<img class="image--small image--border" src="/static/todo-app.gif">
+<p>You can use the following CSS to customize all of the popover's built-in styles.</p>
+<h3>Annotated styles</h3>
+<p>Replace any of the following default values to override them. You can also add new styles of your own to completely change how the popover looks!</p>
+<p>After you customize this code, just load it anywhere in your app.</p>
+<p><strong>Note:</strong> You'll notice that all the popover selectors are nested under the <code>body</code> selector. This is to give them enough <a href="https://css-tricks.com/specifics-on-css-specificity/">specificity</a> to override the built-in Remake styles.</p>
+<pre><code class="language-css">/* overall container for the backdrop and popover */
+body .remake-edit {
+  font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;
+}
+
+/* popover backdrop - usually dark and transparent */
+body .remake-edit__backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* the element that contains the edit areas */
+body .remake-edit__edit-container {
+  min-width: 280px;
+  width: 100%;
+}
+
+/* the container that wraps each &lt;input&gt; or &lt;textarea&gt; in the popover */
+body .remake-edit__edit-area {
+  margin-bottom: 8px;
+}
+
+/* &lt;input&gt; or &lt;textarea&gt; in the popover used for editing data */
+body .remake-edit__textarea, body .remake-edit__input {
+  display: block;
+  width: 100%;
+  padding: 7px 14px 9px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  line-height: 1.4em;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+/* individual &lt;textarea&gt; styles */
+body .remake-edit__textarea {
+  min-height: 48px;
+  resize: none;
+}
+
+/* container for the &lt;button&gt; elements */
+body .remake-edit__buttons {
+  display: flex;
+}
+
+/* all the buttons (e.g. delete, cancel, save) along the bottom of the popover */
+body .remake-edit__button {
+  display: inline-block;
+  margin: 0 8px 0 0;
+  padding: 7px 14px 9px;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+  background-color: #228be6;
+  line-height: 1em;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+/* the last button */
+body .remake-edit__button:last-child {
+  margin: 0;
+}
+
+/* button hover styles */
+body .remake-edit__button:hover {
+  background-color: #0b6cbf;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* the &quot;remove&quot; buttons */
+body .remake-edit__button--remove, .remake-edit__button--hide {
+  background-color: #e03131;
+}
+
+/* the &quot;remove&quot; button (this oneerases data instead of removing an element) */
+body .remake-edit__button--hide {
+  display: none;
+}
+
+/* the &quot;remove&quot; buttons' hover styles */
+body .remake-edit__button--remove:hover, .remake-edit__button--hide:hover {
+  background-color: #b42626;
+  color: #fff;
+}
+
+/* cancel button */
+body .remake-edit__button--cancel {
+  margin-left: auto;
+  background-color: #868E96;
+}
+
+/* cancel button hover style */
+body .remake-edit__button--cancel:hover {
+  background-color: #64707d;
+  color: #fff;
+}
 </code></pre>
-<ol start="2">
-<li>Reference the name in the for loop in a <code>new:</code> attribute</li>
-</ol>
-<pre><code class="language-html">&lt;button new:item&gt;Create new item&lt;/button&gt;
-</code></pre>
-<ol start="3">
-<li>Remake will take care of the rest</li>
-</ol>
-<ul>
-<li>Remake searches the page for a matching <code>name</code> in a <code>{{#for}}</code> loop on the page (if none is found, it searches the <code>app/partials</code> directory)</li>
-<li>Remake renders the inner part of the <code>{{#for}}</code> loop</li>
-<li>Remake adds the rendered item to the nearest element with a <code>list</code> tag (tip: you can customize where it adds the item by specifying a selector as the value of the <code>new:</code> attribute)</li>
-</ul>
-<div class="spacer--8"></div>
-<p><a class="slanted-link" href="/sorting-lists-of-items/"><span>→ Sorting Lists of Items</span></a></p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

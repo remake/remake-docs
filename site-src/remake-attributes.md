@@ -210,7 +210,7 @@ Remake supports removing the "remove" button from the inline edit popover.
 
 ```html
 <div object key:my-text="A simple note">
-  <button edit:my-text:without-remake>Edit text</button>
+  <button edit:my-text:without-remove>Edit text</button>
 </div>
 ```
 

@@ -11,13 +11,15 @@ When you click an `edit:` attribute, a popover appears where the user can edit p
 
 You can use the following CSS to customize all of the popover's built-in styles.
 
-### Annotated styles
+### Changing the styles
 
 Replace any of the following default values to override them. You can also add new styles of your own to completely change how the popover looks!
 
 After you customize this code, just load it anywhere in your app.
 
 **Note:** You'll notice that all the popover selectors are nested under the `body` selector. This is to give them enough [specificity](https://css-tricks.com/specifics-on-css-specificity/) to override the built-in Remake styles.
+
+#### Default styles:
 
 ```css
 /* overall container for the backdrop and popover */

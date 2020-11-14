@@ -85,6 +85,7 @@
               <a class="sidebar__list-item " href="/remake-setup-and-callbacks">Setup and Callbacks</a>
               <a class="sidebar__list-item " href="/remake-methods">Remake Methods</a>
               <a class="sidebar__list-item sidebar__list-item--selected" href="/remake-edit-popover">Remake Edit Popover</a>
+              <a class="sidebar__list-item " href="/remake-upload-notice">Remake Upload Notice</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -108,10 +109,11 @@
 <p>When you click an <code>edit:</code> attribute, a popover appears where the user can edit page data.</p>
 <img class="image--small image--border" src="/static/todo-app.gif">
 <p>You can use the following CSS to customize all of the popover's built-in styles.</p>
-<h3>Annotated styles</h3>
+<h3>Changing the styles</h3>
 <p>Replace any of the following default values to override them. You can also add new styles of your own to completely change how the popover looks!</p>
 <p>After you customize this code, just load it anywhere in your app.</p>
 <p><strong>Note:</strong> You'll notice that all the popover selectors are nested under the <code>body</code> selector. This is to give them enough <a href="https://css-tricks.com/specifics-on-css-specificity/">specificity</a> to override the built-in Remake styles.</p>
+<h4>Default styles:</h4>
 <pre><code class="language-css">/* overall container for the backdrop and popover */
 body .remake-edit {
   font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;

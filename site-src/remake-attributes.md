@@ -81,7 +81,7 @@ Output:
 
 Now the nested object is inside the other object and labeled as `someKeyName`.
 
-### `key:some-key-name`
+### `key:some-example-key`
 
 This attribute lets you attach key/value pairs to an `object` element. 
 
@@ -110,7 +110,7 @@ Remake will convert this element into an `object` that has two keys and two valu
 * Key names are automatically camel-cased for you when they're saved (e.g. `key:some-key` is converted into `someKey`)
 * There's one special key in Remake: `key:id`. It's useful for storing data to a specific place.
 
-### `key:some-key-name="@"`
+### `key:some-example-key="@"`
 
 If you set a key equal to `@` followed by a valid command, Remake will look elsewhere for the value of they key.
 
@@ -149,7 +149,7 @@ There are two special commands:
 
 <h2 class="api" id="watch">Reacting To Data Changes</h2>
 
-### `watch:some-key-name`
+### `watch:some-example-key`
 
 Use this attribute to react to changes on another key's value. The key it reacts to must be on the same element or an ancestor element.
 
@@ -158,7 +158,7 @@ The value for this attribute can be any of the **native property commands** list
 You can also use this attribute to call custom functions.
 
 ```html
-watch:some-key-name="customFunction1(arg1, arg2) customFunction2(arg1, arg2)"
+watch:some-example-key="customFunction1(arg1, arg2) customFunction2(arg1, arg2)"
 ```
 
 In this example, `customFunction1` and `customFunction2` would be defined when you first initialize Remake, inside the `watchFunctions` object.
@@ -182,7 +182,7 @@ With this setup, if the value of `buttonText` ever changed, all of the buttons w
 
 <h2 class="api" id="update">Updating Data</h2>
 
-### `edit:some-key-name`
+### `edit:some-example-key`
 
 Clicking on an element with this attribute will trigger an inline edit popover. The key it's editing must be on the same element or an ancestor element.
 
@@ -230,101 +230,108 @@ Remake supports editing multi-line text inside the popover. The following exampl
 
 **Good to know:**
 
-* If, when a user clicks the "remove" button inside the inline edit popover, you want to set all of the data to empty strings instead of removing the data from the page altogether, use this modifier `edit:some-key-name:with-erase`
+* If, when a user clicks the "remove" button inside the inline edit popover, you want to set all of the data to empty strings instead of removing the data from the page altogether, use this modifier `edit:some-example-key:with-erase`
 
-### `update:some-key-name`
+### `update:some-example-key`
 
-Use this attribute on any type of `<input>` element in order to make it able to edit data on the page.
+Add this attribute to any `<input>` (e.g. `<input type="text">`, `<input type="color">`, `<input type="file">`, etc.), `<textarea>`, or `<select>` element.
 
-It will find the data its supposed to edit by finding the closest ancestor element with a data key that matches the `input`'s `name` attribute.
+Whenever the value of these elements changes, Remake will update the value on an element with a matching `key:`. The key it's updating must be on the same element or an ancestor element.
 
 For example:
 
 ```html
-<div data-o-type="object" data-o-type-favorite-animal="">
-  <input type="radio" name="favoriteAnimal" value="giraffe">
-  <input type="radio" name="favoriteAnimal" value="pangolin">
-  <input type="radio" name="favoriteAnimal" value="zebra">
+<div object key:favorite-animal="giraffe">
+  <label><input type="radio" update:favorite-animal value="giraffe"> giraffe</label
+  <label><input type="radio" update:favorite-animal value="pangolin"> pangolin</label
+  <label><input type="radio" update:favorite-animal value="zebra"> zebra</label
 </div>
 ```
 
-**Good to know:**
+You can also attach the `update:` attribute to any other HTML element (e.g. `<button>`, `<div>`, etc.) to make clicking on it trigger an update. In this case, the value will be taken from the value of the `update:` attribute.
 
-* If you want to a `data-i` attribute outside an inline edit popover and have them trigger a save every time the data changes, give the `data-i` attribute a value of `triggerSaveOnChange` (e.g. `data-i="triggerSaveOnChange"`)
+For example: 
 
+```html
+<div object key:favorite-animal="giraffe">
+  <button update:favorite-animal="giraffe">Choose giraffe</button>
+  <button update:favorite-animal="pangolin">Choose pangolin</button>
+  <button update:favorite-animal="zebra">Choose zebra</button>
+</div>
+```
 
-### `data-i-new`
+### `new:example-item-name`
 
-Use this attribute on any element in order to make it able to create and render new elements into the page.
+If you click on an element with this attribute, Remake will do its best to render a template and add it to the page.
 
-It will find the element its supposed to render by looking through all your partial templates. The template is rendered server-side and then passed back to the client-side to be added to the page.
+Remake looks for a template that matches the name:
+- In your {% raw %}`{{#for}}`{% endraw %} loops
+- In the templates in your `app/partials` directory
 
-The syntax for the value of this attribute is: `templateName selector position`.
+The template is rendered server-side and then passed back to the client-side to be added to the page.
+
+#### Controlling where the template is inserted
+
+You can pass some options to the value of this attribute: `top` or `bottom` or a CSS selector (e.g. `.my-list`).
+
+Remake will use the `top` or `bottom` argument to decide where in the list to insert the new item. By default this is set to `bottom`.
+
+And it will use the CSS selector argument to find the list you want the item to be inserted into. By default this is set to `[array]`, so it just finds the closest element with the `array` attribute.
 
 For example:
 
 ```html
-<button data-i-new="todoItem .todo-list top"></button>
+<ul class="todo-list" array></ul>
+<button new:todo-item=".todo-list top"></button>
 ```
 
-This will render the template `todoItem` and insert it at the top of the nearest `.todo-list` element.
+This will render the template `todoItem` and insert it at the top of the element with the `todo-list` class.
 
-However, this attribute defaults to adding the rendered item at the bottom of the the nearest `[data-o-type="list"]` element, so if you're okay with those defaults you only need to provide the template name.
+### `toggle:some-example-key`
 
-For example:
+This attribute will toggle the value of a key that matches its name. The key it's toggling must be on the same element or an ancestor element.
 
-```html
-<button data-i-new="todoItem"></button>
-```
+The values it toggles between are `on` and `off`.
 
-**Good to know:**
+### `temporary:key:some-example-key`
 
-* If you name an item inside of a `#forEachItem` loop, you can also use that inner template to render a new element.
+This attribute behaves exactly the same as its counterpart, `key:some-example-key`, with two exceptions:
 
+1. When the value of a `temporary:key:` attribute changes, a save event isn't triggered
+2. The key and value of a `temporary:key:` attribute is invisible to the save function (their data simply isn't saved)
 
-### `data-i` `data-i-key` `data-i-value`
+It's very useful for attaching temporary state to the page (e.g. toggling menus, sidebars, or tabs)
 
-In Remake, the combination of these attributes on a single element is called a `choice`. 
+### `default:some-example-key`
 
-Whenever an element with these 3 attributes is clicked, it sets the value of the `data-i-value` attribute on the `closest` element that matches the key in the `data-i-key` attribute.
+If a `key:` that matches this attribute is going to be set to a value of an empty string (e.g. `""` or even `"  "`), replace the value with the value of this attribute instead.
 
-**Note:** If you want to make your app as accessible as possible, I'd suggest using native input elements, like checkbox or radio button, instead of this option.
+### `save`
 
-### `data-i-toggle`
+Clicking on an element with this attribute will trigger a save.
 
-This attribute will toggle the value of the `closest` matching key with data.
+### `remove` 
 
-The values it will toggle between are `""` and `"true"`.
+When an element with this attribute is clicked, it will find the closest element with data and remove that element from the page. It will look for data first on the current element and then on all of its ancestor elements.
 
-The value for this attribute is a camel-cased key name that Remake will use to match with the `closest` matching element with the same key name.
+### `erase`
 
-
-### `data-i-remove` 
-
-When an element with this attribute is clicked, it will find the `closest` element with data and remove that element from the page.
-
-If this attribute is attached to an element that's inside of an inline edit popover, however, it has a different behavior: when the `data-i-remove` element is clicked, Remake will first find the element that triggered the popover *and then* find the `closest` element with data and remove that element from the page.
+When an element with this attribute is clicked, it will find the closest element with data and set all of its data to empty strings. It will look for data first on the current element and then on all of its ancestor elements.
 
 
-### `data-i-hide`
+<h2 class="api">Some Tips for working with Remake</h2>
 
-When an element with this attribute is clicked, it will find the `closest` element with data and set all of its data to empty strings.
+### Styling
 
-If this attribute is attached to an element that's inside of an inline edit popover, however, it has a different behavior: when the `data-i-hide` element is clicked, Remake will first find the element that triggered the popover *and then* find the `closest` element with data and set all of its data to empty strings.
+Remake transforms your page into one big piece of data.
 
-
-
-<h2 class="api">Some Tips</h2>
-
-#### CSS
-
-You can use CSS to style the page based on a data attribute's value.
+This makes it a lot easier than normal to style your page based on which data is set and which data isn't.
 
 For example, lets say you wanted to implement a Dark Mode theme on your page. Your HTML might look like this:
 
 ```html
-<body data-o-type="object" data-o-key-dark-mode="true">
-    <button data-i-toggle="darkMode">Toggle Dark Mode</button>
+<body object key:dark-mode="on">
+  <button toggle:dark-mode>Toggle Dark Mode</button>
 </body>
 ```
 
@@ -336,113 +343,52 @@ body {
   color: #222;
 }
 
-body[data-o-key-dark-mode="true"] {
-  background: #333;
+body[key\:dark-mode="on"] {
+  background: #222;
   color: #fff;
-  font-weight: 500;
 }
 ```
 
+**Tip:** You must escape the `:` in CSS selectors with a back slash `\`.
+
 <h2 class="api">Advanced Data Attributes</h2>
 
-### `data-o-ignore`
+### `ignore-data`
 
-Remake will not parse or save the data inside an element with this attribute.
+Remake will skip over this element when saving data for a page.
 
-### `data-o-default-[some-key-name]`
+### `no-save`
 
-If the value of a key is going to be set to an empty string — and its key name matches this attribute's key name — Remake will replace its value with the value of this attribute.
+Remake won't trigger a save event if data inside an element with this attribute changes.
 
-### `data-i-click-to-save`
+### `disable-events`
 
-Clicking on an element with this attribute will trigger a save.
+Remake events triggered by the `new:`, `save`, `edit:`, `update:`, `toggle:`, `remove` attributes will NOT trigger inside of an element with this attribute.
 
-### `data-o-save` & `data-o-save-deep`
+### `custom-save`
 
-If you want to manually save a section of the page, you can use these custom attributes.
+If you want to handle the save event yourself, add this attribute above the elements you're editing and pass in the name of a custom save function that you define when initializing Remake (in the `saveFunctions` object).
 
 Reasons you might want to do this:
 
-* You want to save a section of the page to a different endpoint
-* You want to save a section of the page to a particular place in the data
-
-These attributes allow you to specify a custom function that you can define when Remake is initialized.
+* You want to save a section of the page to a custom API endpoint
+* You want to save a section of the page to a particular place in the user's data
 
 For example:
 
 ```html
-<div data-o-save-deep="customSaveFunction">
-    <div data-o-type="object" data-o-key-some-data="hi!"></div>
+<div custom-save="customSaveFunction">
+  <div object key:some-data="@innerText" edit:some-data>Hello!</div>
 </div>
 ```
 
-Now, when the data on the inner element changes, your custom save function will be triggered and other save functions above it will be ignored.
+Whenever a user saves the `some-data` key after clicking on the element, it will be saved using the `customSaveFunction` instead of the normal Remake save method.
 
-**Note:** Most of the time you'll want to use `data-o-save-deep`, as it will get all the data from its child elements before passing that data to the save function, while the plain `data-o-save` will just get the data from the element its attached to.
+### `sync`
 
+Used on Remake's inline edit popovers. It makes it so data in the popover is synced back into the page before being saved.
 
-### `data-l-target-[some-key-name]`
-
-If you set a `data-l-key-*` attribute's value to `"target"` instead of to a selector, it will look for a `data-l-target-*` attribute that matches its key instead of for a selector.
-
-Its a nice way of making your code explicit without having to specify long selectors.
-
-For example: 
-
-```html
-<div data-o-type="object" data-l-key-page-title="target">
-    <h1 data-l-target-page-title>Hello, world!</h1>
-</div>
-```
-
-### `data-i-sync`
-
-Used by inline edit popovers to sync data into themselves from the page and sync data back into the page after the save button has been clicked.
-
-Useful if you're creating your own inline edit popovers.
-
-### `data-switches`
-
-A powerful, general-use data-attribute library for activating and deactivating single or multiple elements on the page.
-
-Used by Remake to enable and disable the inline edit popovers, but can also be used for toggling the state of a sidebar, modal, or expandable section on the page.
-
-### `data-copy-position` & `data-copy-dimensions` & `data-copy-layout`
-
-A data-attribute library for copying the position and/or dimensions of one element to another. Used by Remake to position inline edit popovers.
-
-
-<h2 class="api">Glossary</h2>
-
-#### Inline Edit Popover
-
-The areas that pop up when you click an editable item.
-
-They allow you to edit only text for now, but will be useful for image manipulation, selecting dates, and other things in the future.
-
-They also allow you to delete elements or remove data from the page.
-
-They're the primary way of editing data in Remake.
-
-#### Closest
-
-This has an exact definition in Remake and is the basis for a lot of the code. In order to understand how Remake works, you need to understand `closest`.
-
-Here's the exact definition from [the MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest):
-
-> Starting with the Element itself, the closest() method traverses parents (heading toward the document root) of the Element until it finds a node that matches the provided selectorString. Will return itself or the matching ancestor. If no such element exists, it returns null.
-
-#### Nearest
-
-This means we start looking for the matching element at the current element, followed by looking inside the current element's parent, followed by looking in its grand parent, etc., etc. until we find a match — that's the closest element.
-
-#### Key/value Pair
-
-A key/value pair is a way to store data: there's a unique identifier (key) for some item of data and a value for that identifier.
-
-#### Data Source Element
-
-When something happens in response to data changing on a page, the element that the data is stored on is called the data source element.
+This attribute is useful if you're creating your own inline edit popovers. To understand how it works, start by looking in `_remake/client-side/inputjs/editableAttribute.js`.
 
 
 

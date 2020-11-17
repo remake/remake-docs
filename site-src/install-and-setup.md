@@ -14,6 +14,8 @@ title: Install & Setup
 npx remake create my-app
 ```
 
+(make sure you have Remake 2.0 by running `npx remake -v`)
+
 **🚀 2. Start the local server**
 
 ```bash

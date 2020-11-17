@@ -27,7 +27,7 @@ body {
   position: relative;
   z-index: 1;
   will-change: transform;
-  background-color: #3d76e8; /* A background-color is required */
+  background-color: #0f2f70; /* A background-color is required */
   min-height: 100vh;
 }
 

@@ -5,7 +5,7 @@ title: Deploy a Remake Web App
 
 ## Deploy a Remake Web App
 
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4_d7DCpdAbY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### A single command deploy!
 

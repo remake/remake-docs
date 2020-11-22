@@ -5,7 +5,7 @@ title: Adding New Items
 
 ## Adding New Items
 
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vuzgBFdo_s8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Rendering new items
 

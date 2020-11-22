@@ -5,7 +5,7 @@ title: Rendering Data
 
 ## Rendering Data
 
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5ZeON_-OmsQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### How to render data
 

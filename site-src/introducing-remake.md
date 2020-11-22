@@ -5,7 +5,7 @@ title: Introducing Remake
 
 ## Introducing Remake
 
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w6SWp7TUKpg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Let's build a Trello clone!
 
@@ -28,8 +28,7 @@ Remake takes a simpler approach to web development.
 
 **Fun facts:** 
 
-* Remake is SEO-friendly and prone to fewer front-end bugs because it's server rendered. 
-* The client-side Remake JS framework isn't even loaded if the current user isn't the page owner. Remake is only necessary if you can edit the page.
+* Remake is SEO-friendly because it's server rendered. 
 
 <div class="spacer--8"></div>
 

@@ -106,11 +106,21 @@
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
           <h2>How Data Works in Remake</h2>
-<img src="/static/images/video-coming-soon.png" alt="Video tutorial coming soon">
+<h3>HTML and JSON</h3>
+<p>Remake works by converting HTML into JSON. That's the foundation for everything else it does.</p>
+<ul>
+<li>Remake makes data inline editable</li>
+<li>Handles updating data</li>
+<li>Handles extracting data from the page</li>
+<li>Handles calling the save endpoint</li>
+<li>Handles saving to the database</li>
+<li>Handles attaching the data to a user</li>
+</ul>
+<p>Most other web app frameworks leave ALL of these steps to you.</p>
 <h3>How Remake stores data</h3>
 <p>Remake stores data in JSON files for each user.</p>
 <p>It converts nested elements on the page into nested arrays and objects.</p>
-<p>The only 3 data types Remake understands are:</p>
+<p>The only 3 data types Remake uses are:</p>
 <ul>
 <li><code>Objects</code></li>
 <li><code>Arrays</code></li>

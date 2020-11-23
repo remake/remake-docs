@@ -3,9 +3,7 @@ layout: layout.hbs
 title: Install & Setup
 ---
 
-<img class="image--small image--center" src="https://remake.s3.amazonaws.com/smartsharp/03.svg">
-
-### 🦄 Install & Setup
+### Install & Setup
 
 
 **⚡️ 1. Generate a Remake project**

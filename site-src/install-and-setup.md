@@ -14,7 +14,16 @@ title: Install & Setup
 npx remake create my-app
 ```
 
-(make sure you have Remake 2.0 by running `npx remake -v`)
+<img src="/static/images/example-apps.png">
+
+<p>You'll be able to choose between:</p>
+<ul>
+  <li>The default app <span style="opacity: .5;">(blank)</span></li>
+  <li>The kanban starter app</li>
+  <li>The reading list sharing app</li>
+  <li>The resume/cv builder app</li>
+</ul>
+
 
 **🚀 2. Start the local server**
 

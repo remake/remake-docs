@@ -8,6 +8,8 @@ title: Install & Setup
 
 **⚡️ 1. Generate a Remake project**
 
+You need to install [Node.js](https://nodejs.org/en/) and then use this command to generate your first Remake app:
+
 ```bash
 npx remake create my-app
 ```

@@ -67,6 +67,7 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
+              <a class="sidebar__list-item " href="/visibility">Visibility</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
@@ -108,6 +109,16 @@
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
           <h1>Tips for Remake</h1>
+<h3>Ordering Data</h3>
+<p>It's helpful to always attach data (e.g. <code>key:*</code>) attributes as high as possible on the page.</p>
+<p>In Remake, data can impact anything below it. So if a <code>key:*</code> attribute is attached high on the page, then it will be able to control more of the page.</p>
+<p>For example, if you want to trigger a <code>watch:*</code> attribute when a <code>key:*</code> attribute changes, the <code>watch:*</code> attribute needs to be inside the element with the <code>key:*</code> attribute.</p>
+<p>Another example: if you want to hide an element based on the value of a <code>key:*</code> attribute, it's really easy to do with the <a href="/visibility">show-if</a> attribute. But the <code>show-if</code> attribute needs to be inside the <code>key:*</code> attribute.</p>
+<h3>Don't use <code>#if</code></h3>
+<p>Remake is rendered with the Handlebars.js templating library, which comes with support for <code>{{#if}}</code> statements.</p>
+<p>In most web apps, you'd use these <code>{{#if}}</code> statements to control the visibility of elements.</p>
+<p>In Remake, however, it's strongly recommended to <em>render all data/elements to the page</em> — and then simply show/hide the ones you need (Remake's <a href="/visibility">visibility helper</a> is really useful for this).</p>
+<p>This is because Remake treats your pages as (potentially giant) blobs of data and a lot of that time that data relies on other data being there. If the element with some data is merely hidden, Remake can get it and use its values. However, if it's never rendered to the page (because an <code>{{#if}}</code> statement blocked it) then Remake simply won't know that data is there.</p>
 <h3>Styling</h3>
 <p>Remake transforms your page into one big piece of data.</p>
 <p>This makes it a lot easier than normal to style your page based on which data is set and which data isn't.</p>

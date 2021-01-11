@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Reacting to Data (Attributes) - Remake Docs</title>
+    <title>Visibility - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=900">
     <link rel="stylesheet" href="/static/prism.css?v=900">
@@ -67,7 +67,7 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
-              <a class="sidebar__list-item " href="/visibility">Visibility</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/visibility">Visibility</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
@@ -77,7 +77,7 @@
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/reacting-to-data-attributes">Reacting to data</a>
+              <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
               <a class="sidebar__list-item " href="/advanced-attributes">Advanced attributes</a>
             </div>
           </div>
@@ -108,29 +108,34 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h1>Reacting to Data</h1>
-<p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
-<p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
-<h3><code>watch:some-example-key</code></h3>
-<p>Use this attribute to react to changes on another key's value. The key it reacts to must be on the same element or an ancestor element.</p>
-<p>The value for this attribute can be any of the <strong>native property commands</strong> listed in the section above this one (e.g. <code>@innerText</code> or <code>@src</code>).</p>
-<p>You can also use this attribute to call custom functions.</p>
-<pre><code class="language-html">watch:some-example-key=&quot;customFunction1(arg1, arg2) customFunction2(arg1, arg2)&quot;
-</code></pre>
-<p>In this example, <code>customFunction1</code> and <code>customFunction2</code> would be defined when you first initialize Remake, inside the <code>watchFunctions</code> object.</p>
-<p><strong>Good to know:</strong></p>
-<ul>
-<li>By convention, this attribute should be attached to the element it's modifying.</li>
-<li>This attribute is very useful for displaying the same values in multiple places across a page while using the same data source.</li>
-</ul>
-<p>For example, let's say you wanted to have a button on a landing page that had the same text no matter where it was displayed, you could do this:</p>
-<pre><code class="language-html">&lt;div object key:button-text=&quot;Buy Now!&quot;&gt;
-  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
-  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
-  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
+          <h1>Visibility</h1>
+<p>Remake makes it easy to show/hide elements based on the value of <code>key:*</code> attributes.</p>
+<h3>How to use</h3>
+<p>Attach a <code>show-if</code> attribute to an element you want to show/hide.</p>
+<p>Inside the value of the <code>show-if</code> attribute, include a space-separated list of keys and values (e.g. <code>show-if=&quot;example-key-name=example-key-value&quot;</code>).</p>
+<p>If any of those keys are equal to the values, the element will be shown. Otherwise, it will be hidden.</p>
+<h3>Example</h3>
+<pre><code class="language-html">&lt;div key:tab=&quot;personal-projects&quot;&gt;
+  &lt;div class=&quot;tabs&quot;&gt;
+    &lt;div class=&quot;tab&quot; update:tab=&quot;personal-projects&quot;&gt;Personal Projects&lt;/div&gt;
+    &lt;div class=&quot;tab&quot; update:tab=&quot;my-projects&quot;&gt;My Projects&lt;/div&gt;
+    &lt;div class=&quot;tab&quot; update:tab=&quot;other-projects&quot;&gt;Other Projects&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;hr&gt;
+  &lt;div class=&quot;content&quot;&gt;
+    &lt;div show-if=&quot;tab=personal-projects tab=my-projects&quot;&gt;Personal and my projects content&lt;/div&gt;
+    &lt;div show-if=&quot;tab=other-projects&quot;&gt;Other projects content&lt;/div&gt;
+    &lt;div show-if=&quot;tab=other-projects&quot;&gt;Other projects content&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>With this setup, if the value of <code>buttonText</code> ever changed, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
+<p>Easily implement tabs in Remake with a few custom attributes.</p>
+<h3>Tips</h3>
+<ul>
+<li>Has support for showing elements as <code>display: flex</code>. Just use <code>flex-show-if</code> instead of <code>show-if</code></li>
+</ul>
+<h3>How it works</h3>
+<p>Remake scans your page for <code>show-if</code> attributes, parses out their values, and creates stylesheets for the page based on them.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

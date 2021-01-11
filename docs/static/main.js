@@ -30,9 +30,6 @@ sidebarElemCopy.classList.add("mobile");
 mobileMenuElem.insertBefore(sidebarElemCopy, mobileMenuElem.firstChild);
 
 
-// 
-
-
 // Polite Email Popup!
 PoliteEmailPopup.marketingWebsite({
   imageSrc: "https://remake.b-cdn.net/logos/remake-icon-with-padding.svg",

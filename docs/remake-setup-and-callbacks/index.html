@@ -110,34 +110,80 @@
 <p>When you're setting up Remake for the first time, you might want to know all of the options available for you.</p>
 <p>These setup and callback functions will give you all the options you need to customize Remake. 👩‍🚀</p>
 <h3>init</h3>
-<p>Use this method to...</p>
+<p>Use this method to initialize Remake and modify the default options.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">Remake.init({
+  // useful for debugging, will console.log all page data when it's saved
+  logDataOnSave: false,
+
+  // pass in the sortable.js library if you want to be able to sort items
+  sortable: {sortablejs: Sortable},
+
+  watchFunctions: {
+    // can be passed in to a `watch:*` attribute
+    customWatchFunc: ({watchElem,watchAttrName,watchAttrValue,dashCaseKeyName,camelCaseKeyName,value,watchFuncName,watchFuncArgs,dataSourceElem,dataTargetElems}) =&gt; {}
+  },
+  saveFunctions: {
+    // overwrite the default behavior of calling a /save endpoint
+    _defaultSave: ({data, path, saveToId, elem}) =&gt; {},
+
+    // can be passed in to a `custom-save:*` attribute
+    customSaveFunc: () =&gt; {}
+  },
+
+  // overwrite the default behavior of calling a /new endpoint
+  _defaultAddItemCallback: ({templateName, listElem, whereToInsert}) =&gt; {},
+
+  // overwrite the default behavior of calling a /upload endpoint
+  _defaultUploadCallback: ({fileInputElem, keyName, resetFileInput, file}) =&gt; {}
+});
 </code></pre>
 <h3>onSave</h3>
-<p>Use this method to...</p>
+<p>Use this method to call a callback function whenever data is saved.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">// called whenever data is saved. can pass in multiple callback functions.
+Remake.onSave(function (res) {
+  if (!res.success) {
+    crostini(&quot;Error saving data&quot;, {type: &quot;error&quot;});
+  }
+});
 </code></pre>
 <h3>onFileUpload</h3>
-<p>Use this method to...</p>
+<p>Use this method to call a callback function whenever a file is uploaded.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">// called whenever a file is uploaded. can pass in multiple callback functions.
+Remake.onFileUpload(function (res) {
+  if (res.success) {
+    crostini(&quot;File upload successful&quot;);
+  } else {
+    crostini(&quot;Error uploading file&quot;, {type: &quot;error&quot;});
+  }
+});
 </code></pre>
 <h3>onFileUploadProgress</h3>
-<p>Use this method to...</p>
+<p>Use this method to call a callback function whenever a file is in the process of being uploaded and you want to get the current progress.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">// called whenever the percentage of a file upload changes
+Remake.onFileUploadProgress(function ({percentage}) {
+  displayPercentage(percentage);
+});
 </code></pre>
 <h3>onAddItem</h3>
-<p>Use this method to...</p>
+<p>Use this method to call a callback function whenever an item is rendered to the page (i.e. a template is rendered and appended to somewhere on the page).</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">// called whenever new item is added to the page. can pass in multiple callback functions.
+Remake.onAddItem(function ({success, templateName, ajaxResponse}) {
+  if (!ajaxResponse.success) {
+    crostini(&quot;Error adding new item&quot;, {type: &quot;error&quot;});
+  }
+});
 </code></pre>
 <h3>onSync</h3>
-<p>Use this method to...</p>
+<p>Use this method to call a callback function whenever data is synced between two elements (i.e. when data from a popover is saved and added to the page).</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">Remake.onSync(function ({keyNames, sourceElement, targetElement, shouldSyncIntoUpdateElems}) {
+  console.log({keyNames, sourceElement, targetElement, shouldSyncIntoUpdateElems});
+});
 </code></pre>
 
           <div class="spacer--16"></div>

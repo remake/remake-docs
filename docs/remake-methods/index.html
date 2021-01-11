@@ -110,54 +110,55 @@
 <p>Sometimes you'll want to build your own tools on top of Remake.</p>
 <p>These low-level methods are available on the <code>Remake</code> client-side library! 🦄 You can access it in a script or the browser console by typing in &quot;Remake&quot;.</p>
 <h3>callSaveFunction</h3>
-<p>Use this method to...</p>
+<p>Use this method to trigger a Remake save event on an element. Remake will look for a <code>key:id</code> or <code>custom-save:*</code> attribute on the current element and save data to the id or custom function — or it will save the entire page.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">callSaveFunction(someElem);
 </code></pre>
 <h3>callWatchFunctionsOnElements</h3>
-<p>Use this method to...</p>
+<p>Use this method to trigger Remake's <code>watch:</code> attributes on one or more elements.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">callWatchFunctionsOnElements(someElems); // pass in an array
 </code></pre>
 <h3>getSaveData</h3>
-<p>Use this method to...</p>
+<p>Use this method to get the nested object/array data from an element. Remake will get <strong>all</strong> of its data, even from its child elements.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">getSaveData(someElement);
 </code></pre>
 <h3>getClosestElemWithKey</h3>
-<p>Use this method to...</p>
+<p>Use this method to travel up through an element's ancestors and find the first element that has a matching <code>key:*</code> attribute.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">getClosestElemWithKey({elem, keyName})
 </code></pre>
 <h3>getValueForClosestKey</h3>
-<p>Use this method to...</p>
+<p>Use this method to travel up through an element's ancestors and find the first value of a matching <code>key:*</code> attribute.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">getValueForClosestKey({elem, keyName});
 </code></pre>
 <h3>setValueForClosestKey</h3>
-<p>Use this method to...</p>
+<p>Use this method to travel up through an element's ancestors and set the value of the first key that matches the key name you provide.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">setValueForClosestKey({elem, keyName, value});
 </code></pre>
 <h3>getValueForKeyName</h3>
-<p>Use this method to...</p>
+<p>Use this method to get the value of a matching <code>key:*</code> attribute on the current element. This method won't traverse ancestors.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">getValueForKeyName({elem, keyName});
 </code></pre>
 <h3>setValueForKeyName</h3>
-<p>Use this method to...</p>
+<p>Use this method to set the value of a matching <code>key:*</code> attribute on the current element. This method won't traverse ancestors.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">setValueForKeyName({elem, keyName, value});
 </code></pre>
 <h3>getKeyNamesFromElem</h3>
-<p>Use this method to...</p>
+<p>Use this method to get all the key names from a single element.</p>
+<p>Returns keynames with dashes in them, e.g. <code>[&quot;example-key&quot;, &quot;another-example&quot;]</code>.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">getKeyNamesFromElem(elem);
 </code></pre>
 <h3>setAllDataToEmptyStringsExceptIds</h3>
-<p>Use this method to...</p>
+<p>Use this method to loop through all the <code>key:*</code> attributes on an element and set them all to empty strings. Doesn't work on <code>key:id</code> attributes.</p>
 <p>Example usage:</p>
-<pre><code class="language-js">console.log(123);
+<pre><code class="language-js">setAllDataToEmptyStringsExceptIds(someElem);
 </code></pre>
 
           <div class="spacer--16"></div>

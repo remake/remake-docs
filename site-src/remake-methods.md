@@ -11,100 +11,102 @@ These low-level methods are available on the `Remake` client-side library! 🦄 
 
 ### callSaveFunction
 
-Use this method to...
+Use this method to trigger a Remake save event on an element. Remake will look for a `key:id` or `custom-save:*` attribute on the current element and save data to the id or custom function &mdash; or it will save the entire page.
 
 Example usage:
 
 ```js
-console.log(123);
+callSaveFunction(someElem);
 ```
 
 ### callWatchFunctionsOnElements
 
-Use this method to...
+Use this method to trigger Remake's `watch:` attributes on one or more elements.
 
 Example usage:
 
 ```js
-console.log(123);
+callWatchFunctionsOnElements(someElems); // pass in an array
 ```
 
 ### getSaveData
 
-Use this method to...
+Use this method to get the nested object/array data from an element. Remake will get **all** of its data, even from its child elements.
 
 Example usage:
 
 ```js
-console.log(123);
+getSaveData(someElement);
 ```
 
 ### getClosestElemWithKey
 
-Use this method to...
+Use this method to travel up through an element's ancestors and find the first element that has a matching `key:*` attribute.
 
 Example usage:
 
 ```js
-console.log(123);
+getClosestElemWithKey({elem, keyName})
 ```
 
 ### getValueForClosestKey
 
-Use this method to...
+Use this method to travel up through an element's ancestors and find the first value of a matching `key:*` attribute. 
 
 Example usage:
 
 ```js
-console.log(123);
+getValueForClosestKey({elem, keyName});
 ```
 
 ### setValueForClosestKey
 
-Use this method to...
+Use this method to travel up through an element's ancestors and set the value of the first key that matches the key name you provide.
 
 Example usage:
 
 ```js
-console.log(123);
+setValueForClosestKey({elem, keyName, value});
 ```
 
 ### getValueForKeyName
 
-Use this method to...
+Use this method to get the value of a matching `key:*` attribute on the current element. This method won't traverse ancestors.
 
 Example usage:
 
 ```js
-console.log(123);
+getValueForKeyName({elem, keyName});
 ```
 
 ### setValueForKeyName
 
-Use this method to...
+Use this method to set the value of a matching `key:*` attribute on the current element. This method won't traverse ancestors.
 
 Example usage:
 
 ```js
-console.log(123);
+setValueForKeyName({elem, keyName, value});
 ```
 
 ### getKeyNamesFromElem
 
-Use this method to...
+Use this method to get all the key names from a single element.
+
+Returns keynames with dashes in them, e.g. `["example-key", "another-example"]`.
 
 Example usage:
 
 ```js
-console.log(123);
+getKeyNamesFromElem(elem);
 ```
 
 ### setAllDataToEmptyStringsExceptIds
 
-Use this method to...
+Use this method to loop through all the `key:*` attributes on an element and set them all to empty strings. Doesn't work on `key:id` attributes.
 
 Example usage:
 
 ```js
-console.log(123);
+setAllDataToEmptyStringsExceptIds(someElem);
 ```

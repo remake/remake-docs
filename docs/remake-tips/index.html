@@ -93,6 +93,7 @@
             <div class="sidebar__list-heading">ABOUT</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/why-remake">Why Remake</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/remake-tips">Remake Tips</a>
               <a class="sidebar__list-item " href="/contributors">Contributors</a>
             </div>
           </div>
@@ -111,7 +112,7 @@
 <p>Remake transforms your page into one big piece of data.</p>
 <p>This makes it a lot easier than normal to style your page based on which data is set and which data isn't.</p>
 <p>For example, lets say you wanted to implement a Dark Mode theme on your page. Your HTML might look like this:</p>
-<pre><code class="language-html">&lt;body object key:dark-mode=&quot;on&quot;&gt;
+<pre><code class="language-html">&lt;body object key:dark-mode=&quot;true&quot;&gt;
   &lt;button toggle:dark-mode&gt;Toggle Dark Mode&lt;/button&gt;
 &lt;/body&gt;
 </code></pre>
@@ -121,12 +122,12 @@
   color: #222;
 }
 
-body[key\:dark-mode=&quot;on&quot;] {
+body[key\:dark-mode=&quot;true&quot;] {
   background: #222;
   color: #fff;
 }
 </code></pre>
-<p><strong>Tip:</strong> You must escape the <code>:</code> in CSS selectors with a back slash <code>\</code>.</p>
+<p><strong>Tip:</strong> You must escape the colon (<code>:</code>) in CSS selectors with a back slash (<code>\</code>).</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

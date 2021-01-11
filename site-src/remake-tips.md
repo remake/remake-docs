@@ -14,7 +14,7 @@ This makes it a lot easier than normal to style your page based on which data is
 For example, lets say you wanted to implement a Dark Mode theme on your page. Your HTML might look like this:
 
 ```html
-<body object key:dark-mode="on">
+<body object key:dark-mode="true">
   <button toggle:dark-mode>Toggle Dark Mode</button>
 </body>
 ```
@@ -27,10 +27,10 @@ body {
   color: #222;
 }
 
-body[key\:dark-mode="on"] {
+body[key\:dark-mode="true"] {
   background: #222;
   color: #fff;
 }
 ```
 
-**Tip:** You must escape the `:` in CSS selectors with a back slash `\`.
+**Tip:** You must escape the colon (`:`) in CSS selectors with a back slash (`\`).

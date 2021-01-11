@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Remake Attributes - Remake Docs</title>
+    <title>Saving Data Attributes - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=900">
     <link rel="stylesheet" href="/static/prism.css?v=900">
@@ -105,10 +105,9 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h1>Remake Attributes</h1>
+          <h1>Saving Data</h1>
 <p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
 <p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
-<h2 class="api" id="saving">Saving Data</h2>
 <h3><code>object</code></h3>
 <p>Add this <code>object</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>object</code> attribute and converts them into data.</p>
 <p><strong>Example of an <code>object</code> element:</strong></p>
@@ -229,7 +228,7 @@
 &lt;/div&gt;
 </code></pre>
 <p>With this setup, if the value of <code>buttonText</code> ever changed, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
-<h2 class="api" id="update">Updating Data</h2>
+<h2 class="api" id="updating-data">Updating Data</h2>
 <h3><code>edit:some-example-key</code></h3>
 <p>Clicking on an element with this attribute will trigger an inline edit popover. The key it's editing must be on the same element or an ancestor element.</p>
 <h4>A simple example:</h4>

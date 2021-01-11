@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Sortable Items - Remake Docs</title>
+    <title>Advanced Attributes - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=900">
     <link rel="stylesheet" href="/static/prism.css?v=900">
@@ -67,7 +67,7 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/sortable-items">Sortable items</a>
+              <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
           </div>
@@ -77,7 +77,7 @@
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
-              <a class="sidebar__list-item " href="/advanced-attributes">Advanced attributes</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/advanced-attributes">Advanced attributes</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -106,39 +106,31 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h3>Sortable items</h3>
-<p>To make a list of items sortable when a user drags them around, simple add a <code>sortable</code> attribute to the parent element:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
+          <h1>Advanced Attributes</h1>
+<p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
+<p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
+<h3><code>ignore-data</code></h3>
+<p>Remake will skip over this element when saving data for a page.</p>
+<h3><code>no-save</code></h3>
+<p>Remake won't trigger a save event if data inside an element with this attribute changes.</p>
+<h3><code>disable-events</code></h3>
+<p>Remake events triggered by the <code>new:</code>, <code>save</code>, <code>edit:</code>, <code>update:</code>, <code>toggle:</code>, <code>remove</code> attributes will NOT trigger inside of an element with this attribute.</p>
+<h3><code>custom-save</code></h3>
+<p>If you want to handle the save event yourself, add this attribute above the elements you're editing and pass in the name of a custom save function that you define when initializing Remake (in the <code>saveFunctions</code> object).</p>
+<p>Reasons you might want to do this:</p>
+<ul>
+<li>You want to save a section of the page to a custom API endpoint</li>
+<li>You want to save a section of the page to a particular place in the user's data</li>
+</ul>
+<p>For example:</p>
+<pre><code class="language-html">&lt;div custom-save=&quot;customSaveFunction&quot;&gt;
+  &lt;div object key:some-data=&quot;@innerText&quot; edit:some-data&gt;Hello!&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<h3>Sortable across different lists</h3>
-<p>If you want two lists to be able to sort items across each other, give their <code>sortable</code> attributes a matching value:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Janne&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Erica&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Felix&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>If you want two lists to not be able to drag items between each other, give their <code>sortable</code> attributes different values:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;cars&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Jet car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Flying car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Robot car&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>Whenever a user saves the <code>some-data</code> key after clicking on the element, it will be saved using the <code>customSaveFunction</code> instead of the normal Remake save method.</p>
+<h3><code>sync</code></h3>
+<p>Used on Remake's inline edit popovers. It makes it so data in the popover is synced back into the page before being saved.</p>
+<p>This attribute is useful if you're creating your own inline edit popovers. To understand how it works, start by looking in <code>_remake/client-side/inputjs/editableAttribute.js</code>.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

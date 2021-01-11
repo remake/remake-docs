@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Sortable Items - Remake Docs</title>
+    <title>Updating Data (Attributes) - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=900">
     <link rel="stylesheet" href="/static/prism.css?v=900">
@@ -67,7 +67,7 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/sortable-items">Sortable items</a>
+              <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
-              <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
               <a class="sidebar__list-item " href="/advanced-attributes">Advanced attributes</a>
             </div>
@@ -106,39 +106,86 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h3>Sortable items</h3>
-<p>To make a list of items sortable when a user drags them around, simple add a <code>sortable</code> attribute to the parent element:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
+          <h1>Updating Data</h1>
+<p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
+<p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
+<h3><code>edit:some-example-key</code></h3>
+<p>Clicking on an element with this attribute will trigger an inline edit popover. The key it's editing must be on the same element or an ancestor element.</p>
+<h4>A simple example:</h4>
+<pre><code class="language-html">&lt;div object key:my-text=&quot;A simple note&quot;&gt;
+  &lt;button edit:my-text&gt;Edit text&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<h3>Sortable across different lists</h3>
-<p>If you want two lists to be able to sort items across each other, give their <code>sortable</code> attributes a matching value:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Janne&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Erica&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Felix&lt;/div&gt;
+<p>If you want to edit two keys at the same time, simply add another <code>edit:</code> attribute.</p>
+<h4>Editing two keys at once:</h4>
+<pre><code class="language-html">&lt;div object key:my-age=&quot;34&quot; key:my-name=&quot;David&quot;&gt;
+  &lt;button edit:my-age edit:my-name&gt;Edit my info&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<p>If you want two lists to not be able to drag items between each other, give their <code>sortable</code> attributes different values:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;cars&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Jet car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Flying car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Robot car&lt;/div&gt;
+<h4>Removing the &quot;remove&quot; button</h4>
+<p>Remake supports removing the &quot;remove&quot; button from the inline edit popover.</p>
+<pre><code class="language-html">&lt;div object key:my-text=&quot;A simple note&quot;&gt;
+  &lt;button edit:my-text:without-remove&gt;Edit text&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
+<p>This is useful if there's a piece of data in your app that you want to be editable, but not deletable.</p>
+<h4>Other edit areas</h4>
+<p>Remake supports editing multi-line text inside the popover. The following example will trigger an auto-expanding <code>textarea</code> instead of a single line input:</p>
+<pre><code class="language-html">&lt;div object key:my-text=&quot;A simple note&quot;&gt;
+  &lt;button edit:my-text:textarea&gt;Edit text&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>On the roadmap:</strong> Support for other edit areas, like radio buttons and dropdowns and color pickers is coming soon. <a href="https://form.remaketheweb.com/">Sign up</a> to hear about when they're released.</p>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>If, when a user clicks the &quot;remove&quot; button inside the inline edit popover, you want to set all of the data to empty strings instead of removing the data from the page altogether, use this modifier <code>edit:some-example-key:with-erase</code></li>
+</ul>
+<h3><code>update:some-example-key</code></h3>
+<p>Add this attribute to any <code>&lt;input&gt;</code> (e.g. <code>&lt;input type=&quot;text&quot;&gt;</code>, <code>&lt;input type=&quot;color&quot;&gt;</code>, <code>&lt;input type=&quot;file&quot;&gt;</code>, etc.), <code>&lt;textarea&gt;</code>, or <code>&lt;select&gt;</code> element.</p>
+<p>Whenever the value of these elements changes, Remake will update the value on an element with a matching <code>key:</code>. The key it's updating must be on the same element or an ancestor element.</p>
+<p>For example:</p>
+<pre><code class="language-html">&lt;div object key:favorite-animal=&quot;giraffe&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;giraffe&quot;&gt; giraffe&lt;/label
+  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;pangolin&quot;&gt; pangolin&lt;/label
+  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;zebra&quot;&gt; zebra&lt;/label
+&lt;/div&gt;
+</code></pre>
+<p>You can also attach the <code>update:</code> attribute to any other HTML element (e.g. <code>&lt;button&gt;</code>, <code>&lt;div&gt;</code>, etc.) to make clicking on it trigger an update. In this case, the value will be taken from the value of the <code>update:</code> attribute.</p>
+<p>For example:</p>
+<pre><code class="language-html">&lt;div object key:favorite-animal=&quot;giraffe&quot;&gt;
+  &lt;button update:favorite-animal=&quot;giraffe&quot;&gt;Choose giraffe&lt;/button&gt;
+  &lt;button update:favorite-animal=&quot;pangolin&quot;&gt;Choose pangolin&lt;/button&gt;
+  &lt;button update:favorite-animal=&quot;zebra&quot;&gt;Choose zebra&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<h3><code>new:example-item-name</code></h3>
+<p>If you click on an element with this attribute, Remake will do its best to render a template and add it to the page.</p>
+<p>Remake looks for a template that matches the name:</p>
+<ul>
+<li>In your <code>{{#for}}</code> loops</li>
+<li>In the templates in your <code>app/partials</code> directory</li>
+</ul>
+<p>The template is rendered server-side and then passed back to the client-side to be added to the page.</p>
+<h4>Controlling where the template is inserted</h4>
+<p>You can pass some options to the value of this attribute: <code>top</code> or <code>bottom</code> or a CSS selector (e.g. <code>.my-list</code>).</p>
+<p>Remake will use the <code>top</code> or <code>bottom</code> argument to decide where in the list to insert the new item. By default this is set to <code>bottom</code>.</p>
+<p>And it will use the CSS selector argument to find the list you want the item to be inserted into. By default this is set to <code>[array]</code>, so it just finds the closest element with the <code>array</code> attribute.</p>
+<p>For example:</p>
+<pre><code class="language-html">&lt;ul class=&quot;todo-list&quot; array&gt;&lt;/ul&gt;
+&lt;button new:todo-item=&quot;.todo-list top&quot;&gt;&lt;/button&gt;
+</code></pre>
+<p>This will render the template <code>todoItem</code> and insert it at the top of the element with the <code>todo-list</code> class.</p>
+<h3><code>toggle:some-example-key</code></h3>
+<p>This attribute will toggle the value of a key that matches its name. The key it's toggling must be on the same element or an ancestor element.</p>
+<p>The values it toggles between are <code>on</code> and <code>off</code>.</p>
+<h3><code>default:some-example-key</code></h3>
+<p>If a <code>key:</code> that matches this attribute is going to be set to a value of an empty string (e.g. <code>&quot;&quot;</code> or even <code>&quot; &quot;</code>), replace the value with the value of this attribute instead.</p>
+<h3><code>save</code></h3>
+<p>Clicking on an element with this attribute will trigger a save.</p>
+<h3><code>remove</code></h3>
+<p>When an element with this attribute is clicked, it will find the closest element with data and remove that element from the page. It will look for data first on the current element and then on all of its ancestor elements.</p>
+<h3><code>erase</code></h3>
+<p>When an element with this attribute is clicked, it will find the closest element with data and set all of its data to empty strings. It will look for data first on the current element and then on all of its ancestor elements.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

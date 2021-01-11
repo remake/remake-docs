@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Sortable Items - Remake Docs</title>
+    <title>Saving Data (Attributes) - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=900">
     <link rel="stylesheet" href="/static/prism.css?v=900">
@@ -67,14 +67,14 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/sortable-items">Sortable items</a>
+              <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
           </div>
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
               <a class="sidebar__list-item " href="/advanced-attributes">Advanced attributes</a>
@@ -106,39 +106,115 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h3>Sortable items</h3>
-<p>To make a list of items sortable when a user drags them around, simple add a <code>sortable</code> attribute to the parent element:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
+          <h1>Saving Data</h1>
+<p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
+<p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
+<h3><code>object</code></h3>
+<p>Add this <code>object</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>object</code> attribute and converts them into data.</p>
+<p><strong>Example of an <code>object</code> element:</strong></p>
+<pre><code class="language-html">&lt;div object&gt;&lt;/div&gt;
+</code></pre>
+<p>This is valid Remake code and will be converted into <code>{}</code> when the page is saved.</p>
+<p>Remake can convert an element into one of two data structures:</p>
+<ul>
+<li>object</li>
+<li>array</li>
+</ul>
+<p>Next, we'll learn about arrays.</p>
+<h3><code>array</code></h3>
+<p>Add this <code>array</code> attribute to an HTML element to let Remake know there's data on it. Remake scans the page for all <code>array</code> attribute and converts them into data.</p>
+<p><strong>Example of an <code>array</code> element:</strong></p>
+<pre><code class="language-html">&lt;div array&gt;&lt;/div&gt;
+</code></pre>
+<p>This is valid Remake code and will be converted into <code>[]</code> when the page is saved.</p>
+<h3><code>key</code></h3>
+<p>This attribute allows you to label data inside a parent object.</p>
+<p>Normally, in Remake, if there's an <code>object</code> inside another <code>object</code>, their data will be merged into a single object:</p>
+<p>The following code, for example, produces a single object.</p>
+<pre><code class="language-html">&lt;div data-o-type=&quot;object&quot;&gt;
+  &lt;div data-o-type=&quot;object&quot;&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<h3>Sortable across different lists</h3>
-<p>If you want two lists to be able to sort items across each other, give their <code>sortable</code> attributes a matching value:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Janne&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Erica&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Felix&lt;/div&gt;
+<p>Output:</p>
+<pre><code class="language-js">{}
+</code></pre>
+<p>To prevent this merge from happening and instead label the nested object, you can use the <code>key</code> attribute.</p>
+<pre><code class="language-html">&lt;div object&gt;
+  &lt;div object key=&quot;someKeyName&quot;&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>If you want two lists to not be able to drag items between each other, give their <code>sortable</code> attributes different values:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;cars&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Jet car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Flying car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Robot car&lt;/div&gt;
-&lt;/div&gt;
+<p>Output:</p>
+<pre><code class="language-js">{
+  someKeyName: {}
+}
 </code></pre>
+<p>Now the nested object is inside the other object and labeled as <code>someKeyName</code>.</p>
+<h3><code>key:some-example-key</code></h3>
+<p>This attribute lets you attach key/value pairs to an <code>object</code> element.</p>
+<p>This attribute is how Remake stores data in HTML.</p>
+<p>For example:</p>
+<pre><code class="language-html">&lt;div 
+  object
+  key:first-name=&quot;David&quot; 
+  key:favorite-color=&quot;green&quot;
+&gt;&lt;/div&gt;
+</code></pre>
+<p>Remake will convert this element into an <code>object</code> that has two keys and two values:</p>
+<pre><code class="language-javascript">{firstName: &quot;David&quot;, favoriteColor: &quot;green&quot;}
+</code></pre>
+<p><strong>Good to know:</strong></p>
+<ul>
+<li>You can attach as many key/value pairs to the same element as you want.</li>
+<li>Remake only understands text as a value (no numbers or dates for now, but this will change)</li>
+<li>Key names are automatically camel-cased for you when they're saved (e.g. <code>key:some-key</code> is converted into <code>someKey</code>)</li>
+<li>There's one special key in Remake: <code>key:id</code>. It's useful for storing data to a specific place.</li>
+</ul>
+<h3><code>key:some-example-key=&quot;@&quot;</code></h3>
+<p>If you set a key equal to <code>@</code> followed by a valid command, Remake will look elsewhere for the value of they key.</p>
+<p>Read on to learn about all the valid commands.</p>
+<h4>Native property commands</h4>
+<p>Every native HTML property is a valid command:</p>
+<ul>
+<li><code>@id</code></li>
+<li><code>@className</code></li>
+<li><code>@type</code></li>
+<li><code>@src</code></li>
+<li><code>@href</code></li>
+<li><code>@value</code></li>
+<li><code>@checked</code></li>
+<li><code>@innerText</code></li>
+<li><code>@innerHTML</code></li>
+<li><code>@style</code></li>
+<li><code>@title</code></li>
+<li><code>@alt</code></li>
+<li><code>@for</code></li>
+<li><code>@placeholder</code></li>
+</ul>
+<p>Every normal HTML property command tell Remake to simply look in the named property inside the current element for the value of the key (e.g. <code>elem.src</code>).</p>
+<h4>Special commands</h4>
+<p>There are two special commands:</p>
+<ul>
+<li><code>@attr:</code>
+<ul>
+<li>Useful for looking up the value of custom attributes (e.g. <code>@attr:data-x</code>)</li>
+</ul>
+</li>
+<li><code>@search</code>
+<ul>
+<li>Searches the current element for a <code>target:</code> attribute that matches the original key name</li>
+<li>Executes any commands on that <code>target:</code> element to get the final value</li>
+</ul>
+</li>
+</ul>
+<h3><code>temporary:key:some-example-key</code></h3>
+<p>This attribute behaves exactly the same as its counterpart, <code>key:some-example-key</code>, with two exceptions:</p>
+<ol>
+<li>When the value of a <code>temporary:key:</code> attribute changes, a save event isn't triggered</li>
+<li>The key and value of a <code>temporary:key:</code> attribute is invisible to the save function (their data simply isn't saved)</li>
+</ol>
+<p>It's very useful for attaching temporary state to the page (e.g. toggling menus, sidebars, or tabs)</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Sortable Items - Remake Docs</title>
+    <title>Tips for Remake - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=900">
     <link rel="stylesheet" href="/static/prism.css?v=900">
@@ -67,7 +67,7 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/sortable-items">Sortable items</a>
+              <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
           </div>
@@ -106,39 +106,27 @@
         </div>
         <div class="main">
           <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
-          <h3>Sortable items</h3>
-<p>To make a list of items sortable when a user drags them around, simple add a <code>sortable</code> attribute to the parent element:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
+          <h1>Tips for Remake</h1>
+<h3>Styling</h3>
+<p>Remake transforms your page into one big piece of data.</p>
+<p>This makes it a lot easier than normal to style your page based on which data is set and which data isn't.</p>
+<p>For example, lets say you wanted to implement a Dark Mode theme on your page. Your HTML might look like this:</p>
+<pre><code class="language-html">&lt;body object key:dark-mode=&quot;on&quot;&gt;
+  &lt;button toggle:dark-mode&gt;Toggle Dark Mode&lt;/button&gt;
+&lt;/body&gt;
 </code></pre>
-<h3>Sortable across different lists</h3>
-<p>If you want two lists to be able to sort items across each other, give their <code>sortable</code> attributes a matching value:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Janne&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Erica&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Felix&lt;/div&gt;
-&lt;/div&gt;
+<p>Now, in your CSS you can style the page normally if Dark Mode is not enabled and differently if it is:</p>
+<pre><code class="language-css">body {
+  background: #fff;
+  color: #222;
+}
+
+body[key\:dark-mode=&quot;on&quot;] {
+  background: #222;
+  color: #fff;
+}
 </code></pre>
-<p>If you want two lists to not be able to drag items between each other, give their <code>sortable</code> attributes different values:</p>
-<pre><code class="language-html">&lt;div array key=&quot;items&quot; sortable=&quot;people&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Nick&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Sarah&lt;/div&gt;
-&lt;/div&gt;
-&lt;div array key=&quot;items&quot; sortable=&quot;cars&quot;&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Jet car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Flying car&lt;/div&gt;
-  &lt;div object key:name=&quot;@innerText&quot;&gt;Robot car&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p><strong>Tip:</strong> You must escape the <code>:</code> in CSS selectors with a back slash <code>\</code>.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

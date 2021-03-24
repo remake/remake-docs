@@ -48,8 +48,8 @@ Normally, in Remake, if there's an `object` inside another `object`, their data 
 The following code, for example, produces a single object.
 
 ```html
-<div data-o-type="object">
-  <div data-o-type="object">
+<div object>
+  <div object>
   </div>
 </div>
 ```

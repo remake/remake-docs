@@ -147,9 +147,9 @@
 <p>Whenever the value of these elements changes, Remake will update the value on an element with a matching <code>key:</code>. The key it's updating must be on the same element or an ancestor element.</p>
 <p>For example:</p>
 <pre><code class="language-html">&lt;div object key:favorite-animal=&quot;giraffe&quot;&gt;
-  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;giraffe&quot;&gt; giraffe&lt;/label
-  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;pangolin&quot;&gt; pangolin&lt;/label
-  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;zebra&quot;&gt; zebra&lt;/label
+  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;giraffe&quot;&gt; giraffe&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;pangolin&quot;&gt; pangolin&lt;/label&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot; update:favorite-animal value=&quot;zebra&quot;&gt; zebra&lt;/label&gt;
 &lt;/div&gt;
 </code></pre>
 <p>You can also attach the <code>update:</code> attribute to any other HTML element (e.g. <code>&lt;button&gt;</code>, <code>&lt;div&gt;</code>, etc.) to make clicking on it trigger an update. In this case, the value will be taken from the value of the <code>update:</code> attribute.</p>

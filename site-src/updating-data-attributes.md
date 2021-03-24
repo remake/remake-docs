@@ -69,9 +69,9 @@ For example:
 
 ```html
 <div object key:favorite-animal="giraffe">
-  <label><input type="radio" update:favorite-animal value="giraffe"> giraffe</label
-  <label><input type="radio" update:favorite-animal value="pangolin"> pangolin</label
-  <label><input type="radio" update:favorite-animal value="zebra"> zebra</label
+  <label><input type="radio" update:favorite-animal value="giraffe"> giraffe</label>
+  <label><input type="radio" update:favorite-animal value="pangolin"> pangolin</label>
+  <label><input type="radio" update:favorite-animal value="zebra"> zebra</label>
 </div>
 ```
 

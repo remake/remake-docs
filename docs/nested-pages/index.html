@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Reacting to Data (Attributes) - Remake Docs</title>
+    <title>Nested Pages - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=901">
     <link rel="stylesheet" href="/static/prism.css?v=901">
@@ -67,7 +67,7 @@
               <a class="sidebar__list-item " href="/saving">Saving</a>
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
-              <a class="sidebar__list-item " href="/nested-pages">Nested Pages &amp; Routes</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/nested-pages">Nested Pages &amp; Routes</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
               <a class="sidebar__list-item " href="/visibility">Visibility (show-if)</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
@@ -79,7 +79,7 @@
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/reacting-to-data-attributes">Reacting to data</a>
+              <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
               <a class="sidebar__list-item " href="/advanced-attributes">Advanced attributes</a>
             </div>
           </div>
@@ -115,29 +115,118 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h1>Reacting to Data</h1>
-<p>Remake uses custom attributes to store data and add web app behavior. You can use these attributes to create a fully working web app.</p>
-<p>See the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some step-by-step examples or the <a href="/attach-data-to-elements/">TLDR summary of all the attributes</a>.</p>
-<h3><code>watch:some-example-key</code></h3>
-<p>Use this attribute to react to changes on another key's value. The key it reacts to must be on the same element or an ancestor element.</p>
-<p>The value for this attribute can be any of the <strong>native property commands</strong> listed in the section above this one (e.g. <code>@innerText</code> or <code>@src</code>).</p>
-<p>You can also use this attribute to call custom functions.</p>
-<pre><code class="language-html">watch:some-example-key=&quot;customFunction1(arg1, arg2) customFunction2(arg1, arg2)&quot;
+          <h3>Nested Pages</h3>
+<p>This guide will show you how to create nested pages in Remake!</p>
+<p>First, we'll need to turn on unique ids! This will cause Remake to generate a unique id for every object in the database. Remake uses these ids to save data directly to certain objects.</p>
+<p>Edit your <code>.remake</code> file and add this line to turn on unique ids:</p>
+<pre><code class="language-html">&quot;generateUniqueIds&quot;: true
 </code></pre>
-<p>In this example, <code>customFunction1</code> and <code>customFunction2</code> would be defined when you first initialize Remake, inside the <code>watchFunctions</code> object.</p>
-<p><strong>Good to know:</strong></p>
-<ul>
-<li>By convention, this attribute should be attached to the element it's modifying.</li>
-<li>This attribute is very useful for displaying the same values in multiple places across a page while using the same data source.</li>
-</ul>
-<p>For example, let's say you wanted to have a button on a landing page that had the same text no matter where it was displayed, you could do this:</p>
-<pre><code class="language-html">&lt;div object key:button-text=&quot;Buy Now!&quot;&gt;
-  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
-  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
-  &lt;button watch:button-text=&quot;@innerText&quot;&gt;&lt;/button&gt;
+<p>Now, every object in your users' data files will have a unique id automatically assigned to it!</p>
+<pre><code class="language-json">{
+  &quot;todolists&quot;: [
+    {
+      &quot;name&quot;: &quot;My first todo list&quot;,
+      &quot;todos&quot;: [
+        {
+          &quot;text&quot;: &quot;My first todo&quot;
+        },
+        &quot;id&quot;: &quot;RQZA9&quot;
+      ],
+      &quot;id&quot;: &quot;JXBR4&quot;
+    },
+    {
+      &quot;name&quot;: &quot;My second todo list&quot;,
+      &quot;todos&quot;: [
+        {
+          &quot;text&quot;: &quot;Another todo&quot;
+        },
+        &quot;id&quot;: &quot;YYCT2&quot;
+      ],
+    &quot;id&quot;: &quot;LERW5&quot;
+    }
+  ],
+  &quot;id&quot;: &quot;KOLP8&quot;
+}
+</code></pre>
+<p><strong>Note:</strong> Remake only generates these ids on page load, so if you don't see them right away, try refreshing the page.</p>
+<p>Now, you have everything you need to add nested pages!</p>
+<p>Next, you need to render each object's unique id the right <code>object</code>  element in the HTML.</p>
+<p>Do this using <code>key:id</code> attributes</p>
+<pre><code class="language-html">&lt;div object&gt;
+  &lt;div array key=&quot;todolists&quot;&gt;
+    {{#for list in todolists}}
+      &lt;div object key:name=&quot;@search&quot; key:id=&quot;{{list.id}}&quot;&gt;
+        &lt;div target:name=&quot;@innerText&quot; edit:name&gt;{{list.name}}&lt;/div&gt;
+        &lt;div array key=&quot;todos&quot;&gt;
+          {{#for todo in list.todos}}
+            &lt;div object key:text=&quot;@innerText&quot; edit:text key:id=&quot;{{todo.id}}&quot;&gt;{{todo.text}}&lt;/div&gt;
+          {{/for}}
+        &lt;/div&gt;
+        &lt;button new:todo&gt;New todo&lt;/button&gt;
+      &lt;/div&gt;
+    {{/for}}
+  &lt;/div&gt;
+  &lt;button new:todolist&gt;New todo list&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<p>With this setup, if the value of <code>buttonText</code> ever changed, all of the buttons will get the new value inserted into their <code>innerText</code>.</p>
+<p>One problem: when a new item is created don't have ids, so use <code>generateIdIfNone</code> helper.</p>
+<pre><code class="language-html">&lt;div object&gt;
+  &lt;div array key=&quot;todolists&quot;&gt;
+    {{#for list in todolists}}
+      &lt;div object key:name=&quot;@search&quot; key:id=&quot;{{generateIdIfNone list.id 'list.id'}}&quot;&gt;
+        &lt;div target:name=&quot;@innerText&quot; edit:name&gt;{{list.name}}&lt;/div&gt;
+        &lt;div array key=&quot;todos&quot;&gt;
+          {{#for todo in list.todos}}
+            &lt;div object key:text=&quot;@innerText&quot; edit:text key:id=&quot;{{generateIdIfNone todo.id 'todo.id'}}&quot;&gt;{{todo.text}}&lt;/div&gt;
+          {{/for}}
+        &lt;/div&gt;
+        &lt;button new:todo&gt;New todo&lt;/button&gt;
+      &lt;/div&gt;
+    {{/for}}
+  &lt;/div&gt;
+  &lt;button new:todolist&gt;New todo list&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Adding <code>key:id</code> attributes to every object accomplishes a few things:</p>
+<ol>
+<li>If data is edited inside an element with a <code>key:id</code> attribute, Remake will save the data to an object with a matching id instead of saving the whole page.</li>
+<li>When saving the page, Remake does its best to preserve data and not discard anything. However, it's hard to do this with items in an <code>array</code> element.</li>
+<li>Usually, new unique ids for every object are generated on every page load. However, if you add them to the objects on the page in <code>key:id</code> attributes, they'll stay the same across page loads.</li>
+</ol>
+<p>Now we can link to items by using their unique ids:</p>
+<pre><code class="language-html">&lt;div object&gt;
+  &lt;div array key=&quot;todoLists&quot;&gt;
+    {{#for todoList in todoLists}}
+      &lt;a href=&quot;/{{currentUser.details.username}}/todolist/{{todoList.id}}&quot;&gt;{{todoList.name}}&lt;/a&gt;
+    {{/for}}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>With this type of url, Remake expects the first url param to be a user's username, the next to be the page template that will be rendered, and the final param (if there is one) to be the id of an object in the page author's data.</p>
+<p>(Tip: <a href="/routing/">More valuable info about url params</a>)</p>
+<p>Here's what our <code>todolist.hbs</code> template might look like:</p>
+<pre><code class="language-html">&lt;div object key:text=&quot;@search&quot; key:id=&quot;{{currentItem.id}}&quot;&gt;
+  &lt;div target:text=&quot;@innerText&quot;&gt;{{currentItem.name}}&lt;/div&gt;
+  &lt;div array key=&quot;todos&quot;&gt;
+    {{#for todo in currentItem.todos}}
+      &lt;div object key:text=&quot;@innerText&quot; key:id=&quot;{{todo.id}}&quot;&gt;{{todo.text}}&lt;/div&gt;
+    {{/for}}
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Here, the <code>currentItem</code> variable is given to us automatically. Remake gets the currentItem by looking through all the data belonging to the page author and finding the object that matches the id that's in the 3rd url param.</p>
+<p><strong>So, here's what happens:</strong></p>
+<ol>
+<li>The user clicks on a link with this url path: <code>/johnsmith/todolist/LERW5</code>.</li>
+<li>Remake looks through johnsmith's data and finds an object with the id <code>LERW5</code></li>
+<li>Remake creates a special variable called <code>currentItem</code> to represent this object</li>
+<li>Remake renders the <code>todolist.hbs</code> template using johnsmith's data</li>
+</ol>
+<hr>
+<p>Just <em>one more note</em> before we finish!</p>
+<p>By default, Remake will save a page's data to the current user's data — without thinking about where it should go.</p>
+<p>That's why, on this nested page, it's important to have a <code>key:id</code> HTML attribute that's set to the id of the <code>currentItem</code>. This tells Remake: everything piece of data inside this element should be saved to this id.</p>
+<p>Without this <code>key:id</code> attribute, Remake will save the data to the top-level of the user's data. With the attribute, it will find the object matching that id <em>first</em> and then save the data into it.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

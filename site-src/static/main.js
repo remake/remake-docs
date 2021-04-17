@@ -48,6 +48,13 @@ PoliteEmailPopup.marketingWebsite({
 });
 
 
+// DOC SEARCH
+docsearch({
+  apiKey: 'f7b64534f1302f69c09aeca61ac7afff',
+  indexName: 'remaketheweb',
+  inputSelector: '.search-docs__input',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
 
 
 

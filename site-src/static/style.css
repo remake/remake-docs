@@ -187,7 +187,7 @@ img {
 .main {
   position: relative;
   width: 800px;
-  padding: 45px 46px 48px;
+  padding: 32px 46px 48px;
   border-right: 1px solid #212529;
   border-left: 1px solid #212529;
   line-height: 1.4em;
@@ -410,6 +410,40 @@ img {
   border-radius: 999px;
   border: 3px solid white;
 }
+
+.search-docs {
+  display: flex;
+  align-content: center;
+  line-height: 1;
+}
+.search-docs__label {
+  position: relative;
+  width: 230px;
+  margin-left: auto;
+}
+.search-docs__search-icon {
+  position: absolute;
+  top: 8px;
+  left: 13px;
+  z-index: 1;
+  opacity: .4;
+}
+.algolia-autocomplete {
+  width: 100%;
+}
+.search-docs__input {
+  width: 100%;
+  padding: 6px 0px 7px 38px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+}
+
+.search-docs__input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+}
+
 
 @media (max-width: 1100px) {
   .toggle-button {

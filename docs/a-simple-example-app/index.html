@@ -6,16 +6,17 @@
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
     <title>A Simple Example App - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="/static/normalize-min.css?v=900">
-    <link rel="stylesheet" href="/static/prism.css?v=900">
-    <link rel="stylesheet" href="/static/slideout.css?v=900">
-    <link rel="stylesheet" href="/static/style.css?v=900">
+    <link rel="stylesheet" href="/static/normalize-min.css?v=901">
+    <link rel="stylesheet" href="/static/prism.css?v=901">
+    <link rel="stylesheet" href="/static/slideout.css?v=901">
+    <link rel="stylesheet" href="/static/style.css?v=901">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
     <!-- favicon: -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=900">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=900">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=900">
-    <link rel="manifest" href="/site.webmanifest?v=900">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=900" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=901">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=901">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=901">
+    <link rel="manifest" href="/site.webmanifest?v=901">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=901" color="#5bbad5">
     <meta name="apple-mobile-web-app-title" content="Remake">
     <meta name="application-name" content="Remake">
     <meta name="msapplication-TileColor" content="#ffc40d">
@@ -49,7 +50,7 @@
             <div class="sidebar__list-heading">TUTORIAL</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/introducing-remake">Introducing Remake</a>
-              <a class="sidebar__list-item " href="/installing-and-setting-up-remake">Installing & Setting Up Remake</a>
+              <a class="sidebar__list-item " href="/installing-and-setting-up-remake">Installing &amp; Setting Up Remake</a>
               <a class="sidebar__list-item " href="/attach-data-to-elements">Attach Data to Elements</a>
               <a class="sidebar__list-item " href="/rendering-data">Rendering Data</a>
               <a class="sidebar__list-item " href="/making-data-editable">Making Data Editable</a>
@@ -67,7 +68,7 @@
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
-              <a class="sidebar__list-item " href="/visibility">Visibility</a>
+              <a class="sidebar__list-item " href="/visibility">Visibility (show-if)</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
             </div>
@@ -107,7 +108,12 @@
           </div>
         </div>
         <div class="main">
-          <a class="github-link github-link--top" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
+          <div class="search-docs">
+            <label class="search-docs__label">
+              <img class="search-docs__search-icon" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2Ljk2NiA1Ni45NjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPHBhdGggZD0iTTU1LjE0Niw1MS44ODdMNDEuNTg4LDM3Ljc4NmMzLjQ4Ni00LjE0NCw1LjM5Ni05LjM1OCw1LjM5Ni0xNC43ODZjMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMywxMC4zMTgtMjMsMjMgIHMxMC4zMTgsMjMsMjMsMjNjNC43NjEsMCw5LjI5OC0xLjQzNiwxMy4xNzctNC4xNjJsMTMuNjYxLDE0LjIwOGMwLjU3MSwwLjU5MywxLjMzOSwwLjkyLDIuMTYyLDAuOTIgIGMwLjc3OSwwLDEuNTE4LTAuMjk3LDIuMDc5LTAuODM3QzU2LjI1NSw1NC45ODIsNTYuMjkzLDUzLjA4LDU1LjE0Niw1MS44ODd6IE0yMy45ODQsNmM5LjM3NCwwLDE3LDcuNjI2LDE3LDE3cy03LjYyNiwxNy0xNywxNyAgcy0xNy03LjYyNi0xNy0xN1MxNC42MSw2LDIzLjk4NCw2eiIgZmlsbD0iIzAwMDAwMCIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+              <input class="search-docs__input" placeholder="Search docs" type="text" >
+            </label>
+          </div>
           <h2>A Simple, Working Todo List App:</h2>
 <p><strong>This is a fully-functional application in Remake:</strong></p>
 <div class="line-numbers">
@@ -176,11 +182,12 @@
       </div>
     </div>
     <a class="toggle-button" href="#">☰ Menu</a>
-    <script src="/static/slideout.min.js?v=900"></script>
-    <script src="/static/prism.js?v=900"></script>
+    <script src="/static/slideout.min.js?v=901"></script>
+    <script src="/static/prism.js?v=901"></script>
     <script src="https://cdn.jsdelivr.net/npm/polite-email-popup@0.9.3/dist/polite-email-popup.umd.js"></script>
-    <script src="/static/main.js?v=900"></script>
-    <script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script src="/static/main.js?v=901"></script>
+    <script>// GOOGLE ANALYTICS
       (function(a,b,c){var d=a.history,e=document,f=navigator||{},g=localStorage,
       h=encodeURIComponent,i=d.pushState,k=function(){return Math.random().toString(36)},
       l=function(){return g.cid||(g.cid=k()),g.cid},m=function(r){var s=[];for(var t in r)

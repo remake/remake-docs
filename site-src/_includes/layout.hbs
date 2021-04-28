@@ -25,6 +25,12 @@
     {{{meta}}}
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
+    {{#if meta}}
+      {{{meta}}}
+    {{else}}
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=bold&mode=dark&color=indigo&pattern=diagonal_lines&hide_watermark=true&url=https://docs.remaketheweb.com/{{page.url}}">
+      <meta property="twitter:card" content="summary_large_image">
+    {{/if}}
   </head>
   <body>
     <div id="menu">

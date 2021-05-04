@@ -71,7 +71,7 @@
               <a class="sidebar__list-item " href="/saving">Saving</a>
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/nested-pages">Nested Pages &amp; Routes</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/nested-pages">Nested Pages</a>
               <a class="sidebar__list-item " href="/templating">Templating</a>
               <a class="sidebar__list-item " href="/visibility">Visibility (show-if)</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
@@ -121,12 +121,37 @@
             </label>
           </div>
           <h3>Nested Pages</h3>
-<p>This guide will show you how to create nested pages in Remake!</p>
+<p>Remake makes it really simple to use data across multiple pages and make sure it's saved to the right place!</p>
+<p>Let's see how!</p>
+<h2>The Difficulty</h2>
+<p>Remake works by converting between HTML and JSON:</p>
+<ol>
+<li>It converts nested HTML elements into nested JSON objects &amp; arrays</li>
+<li>Then it saves that data to the database</li>
+<li>Then it uses that JSON to render pages</li>
+</ol>
+<div style="margin: 32px 0; font-size: 36px; text-align: center; font-weight: bold; color: #333;">
+  <div style="display: inline-block; padding: 16px 12px; background-color: #dadada; border-radius: 5px;">HTML 🔄 JSON</div>
+</div>
+<p>The problems we could run into with this approach are:</p>
+<ol>
+<li>What if we want to display only a small part of our data on a page — and not all the data?</li>
+<li>What if, after displaying only a small part of our data, we want to make sure that data is saved back to the correct position in the data?</li>
+</ol>
+<h2>The Solution: Unique IDs</h2>
+<p>These problems are both solved by: <strong>Unique IDs!</strong></p>
+<p>After you turn Unique IDs on, Remake simply generates a unique id (e.g. &quot;xOIWt1jDQw0Ebu&quot;) for every item in your database.</p>
+<p>Now you have a way to:</p>
+<ol>
+<li>Display only part of your data: just add an item's unique id as a URL parameter (<a href="/routing/">see more details</a>)</li>
+<li>Save a page's data directly into an item in your database (by using the special <code>key:id</code> attribute (explained below)</li>
+</ol>
+<h2>Turn on Unique IDs</h2>
 <p>First, we'll need to turn on unique ids! This will cause Remake to generate a unique id for every object in the database. Remake uses these ids to save data directly to certain objects.</p>
 <p>Edit your <code>.remake</code> file and add this line to turn on unique ids:</p>
 <pre><code class="language-html">&quot;generateUniqueIds&quot;: true
 </code></pre>
-<p>Now, every object in your users' data files will have a unique id automatically assigned to it!</p>
+<p>Now, every object in your users' data files will have a unique id automatically assigned to it! ⬇️</p>
 <pre><code class="language-json">{
   &quot;todolists&quot;: [
     {
@@ -155,7 +180,8 @@
 </code></pre>
 <p><strong>Note:</strong> Remake only generates these ids on page load, so if you don't see them right away, try refreshing the page.</p>
 <p>Now, you have everything you need to add nested pages!</p>
-<p>Next, you need to render each object's unique id the right <code>object</code>  element in the HTML.</p>
+<h2>Render Unique IDs into your page</h2>
+<p>Next, you need to render each object's unique id in the right <code>object</code> element in your HTML.</p>
 <p>Do this using <code>key:id</code> attributes</p>
 <pre><code class="language-html">&lt;div object&gt;
   &lt;div array key=&quot;todolists&quot;&gt;
@@ -174,30 +200,14 @@
   &lt;button new:todolist&gt;New todo list&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
-<p>One problem: when a new item is created don't have ids, so use <code>generateIdIfNone</code> helper.</p>
-<pre><code class="language-html">&lt;div object&gt;
-  &lt;div array key=&quot;todolists&quot;&gt;
-    {{#for list in todolists}}
-      &lt;div object key:name=&quot;@search&quot; key:id=&quot;{{generateIdIfNone list.id 'list.id'}}&quot;&gt;
-        &lt;div target:name=&quot;@innerText&quot; edit:name&gt;{{list.name}}&lt;/div&gt;
-        &lt;div array key=&quot;todos&quot;&gt;
-          {{#for todo in list.todos}}
-            &lt;div object key:text=&quot;@innerText&quot; edit:text key:id=&quot;{{generateIdIfNone todo.id 'todo.id'}}&quot;&gt;{{todo.text}}&lt;/div&gt;
-          {{/for}}
-        &lt;/div&gt;
-        &lt;button new:todo&gt;New todo&lt;/button&gt;
-      &lt;/div&gt;
-    {{/for}}
-  &lt;/div&gt;
-  &lt;button new:todolist&gt;New todo list&lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
+<h2>The Power of the Special <code>key:id</code> Attribute</h2>
 <p>Adding <code>key:id</code> attributes to every object accomplishes a few things:</p>
 <ol>
 <li>If data is edited inside an element with a <code>key:id</code> attribute, Remake will save the data to an object with a matching id instead of saving the whole page.</li>
-<li>When saving the page, Remake does its best to preserve data and not discard anything. However, it's hard to do this with items in an <code>array</code> element.</li>
-<li>Usually, new unique ids for every object are generated on every page load. However, if you add them to the objects on the page in <code>key:id</code> attributes, they'll stay the same across page loads.</li>
+<li>When saving the page, Remake does its best to preserve data and not discard anything. However, it's hard to do this with items in an <code>array</code> element. Unique ids make it possible to save arrays from the page and not lose data!</li>
+<li>Unique ids will be generated on every page load. However, if you add them to the objects on the page in <code>key:id</code> attributes, they'll stay the same across page loads.</li>
 </ol>
+<h2>Link to Nested Pages</h2>
 <p>Now we can link to items by using their unique ids:</p>
 <pre><code class="language-html">&lt;div object&gt;
   &lt;div array key=&quot;todoLists&quot;&gt;
@@ -207,8 +217,14 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>With this type of url, Remake expects the first url param to be a user's username, the next to be the page template that will be rendered, and the final param (if there is one) to be the id of an object in the page author's data.</p>
-<p>(Tip: <a href="/routing/">More valuable info about url params</a>)</p>
+<p>With this type of url, Remake expects</p>
+<ol>
+<li>The first url param to be a user's username</li>
+<li>The second url param to be the page template that will be rendered</li>
+<li>The third and final param to be the id of an object in the page author's data.</li>
+</ol>
+<p>(<a href="/routing">See more details about routing here</a>)</p>
+<h2>The Template of the Nested Page</h2>
 <p>Here's what our <code>todolist.hbs</code> template might look like:</p>
 <pre><code class="language-html">&lt;div object key:text=&quot;@search&quot; key:id=&quot;{{currentItem.id}}&quot;&gt;
   &lt;div target:text=&quot;@innerText&quot;&gt;{{currentItem.name}}&lt;/div&gt;
@@ -219,19 +235,20 @@
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>Here, the <code>currentItem</code> variable is given to us automatically. Remake gets the currentItem by looking through all the data belonging to the page author and finding the object that matches the id that's in the 3rd url param.</p>
-<p><strong>So, here's what happens:</strong></p>
+<p>Here, the <code>currentItem</code> variable is given to us automatically by Remake.</p>
+<p>Remake gets it by searching through all the data belonging to the page author and finds the object that matches the id that's in the 3rd url param.</p>
+<h2>So, here's what happens:</h2>
 <ol>
 <li>The user clicks on a link with this url path: <code>/johnsmith/todolist/LERW5</code>.</li>
 <li>Remake looks through johnsmith's data and finds an object with the id <code>LERW5</code></li>
 <li>Remake creates a special variable called <code>currentItem</code> to represent this object</li>
 <li>Remake renders the <code>todolist.hbs</code> template using johnsmith's data</li>
 </ol>
-<hr>
-<p>Just <em>one more note</em> before we finish!</p>
+<h2>Just <em>one more note</em> before we finish!</h2>
 <p>By default, Remake will save a page's data to the current user's data — without thinking about where it should go.</p>
-<p>That's why, on this nested page, it's important to have a <code>key:id</code> HTML attribute that's set to the id of the <code>currentItem</code>. This tells Remake: everything piece of data inside this element should be saved to this id.</p>
-<p>Without this <code>key:id</code> attribute, Remake will save the data to the top-level of the user's data. With the attribute, it will find the object matching that id <em>first</em> and then save the data into it.</p>
+<p>That's why, on this nested page, it's important to have a <code>key:id</code> HTML attribute that's set to the id of the <code>currentItem</code>. This tells Remake: every piece of data inside this element should be saved to this id.</p>
+<p>🚫 Without this <code>key:id</code> attribute, Remake will save the data to the top-level of the user's data.</p>
+<p>✅ With the attribute, it will find the object matching the id <em>first</em> and then save the data into it.</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

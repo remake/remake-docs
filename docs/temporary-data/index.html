@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Remake is a web app framework that makes it possible to ship a product faster than ever.">
-    <title>Making Data Editable - Remake Docs</title>
+    <title>Temporary Data (Attributes) - Remake Docs</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=901">
     <link rel="stylesheet" href="/static/prism.css?v=901">
@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#ffffff">
     <!-- OG meta tags -->
     
-    <meta name="og:title" content="Making Data Editable - Remake Docs">
+    <meta name="og:title" content="Temporary Data (Attributes) - Remake Docs">
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
-      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//making-data-editable/">
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//temporary-data/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
   <body>
@@ -57,7 +57,7 @@
               <a class="sidebar__list-item " href="/installing-and-setting-up-remake">Installing &amp; Setting Up Remake</a>
               <a class="sidebar__list-item " href="/attach-data-to-elements">Attach Data to Elements</a>
               <a class="sidebar__list-item " href="/rendering-data">Rendering Data</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/making-data-editable">Making Data Editable</a>
+              <a class="sidebar__list-item " href="/making-data-editable">Making Data Editable</a>
               <a class="sidebar__list-item " href="/adding-new-items">Adding New Items</a>
               <a class="sidebar__list-item " href="/sorting-lists-of-items">Sorting Lists of Items</a>
               <a class="sidebar__list-item " href="/deploy-a-remake-web-app">Deploy a Remake Web App</a>
@@ -84,7 +84,7 @@
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
-              <a class="sidebar__list-item " href="/temporary-data">Temporary Data</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/temporary-data">Temporary Data</a>
               <a class="sidebar__list-item " href="/advanced-attributes">Advanced attributes</a>
             </div>
           </div>
@@ -120,32 +120,17 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h2>Making Data Editable</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cmpfM2xeOms" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h3>A single attribute</h3>
-<p>If you want to make a piece of data editable, this <em>really</em> simple with Remake — and one of its core strengths. 💪</p>
-<p>If you have this element, for example:</p>
-<pre><code class="language-html">&lt;div object key:page-title=&quot;@innerText&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>Then to make it editable, you just need to add an <code>edit:</code> attribute that matches they key you want to edit:</p>
-<pre><code class="language-html">&lt;div object key:page-title=&quot;@innerText&quot; edit:page-title&gt;&lt;/div&gt;
-</code></pre>
-<p>Remake handles the rest, including creating the inline edit popover and saving persistent data to the user's account.</p>
-<h3>Editing multiple keys at once</h3>
-<p>You can also trigger multiple edit areas at the same time.</p>
-<p>For example:</p>
-<pre><code class="language-html">&lt;div object key:my-favorite-link-name=&quot;@search&quot; key:my-favorite-link-url=&quot;@search&quot;&gt;
-  &lt;div&gt;
-    &lt;a target:my-favorite-link-url=&quot;@href&quot; href=&quot;&quot; target=&quot;_blank&quot;&gt;
-      &lt;span target:my-favorite-link-name=&quot;@innerText&quot;&gt;&lt;/span&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  &lt;button edit:my-favorite-link-name edit:my-favorite-link-url&gt;Edit link&lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
-<p>This will pop up two edit areas: one for editing the text of a link and another for editing a url!</p>
-<div class="spacer--8"></div>
-<p><a class="slanted-link" href="/adding-new-items/"><span>→ Next: Adding New Items</span></a></p>
+          <h1>Temporary Data</h1>
+<p>Remake uses custom attributes to store data and add web app behavior.</p>
+<p>You can use these attributes in the same way you use Remake's <code>key:</code> attributes — but instead of storing data from the page into your database, these temporary attributes store temporary page state (e.g. the state of a modal, accordion, or sidebar).</p>
+<p>Browse the <a href="https://recipes.remaketheweb.com/">Remake Recipes</a> for some amazing, step-by-step examples of how Remake works (or see the <a href="/attach-data-to-elements/">TLDR overview of all attributes</a>).</p>
+<h3><code>temporary:key:some-example-key</code></h3>
+<p>This attribute behaves exactly the same as its counterpart, <code>key:some-example-key</code>, with two exceptions:</p>
+<ol>
+<li>When the value of a <code>temporary:key:</code> attribute changes, a save event isn't triggered</li>
+<li>The key and value of a <code>temporary:key:</code> attribute is invisible to the save function (their data simply isn't saved)</li>
+</ol>
+<p>It's very useful for attaching temporary state to the page (e.g. toggling menus, sidebars, or tabs)</p>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

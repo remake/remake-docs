@@ -36,6 +36,8 @@ Remake skips the hard parts and gives you a small layer of data on top of your H
 
 It makes creating scalable multi-page web apps with unique data for each user incredibly easy.
 
+<a class="slanted-link" href="/why-build-with-remake/"><span>&rarr; Why Build With Remake (video)</span></a>
+
 ### What Remake Offers
 
 > What if every HTML webpage knew how to save, edit, and add new items to itself?

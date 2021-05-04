@@ -9,24 +9,36 @@ meta:
 
 <h1 class="logo"><img class="logo__image" src="/static/logo.svg" alt="Remake Framework"></h1>
 
-## Build full-stack web apps with only HTML and CSS
+## Build full-stack web apps with HTML
 
-Remake lets you convert an HTML and CSS design into a fully-functional web app with a few custom attributes.
+With Remake, you can create a fully-functioning web app by adding a few custom attributes to your HTML & CSS.
 
-* Simple syntax
-* User accounts & persistent data
-* Inline editing & file uploads
-* No backend coding
+* Simple HTML-based syntax
+* No backend coding required
+* User accounts & Persistent data
+* Inline editing & File uploads
 
-If you're a designers or front-end developer who wants to build web apps, Remake was made for you.
+Are you a designers or front-end developer?
 
-**UPDATE 🎉:** Remake v2.0 is out and the docs are up-to-date!
+✨ **Remake was made for you.** ✨
 
 ### Why Remake
 
-> What if every HTML webpage knew how to save, edit, and add new items to itself?
+**Creating web applications is hard.** There's hundreds of hours of configuration, connecting components, and learning before you can even get started...
 
-Have you ever created a static website and wished people could just start using it? Remake lets you do that.
+**Remake lets you skip the hard parts!**
+
+<img src="/static/images/loophole.svg">
+
+Other frameworks make you set everything up &mdash; pages, components, database, ORM, models, state management, validation, API endpoints, user accounts, etc.
+
+Remake skips the hard parts and gives you a small layer of data on top of your HTML that's automatically synced with each user's data.
+
+It makes creating scalable multi-page web apps with unique data for each user incredibly easy.
+
+### What Remake Offers
+
+> What if every HTML webpage knew how to save, edit, and add new items to itself?
 
 * **Build full-stack apps with front-end code.** Remake comes with user accounts, a persistent database, and everything you need to deploy a working application.
 * **Add CMS-like features on top of static templates.** Users can login to your site and edit their own copy of it.
@@ -34,54 +46,43 @@ Have you ever created a static website and wished people could just start using 
 * **You keep control over your design.** You can use any CSS framework and style your pages however you want.
 * **Server rendered, secure, and fast.** This makes it ideal for SEO and loading pages quickly. The front-end framework isn't even loaded if a user can't edit the current page.
 
-
-
-### How it works
-
-**Creating web applications is hard.** You need to install packages, configure your build process, create API endpoints, set up a database, and load in some demo data, *and that's all before even getting started!*
-
-**It can be easier!**
-
-<img src="/static/remake-how-it-works.png">
-
-Remake makes it possible to build a web app entirely in your front-end code.
-
-It does this by basically converting your page into a database, so when you move elements around on the page, their data is also moved!
-
-Remake also comes with a built in inline edit popover for editing data at the click of a button.
-
-This makes it possible to handle a lot of complicated CRUD operations automatically by adding a single data-* attribute:
-
-* Attaching data to elements
-* Editing & removing data from the page
-* Moving data around the page
-* Rendering new data into the page
-
-And there's much more!
-
-### Roadmap
-
-In the near future, Remake will also have support for:
-
-* Automatic form handling
-* Image cropping and manipulation
-* Sharing data between users
-* Real-time updates
-
-To see a fully-customized, production Remake application with image uploading, form submissions, and custom edit popovers, check out [RequestCreative](https://www.requestcreative.com/).
-
-**[View the full Remake roadmap](https://roadmap.remaketheweb.com/roadmaps)**
-
-### Build Something Great
-
-Join in to learn how to:
-
-* Build CRUD web apps incredibly quickly
-* Build something people love
+Have you ever created a static website and wished people could just start using it? 🧙‍♂️ **Remake lets you do that.** 🦄
 
 <div class="spacer--8"></div>
 
-<a class="slanted-link" href="https://form.remaketheweb.com/"><span>&rarr; Subscribe for updates</span></a>
+<a class="slanted-link" href="https://ideas.remaketheweb.com/"><span>&rarr; What You Can Build!</span></a>
+
+### How It Works
+
+<img src="/static/remake-how-it-works.png">
+
+1. You create a nice interface with HTML & CSS
+2. Remake makes your interface editable (and comes with auth baked in)
+3. Each logged-in user gets their own copy of the editable interface
+
+Remake puts your database on the front-end and treats HTML as your app's source of truth. This means when a user modifies the page by dragging something around or editing text, they're editing the database. 
+
+<div class="spacer--8"></div>
+
+<a class="slanted-link" href="https://recipes.remaketheweb.com/"><span>&rarr; Learn Remake Fast with Recipes!</span></a>
+
+### Remake's Origin Story
+
+<div style="max-width: 120px; margin-right: 2rem;"><img src="/static/images/me-circle-small.png"></div>
+<p>Hi, I'm David!</p>
+<p>I'm a UX designer &amp; full-stack web dev who's constantly making new products.</p>
+<p>In 2019 I started getting tired of my projects taking me 14+ months to release. I wanted everyone to be able to release beautiful products in under a month.</p>
+<p>I built Remake so you can spend more time:</p>
+<div>
+  <div style="margin-bottom: 1rem;">🤩 Marketing &amp; talking to users!</div>
+  <div style="margin-bottom: 1rem;">👩‍💻 Experimenting with new ideas!</div>
+  <div style="margin-bottom: 1rem;">🦸‍♂️ Building a profitable business!</div>
+</div>
+<p>And less time configuring your web app stack.</p>
+<hr>
+<p>If you want to build web apps faster than ever before, <a href="https://discord.gg/FB3gNxw">join our Discord community</a> or <a href="https://form.remaketheweb.com/">subscribe to our newsletter</a>.</p>
+
+
 
 
 

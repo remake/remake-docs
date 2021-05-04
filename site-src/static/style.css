@@ -465,6 +465,10 @@ img {
   .main {
     width: 100%;
   }
+
+  .side-by-side {
+    display: block;
+  }
 }
 
 

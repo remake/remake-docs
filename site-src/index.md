@@ -18,7 +18,7 @@ With Remake, you can create a fully-functioning web app by adding a few custom a
 * User accounts & Persistent data
 * Inline editing & File uploads
 
-Are you a designers or front-end developer?
+Are you a designer or front-end developer?
 
 ✨ **Remake was made for you.** ✨
 

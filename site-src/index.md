@@ -1,10 +1,5 @@
 ---
 layout: layout.hbs
-title: Build Web Apps With HTML
-meta:
-  <meta name="description" content="Remake is a framework that you build interactive websites with only HTML">
-  <meta name="image" content="https://docs.remaketheweb.com/static/og/og-site.png">
-  <meta itemprop="image" content="https://docs.remaketheweb.com/static/og/og-site.png">
 ---
 
 <h1 class="logo"><img class="logo__image" src="/static/logo.svg" alt="Remake Framework"></h1>

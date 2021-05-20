@@ -26,20 +26,24 @@ meta:
 
 Remake can trigger a file upload using a single line of HTML.
 
+{% raw %}
 ```html
-<input update:image-file type="file">
+<input update:profile-image type="file">
 ```
+{% endraw %}
 
 ### Displaying an uploaded file
 
 To display the file after it's uploaded, you just need to add a couple more lines:
 
+{% raw %}
 ```html
-<div object key:image-file="@search">
-  <input update:image-file type="file">
-  <img target:image-file="@src" src="{{imageFile}}">
+<div object key:profile-image="@search">
+  <input update:profile-image type="file">
+  <img target:profile-image="@attr:src" src="{{profileImage}}">
 </div>
 ```
+{% endraw %}
 
 ☝️ **This is a complete file-upload application.**
 <ul style="margin-top: -8px; margin-left: 20px;">

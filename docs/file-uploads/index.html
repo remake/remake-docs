@@ -125,13 +125,13 @@
 </div>
 <h3>File upload</h3>
 <p>Remake can trigger a file upload using a single line of HTML.</p>
-<pre><code class="language-html">&lt;input update:image-file type=&quot;file&quot;&gt;
+<pre><code class="language-html">&lt;input update:profile-image type=&quot;file&quot;&gt;
 </code></pre>
 <h3>Displaying an uploaded file</h3>
 <p>To display the file after it's uploaded, you just need to add a couple more lines:</p>
-<pre><code class="language-html">&lt;div object key:image-file=&quot;@search&quot;&gt;
-  &lt;input update:image-file type=&quot;file&quot;&gt;
-  &lt;img target:image-file=&quot;@src&quot; src=&quot;&quot;&gt;
+<pre><code class="language-html">&lt;div object key:profile-image=&quot;@search&quot;&gt;
+  &lt;input update:profile-image type=&quot;file&quot;&gt;
+  &lt;img target:profile-image=&quot;@attr:src&quot; src=&quot;{{profileImage}}&quot;&gt;
 &lt;/div&gt;
 </code></pre>
 <p>☝️ <strong>This is a complete file-upload application.</strong></p>

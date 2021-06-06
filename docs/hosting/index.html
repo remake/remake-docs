@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Why Remake? - Remake Documentation</title>
-      <meta name="description" content="Remake is an open-source framework that lets you build interactive web apps with only HTML!">
+      <title>Hosting - Remake Documentation</title>
+      <meta name="description" content="Deploy and host Remake&#x27;s apps yourself or on our servers">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=901">
     <link rel="stylesheet" href="/static/prism.css?v=901">
@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#ffffff">
     <!-- OG meta tags -->
     
-    <meta name="og:title" content="Why Remake? - Remake Docs">
+    <meta name="og:title" content="Hosting - Remake Docs">
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
-      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//why-remake/">
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//hosting/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
   <body>
@@ -76,7 +76,7 @@
               <a class="sidebar__list-item " href="/visibility">Visibility (show-if)</a>
               <a class="sidebar__list-item " href="/sortable-items">Sortable items</a>
               <a class="sidebar__list-item " href="/user-accounts">User accounts</a>
-              <a class="sidebar__list-item " href="/hosting">Hosting</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/hosting">Hosting</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -101,7 +101,7 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">ABOUT</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/why-remake">Why Remake</a>
+              <a class="sidebar__list-item " href="/why-remake">Why Remake</a>
               <a class="sidebar__list-item " href="/remake-tips">Remake Tips</a>
               <a class="sidebar__list-item " href="/contributors">Contributors</a>
             </div>
@@ -121,12 +121,31 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h3>Why Remake?</h3>
-<p>Remake allows anyone to turn a static website into a dynamic web application in a matter of minutes.</p>
-<p>Remake's authors believe <strong>there should be more startups in the world</strong> — it should be easier to create them!</p>
-<p>The web is a relatively new technology, with a lot of room for growth. What if your neighbor could create a web app in an afternoon? That would mean you could too. Then, the web would suddenly become a much more interesting place, exploding with new ideas!</p>
-<p><strong>Our goal is to foster a more open and beautiful internet</strong>, so more companies and individuals can contribute to the whole ecosystem, connect, and learn from each other.</p>
-<p>❤️</p>
+          <h2>Hosting</h2>
+<h3>Host on Remake's servers</h3>
+<p>To deploy an app to Remake's servers, you need a paid account.</p>
+<p>After you sign up for a paid account through <a href="https://remaketheweb.com/">the Remake website</a>, you can run the following command in your Remake app's directory:</p>
+<pre><code class="language-bash">npx remake deploy
+</code></pre>
+<p>When you sign up / login to your account, use the same email you used for your paid account.</p>
+<p>🎉 <strong>Your app will be instantly deployed to our servers!</strong></p>
+<h3>Host on your own server</h3>
+<p>Remake is an open-source Node.js app with a file-based database, so it's easy to deploy yourself!</p>
+<p>Remake does need any kind of advanced setup or dependencies. You can follow a simple guide <a href="https://scotch.io/tutorials/deploying-a-node-app-to-digital-ocean">like this one</a> to deploy it.</p>
+<div style="padding: .8rem 1rem; background-color: #fff9db; border: 1px solid #f59f00; border-radius: 3px;">The only requirement: Your server <b>must</b> have persistent storage</div>
+<p>If your server wipes out all its files every deploy, all your users' data will disappear. This is because Remake used a file-based database and stores user data on disk.</p>
+<p>For this reason, we recommend using a VPS (virtual private server) like Digital Ocean, Vultr, or Linode that supports persistent storage — as well as backing up your server remotely every day.</p>
+<p>Hosting Remake yourself gives you a few advantages:</p>
+<ul>
+<li>You can call remote APIs from the server-side and add their data to your app</li>
+<li>You can hack Remake to add features it doesn't have yet (e.g. commenting or collaboration)</li>
+<li>You can add your own custom backend, changing Remake's default auth or storage to one you built</li>
+</ul>
+<p>A few more notes:</p>
+<ul>
+<li>When modifying Remake server code, you can safely ignore any references to <code>appName</code> and any <code>if (RemakeStore.isMultiTenant())</code> statements (as well as anything inside) them — these are for the Remake's official hosting service that hosts multiple apps on the same server and this code isn't relevant for single apps</li>
+<li>If you do host Remake yourself, check out this blog post that guides you through modifying Remake's server code and adding your own custom data</li>
+</ul>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

@@ -131,17 +131,22 @@
 <p>🎉 <strong>Your app will be instantly deployed to our servers!</strong></p>
 <h3>Host on your own server</h3>
 <p>Remake is an open-source Node.js app with a file-based database, so it's easy to deploy yourself!</p>
-<p>Remake does need any kind of advanced setup or dependencies. You can follow a simple guide <a href="https://scotch.io/tutorials/deploying-a-node-app-to-digital-ocean">like this one</a> to deploy it.</p>
-<div style="padding: .8rem 1rem; background-color: #fff9db; border: 1px solid #f59f00; border-radius: 3px;">The only requirement: Your server <b>must</b> have persistent storage</div>
-<p>If your server wipes out all its files every deploy, all your users' data will disappear. This is because Remake used a file-based database and stores user data on disk.</p>
-<p>For this reason, we recommend using a VPS (virtual private server) like Digital Ocean, Vultr, or Linode that supports persistent storage — as well as backing up your server remotely every day.</p>
-<p>Hosting Remake yourself gives you a few advantages:</p>
+<p><strong>A deployment guide:</strong> Remake does need any kind of advanced setup or dependencies. You can follow a simple guide <a href="https://scotch.io/tutorials/deploying-a-node-app-to-digital-ocean">like this one</a> to deploy it.</p>
+<p><strong>Why host Remake yourself?</strong> Remake's built-in deployment and hosting doesn't let you modify backend code. So, if you want to modify the backend, you need to host Remake yourself for now.</p>
+<div style="margin: 1.5rem 0; padding: .8rem 1rem; background-color: #fff9db; border: 1px solid #f59f00; border-radius: 3px;">The only requirement: Your server <b>must</b> have persistent storage</div>
+<h4>What kind of web host do you need?</h4>
+<ul>
+<li>We recommend using a VPS (virtual private server) like Digital Ocean, Vultr, or Linode that supports <strong>persistent storage</strong> — as well as backing up your server remotely every day.</li>
+<li>If your server wipes out your disk on every deploy (like a lot of Docker-based hosts do), all your users' data will disappear. This is because Remake uses a file-based database and stores user data on disk.</li>
+</ul>
+<h4>Now you can modify backend code!</h4>
+<p>When you host Remake yourself, you can modify the backend code however you want</p>
 <ul>
 <li>You can call remote APIs from the server-side and add their data to your app</li>
 <li>You can hack Remake to add features it doesn't have yet (e.g. commenting or collaboration)</li>
 <li>You can add your own custom backend, changing Remake's default auth or storage to one you built</li>
 </ul>
-<p>A few more notes:</p>
+<p>A few tips:</p>
 <ul>
 <li>When modifying Remake server code, you can safely ignore any references to <code>appName</code> and any <code>if (RemakeStore.isMultiTenant())</code> statements (as well as anything inside) them — these are for the Remake's official hosting service that hosts multiple apps on the same server and this code isn't relevant for single apps</li>
 <li>If you do host Remake yourself, check out this blog post that guides you through modifying Remake's server code and adding your own custom data</li>

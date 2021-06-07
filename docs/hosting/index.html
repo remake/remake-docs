@@ -132,7 +132,7 @@
 <h3>Host on your own server</h3>
 <p>Remake is an open-source Node.js app with a file-based database, so it's easy to deploy yourself!</p>
 <p><strong>A deployment guide:</strong> Remake does need any kind of advanced setup or dependencies. You can follow a simple guide <a href="https://scotch.io/tutorials/deploying-a-node-app-to-digital-ocean">like this one</a> to deploy it.</p>
-<p><strong>Why host Remake yourself?</strong> Remake's built-in deployment and hosting doesn't let you modify backend code. So, if you want to modify the backend, you need to host Remake yourself for now.</p>
+<p><strong>Why host Remake yourself?</strong> Remake's built-in deployment and hosting doesn't support modifying backend code. So, if you modify the backend, you need to host Remake yourself.</p>
 <div style="margin: 1.5rem 0; padding: .8rem 1rem; background-color: #fff9db; border: 1px solid #f59f00; border-radius: 3px;">The only requirement: Your server <b>must</b> have persistent storage</div>
 <h4>What kind of web host do you need?</h4>
 <ul>
@@ -149,7 +149,7 @@
 <p>A few tips:</p>
 <ul>
 <li>When modifying Remake server code, you can safely ignore any references to <code>appName</code> and any <code>if (RemakeStore.isMultiTenant())</code> statements (as well as anything inside) them — these are for the Remake's official hosting service that hosts multiple apps on the same server and this code isn't relevant for single apps</li>
-<li>If you do host Remake yourself, check out this blog post that guides you through modifying Remake's server code and adding your own custom data</li>
+<li>If you do host Remake yourself, check out <a href="https://blog.remaketheweb.com/extending-remake/">this blog post</a> that guides you through modifying Remake's server code and adding your own custom data</li>
 </ul>
 
           <div class="spacer--16"></div>

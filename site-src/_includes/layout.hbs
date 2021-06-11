@@ -111,10 +111,16 @@
             </div>
           </div>
           <div class="sidebar__list-container">
+            <div class="sidebar__list-heading">EXTRAS</div>
+            <div class="sidebar__list">
+              <a class="sidebar__list-item {{#isPage page.url "remake-tips"}}sidebar__list-item--selected{{/isPage}}" href="/remake-tips">Remake Tips</a>
+              <a class="sidebar__list-item {{#isPage page.url "custom-backend"}}sidebar__list-item--selected{{/isPage}}" href="/custom-backend">Custom Backend</a>
+            </div>
+          </div>
+          <div class="sidebar__list-container">
             <div class="sidebar__list-heading">ABOUT</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item {{#isPage page.url "why-remake"}}sidebar__list-item--selected{{/isPage}}" href="/why-remake">Why Remake</a>
-              <a class="sidebar__list-item {{#isPage page.url "remake-tips"}}sidebar__list-item--selected{{/isPage}}" href="/remake-tips">Remake Tips</a>
               <a class="sidebar__list-item {{#isPage page.url "contributors"}}sidebar__list-item--selected{{/isPage}}" href="/contributors">Contributors</a>
             </div>
           </div>

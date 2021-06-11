@@ -53,9 +53,9 @@ Now, every object in your users' data files will have a unique id automatically 
       "name": "My first todo list",
       "todos": [
         {
-          "text": "My first todo"
+          "text": "My first todo",
+          "id": "RQZA9"
         },
-        "id": "RQZA9"
       ],
       "id": "JXBR4"
     },
@@ -63,11 +63,11 @@ Now, every object in your users' data files will have a unique id automatically 
       "name": "My second todo list",
       "todos": [
         {
-          "text": "Another todo"
+          "text": "Another todo",
+          "id": "YYCT2"
         },
-        "id": "YYCT2"
       ],
-    "id": "LERW5"
+      "id": "LERW5"
     }
   ],
   "id": "KOLP8"

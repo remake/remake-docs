@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Saving Data - Remake Documentation</title>
-      <meta name="description" content="Remake is an open-source framework that lets you build interactive web apps with only HTML!">
+      <title>Custom Backend - Remake Documentation</title>
+      <meta name="description" content="Make Remake work on top of an existing Webflow site by adding your own custom backend like Supabase or Divjoy!">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=901">
     <link rel="stylesheet" href="/static/prism.css?v=901">
@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#ffffff">
     <!-- OG meta tags -->
     
-    <meta name="og:title" content="Saving Data - Remake Docs">
+    <meta name="og:title" content="Custom Backend - Remake Docs">
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
-      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//saving/">
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//custom-backend/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
   <body>
@@ -68,7 +68,7 @@
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/command-line-tool">Command Line Tool</a>
               <a class="sidebar__list-item " href="/data">Data</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/saving">Saving</a>
+              <a class="sidebar__list-item " href="/saving">Saving</a>
               <a class="sidebar__list-item " href="/file-uploads">File Uploads</a>
               <a class="sidebar__list-item " href="/routing">Routing</a>
               <a class="sidebar__list-item " href="/nested-pages">Nested Pages</a>
@@ -102,7 +102,7 @@
             <div class="sidebar__list-heading">EXTRAS</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/remake-tips">Remake Tips</a>
-              <a class="sidebar__list-item " href="/custom-backend">Custom Backend</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/custom-backend">Custom Backend</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -127,14 +127,49 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h2>How Saving Data Works in Remake</h2>
-<ol>
-<li>Data is always <a href="https://davidwalsh.name/javascript-deep-merge">deep extended</a>, so overwriting data unnecessarily is always avoided</li>
-<li><strong>Useful for creating multi-page applications</strong>: if you attach a <code>key:id</code> attribute to an element (with its value set to the unique id that's auto-generated for every nested object in your Remake database), then, when that element's data is modified, its data will be saved directly to that unique id in the database and not affect the rest of the page.</li>
-</ol>
-<ul style="margin-top: -8px; margin-left: 20px;">
-  <li>When data is deep extended, Remake always extends arrays by matching the unique ids of its child objects, so the data in deeply-nested arrays is preserved and never overwritten completely</li>
+          <h2>Custom Backend</h2>
+<p>So, you <em>love</em> Remake's syntax and features, but you want to use your own custom backend. Fair enough 🤷‍♂️</p>
+<p>Maybe you prefer a PaaS like <a href="https://supabase.io/">Supabase</a> or a starter app generator like <a href="https://divjoy.com/">Divjoy</a> — or have your own custom Rails, Node, or PHP setup.</p>
+<p>You're in luck!</p>
+<p>Remake's client-side code is easily detached from the backend code.</p>
+<h3>Client-side Remake</h3>
+<p>Here's a demo of a Remake app that works entirely client-side!</p>
+<p>This is a live, working demo — try editing the code to see the app change!</p>
+<p class="codepen" data-height="482" data-theme-id="39608" data-default-tab="html,result" data-user="panphora" data-slug-hash="rNMVYZz" data-editable="true" style="height: 482px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Todo App (Remake Demo)">
+  <span>See the Pen <a href="https://codepen.io/panphora/pen/rNMVYZz">
+  Todo App (Remake Demo)</a> by David Miranda (<a href="https://codepen.io/panphora">@panphora</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<p>Read on to see how to can plug this demo into any backend (with a little elbow greese)!</p>
+<h3>Build your own backend</h3>
+<p>You can use the client-side demo above as the foundation for building your own stack on top of Remake.</p>
+<p>Here's a video explaining how:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S6l6uaYq0GA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Basically, it all comes down to ➡️ <a href="https://remake-web-assets.s3.amazonaws.com/remake-client-side-demo.v1.js">this well-documented script</a>, which makes the whole demo work by overwriting Remake's default upload, add item, and save functionality and replaces it with versions that work client-side.</p>
+<p>To run that script, you need a few dependencies:</p>
+<ul>
+<li><a href="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js">handlebars.min.js</a></li>
+<li><a href="https://github.com/remake/remake-framework/blob/master/_remake/dist/remake/js/remake.min.js">remake.min.js</a></li>
+<li><a href="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js">Sortable.min.js</a></li>
+<li><a href="https://cdn.jsdelivr.net/npm/crostini@latest/dist/crostini.umd.js">crostini.umd.js</a></li>
 </ul>
+<h3>What you'll need to add yourself</h3>
+<p>The client-side demo is a fully working app, but it doesn't support user accounts or other important features that a real app has.</p>
+<p>Here are the main ones you'll have to take care of:</p>
+<ul>
+<li>Create user accounts for each of your users</li>
+<li>Save data to the current user's account</li>
+<li>Load data from the current user's account</li>
+<li>Check if the current user can edit the page and only display Remake's
+editable areas then</li>
+<li>Render new items to the page based on the names of components/partials (like Remake's <code>new:</code> attribute does: <a href="https://docs.remaketheweb.com/adding-new-items/">see docs page</a>)</li>
+<li>(optional) Handle routing if you want your app to have multiple pages</li>
+<li>(optional) Upload files to the current user's account</li>
+<li>(optional) Have the ability to add unique ids to every object in your data, so you can render only that object or save into only that object (necessary for nested routes and pages). <a href="https://docs.remaketheweb.com/nested-pages/">Read about how Remake does this</a>.</li>
+</ul>
+<p>Read through <a href="https://remake-web-assets.s3.amazonaws.com/remake-client-side-demo.v1.js">the comments in the actual script</a> for more details.</p>
+
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
         </div>

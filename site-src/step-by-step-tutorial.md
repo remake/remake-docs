@@ -29,6 +29,12 @@ You'll come away with a deeper understanding than most people &mdash; and the ab
 
 <div class="spacer--24"></div>
 
+<div style="display: flex; justify-content: center;">
+  <button class="tour__start cool-button cool-button--large" data-click-to-add-class="code-tab-open" data-click-to-remove-class="[app-tab-open,css-tab-open]">&#8594; Start tutorial</button>
+</div>
+
+<div class="spacer--24"></div>
+
 {% raw %}
 <div class="code-example tour relative">
   <div class="code-example__code-container relative">
@@ -126,7 +132,7 @@ You'll come away with a deeper understanding than most people &mdash; and the ab
 {% endraw %}
 
 <div style="display: flex; justify-content: center;">
-  <button class="tour__start cool-button cool-button--large" data-click-to-add-class="code-tab-open" data-click-to-remove-class="[app-tab-open,css-tab-open]">&#8594; Start step-by-step tutorial</button>
+  <button class="tour__start cool-button cool-button--large" data-click-to-add-class="code-tab-open" data-click-to-remove-class="[app-tab-open,css-tab-open]">&#8594; Start tutorial</button>
 </div>
 
 <div class="spacer--48"></div>

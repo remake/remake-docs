@@ -93,6 +93,7 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
+              <a class="sidebar__list-item " href="/attributes-overview">Attributes overview</a>
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
@@ -147,7 +148,7 @@
 <p>If you're following along with the video and you want your data to auto-save whenever the page loads (not a great idea in production, but fine in development), then add this to the end of your <code>app/assets/js/remake-init.js</code> file:</p>
 <pre><code class="language-js">Remake.callSaveFunction(document.body)
 </code></pre>
-<h3>Remake's Custom Data Attributes</h3>
+<h3>Remake's Custom Attributes</h3>
 <p>All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).</p>
 <p><strong>If you learn only the following 9 custom attributes, you'll be able to build some pretty powerful apps with Remake!</strong></p>
 <ul>
@@ -221,7 +222,7 @@
 <ul>
 <li>All elements directly inside this element can be dragged and reordered
 <ul>
-<li>For example: <code>&lt;div array sortable&gt;&lt;!--All elements in here could be sorted--&gt;&lt;/div&gt;</code>.</li>
+<li>For example: <code>&lt;div array sortable&gt;&lt;!--Elements here can be sorted--&gt;&lt;/div&gt;</code>.</li>
 </ul>
 </li>
 </ul>
@@ -237,7 +238,7 @@
 </ul>
 </li>
 </ul>
-<p>To learn more, check out the <a href="/data-attributes-api/">Data Attributes API</a> page!</p>
+<p>To learn more, check out <a href="/attributes-overview/">An Overview of Remake's Attributes</a></p>
 <div class="spacer--8"></div>
 <p><a class="slanted-link" href="/rendering-data/"><span>→ Next: Rendering Data</span></a></p>
 

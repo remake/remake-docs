@@ -109,10 +109,10 @@ li {
 }
 
 code {
-  white-space: nowrap;
-  line-height: 1em;
+  white-space: pre-wrap;
+  line-height: .85em;
   padding: 2px 5px 3px;
-  font-size: 14px;
+  font-size: .85em;
   background-color: #e9ecef;
   border-radius: 2px;
 }
@@ -184,6 +184,10 @@ img {
 
 /* MAIN CONTENT */
 
+.wide-layout .main {
+  width: 900px;
+}
+
 .main {
   position: relative;
   width: 800px;
@@ -191,7 +195,7 @@ img {
   border-right: 1px solid #212529;
   border-left: 1px solid #212529;
   line-height: 1.4em;
-  font-size: 18px;
+  font-size: 21px;
   background-color: #fff
 }
 
@@ -311,6 +315,12 @@ img {
 .github-link img {
   max-height: 21px;
   margin-right: 8px;
+}
+
+/* CODEPEN EMBED */
+
+.cp_embed_wrapper {
+  margin: 0 -1.5rem 0;
 }
 
 /* UTILS */

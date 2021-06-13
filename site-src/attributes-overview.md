@@ -1,25 +1,21 @@
 ---
 layout: layout.hbs
-title: Attach Data to Elements
+title: Attributes Overview
+description: Get an overview of all of Remake's attributes
 ---
 
-## Attach Data to Elements
+## Remake's Attributes
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aCChMYfB8-E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+The core of Remake is custom HTML attributes.
 
-### An app in a single file
+They gives Remake the ability to:
+- [Save data](/saving-data-attributes/)
+- [Update data](/updating-data-attributes/)
+- [React to data](/reacting-to-data-attributes/)
+- [Use temporary data](/temporary-data/)
+- [Add more advanced behavior](/advanced-attributes/)
 
-The entire app we're building in this tutorial fits inside of one file, `app/pages/app-index.hbs` and is only 73 lines of HTML!
-
-### A quick note on saving
-
-If you're following along with the video and you want your data to auto-save whenever the page loads (not a great idea in production, but fine in development), then add this to the end of your `app/assets/js/remake-init.js` file:
-
-```js
-Remake.callSaveFunction(document.body)
-```
-
-### Remake's Custom Attributes
+### Remake Attributes Overview
 
 All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).
 
@@ -59,12 +55,3 @@ All of the functionality that Remake allows us to build so quickly — creating 
   * This is a special, but important attribute. It lets you attach a `key:` on higher-level element, but reference a value on a lower-level element.
   * If you pass the `@search` command into a `key:` attribute, then that key will look for its value inside its element until it finds a matching `target:` element
     * For example, with: `<div object key:name="@search"><span target:name="@innerText">Sam</span></div>`, the value of the key "name" is "Sam".
-
-To learn more, check out [An Overview of Remake's Attributes](/attributes-overview/)
-
-<div class="spacer--8"></div>
-
-<a class="slanted-link" href="/rendering-data/"><span>&rarr; Next: Rendering Data</span></a>
-
-
-

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Adding New Items - Remake Documentation</title>
-      <meta name="description" content="Remake is an open-source framework that lets you build interactive web apps with only HTML!">
+      <title>Attributes Overview - Remake Documentation</title>
+      <meta name="description" content="Get an overview of all of Remake&#x27;s attributes">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=902">
     <link rel="stylesheet" href="/static/prism.css?v=902">
@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#ffffff">
     <!-- OG meta tags -->
     
-    <meta name="og:title" content="Adding New Items - Remake Docs">
+    <meta name="og:title" content="Attributes Overview - Remake Docs">
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
-      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//adding-new-items/">
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//attributes-overview/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
   <body class="">
@@ -70,7 +70,7 @@
               <a class="sidebar__list-item " href="/attach-data-to-elements">Attach Data to Elements</a>
               <a class="sidebar__list-item " href="/rendering-data">Rendering Data</a>
               <a class="sidebar__list-item " href="/making-data-editable">Making Data Editable</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/adding-new-items">Adding New Items</a>
+              <a class="sidebar__list-item " href="/adding-new-items">Adding New Items</a>
               <a class="sidebar__list-item " href="/sorting-lists-of-items">Sorting Lists of Items</a>
               <a class="sidebar__list-item " href="/deploy-a-remake-web-app">Deploy a Remake Web App</a>
             </div>
@@ -93,7 +93,7 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item " href="/attributes-overview">Attributes overview</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/attributes-overview">Attributes overview</a>
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
@@ -140,32 +140,106 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h2>Adding New Items</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vuzgBFdo_s8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h3>Rendering new items</h3>
-<p>If you want to render a new item to the page:</p>
-<ol>
-<li>Render items using a <code>{{#for}}</code> loop</li>
-</ol>
-<pre><code class="language-html">{{#for item in items}}
-  &lt;div object key:name=&quot;@innerText&quot;&gt;{{item.name}}&lt;/div&gt;
-{{/for}}
-</code></pre>
-<ol start="2">
-<li>Reference the name in the for loop in a <code>new:</code> attribute</li>
-</ol>
-<pre><code class="language-html">&lt;button new:item&gt;Create new item&lt;/button&gt;
-</code></pre>
-<ol start="3">
-<li>Remake will take care of the rest</li>
-</ol>
+          <h2>Remake's Attributes</h2>
+<p>The core of Remake is custom HTML attributes.</p>
+<p>They gives Remake the ability to:</p>
 <ul>
-<li>Remake searches the page for a matching <code>name</code> in a <code>{{#for}}</code> loop on the page (if none is found, it searches the <code>app/partials</code> directory)</li>
-<li>Remake renders the inner part of the <code>{{#for}}</code> loop</li>
-<li>Remake adds the rendered item to the nearest element with a <code>list</code> tag (tip: you can customize where it adds the item by specifying a selector as the value of the <code>new:</code> attribute)</li>
+<li><a href="/saving-data-attributes/">Save data</a></li>
+<li><a href="/updating-data-attributes/">Update data</a></li>
+<li><a href="/reacting-to-data-attributes/">React to data</a></li>
+<li><a href="/temporary-data/">Use temporary data</a></li>
+<li><a href="/advanced-attributes/">Add more advanced behavior</a></li>
 </ul>
-<div class="spacer--8"></div>
-<p><a class="slanted-link" href="/sorting-lists-of-items/"><span>→ Sorting Lists of Items</span></a></p>
+<h3>Remake Attributes Overview</h3>
+<p>All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).</p>
+<p><strong>If you learn only the following 9 custom attributes, you'll be able to build some pretty powerful apps with Remake!</strong></p>
+<ul>
+<li><b><code>object</code></b>
+<ul>
+<li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> object</li>
+<li>Elements nested inside this element will be nested inside the object
+<ul>
+<li>For example, if you add an <code>array</code> element with a <code>key</code> inside this element, then Remake will see the data like this: <code>{keyName: []}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>array</code></b>
+<ul>
+<li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> array</li>
+<li>Elements nested inside this element will be nested inside the array
+<ul>
+<li>For example, if you add a series of three elements inside this element that all have the <code>object</code> attribute, then Remake will see the data like this: <code>[{}, {}, {}]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>key:</code></b>
+<ul>
+<li>Only elements with the <code>object</code> attribute can have this attribute</li>
+<li>This attribute lets you name a piece of data and tell Remake where it's located
+<ul>
+<li>For example, this HTML: <code>&lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;</code> produces this data: <code>{name:&quot;David&quot;}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>key</code></b>
+<ul>
+<li>If you want to nest the data of one element inside another one, use this attribute</li>
+<li>Whatever value you give to key will be the label that the nested has inside the parent element
+<ul>
+<li>For example, this HTML: <code>&lt;div object&gt;&lt;div array key=&quot;myArray&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code> produces this data: <code>{myArray:[]}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>edit:</code></b>
+<ul>
+<li>The easiest way to make a <code>key:</code> editable</li>
+<li>Just pass in a key name and put this on the same element as the key (or inside it) and Remake will automatically make it editable!
+<ul>
+<li>For example, the data in this element will be editable: <code>&lt;div object key:name=&quot;@innerText&quot; edit:name&gt;David&lt;/div&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>default:</code></b>
+<ul>
+<li>If a user edits a piece of data and sets it to nothing, that <code>key:</code> will be set to this matching <code>default:</code> value instead</li>
+</ul>
+</li>
+<li><b><code>new:</code></b>
+<ul>
+<li>Adds a new item to the page.
+<ul>
+<li>The item's name must match a partial template's name or an item from a <code>{{#for}}</code> loop</li>
+<li>The item is rendered automatically by Remake and added to the nearest <code>array</code> element</li>
+<li>For example, if you have a for loop like <code>{{#for item in items}}...</code> then you can use <code>&lt;button new:item&gt;Create new item!&lt;/button&gt;</code> to render a new item and add it to the list!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>sortable</code></b>
+<ul>
+<li>All elements directly inside this element can be dragged and reordered
+<ul>
+<li>For example: <code>&lt;div array sortable&gt;&lt;!--Elements here can be sorted--&gt;&lt;/div&gt;</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><code>target:</code></b>
+<ul>
+<li>This is a special, but important attribute. It lets you attach a <code>key:</code> on higher-level element, but reference a value on a lower-level element.</li>
+<li>If you pass the <code>@search</code> command into a <code>key:</code> attribute, then that key will look for its value inside its element until it finds a matching <code>target:</code> element
+<ul>
+<li>For example, with: <code>&lt;div object key:name=&quot;@search&quot;&gt;&lt;span target:name=&quot;@innerText&quot;&gt;Sam&lt;/span&gt;&lt;/div&gt;</code>, the value of the key &quot;name&quot; is &quot;Sam&quot;.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

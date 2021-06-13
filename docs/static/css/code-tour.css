@@ -1,0 +1,232 @@
+.code-example.tour--active .code-example__code, .code-example.tour--active .code-example__css, .code-example.tour--active .code-example__app, .code-example.tour--active .code-example__data {
+  height: 400px;
+  transition: height 0.3s;
+}
+@media (max-width: 800px) {
+  .code-example.tour--active .code-example__code, .code-example.tour--active .code-example__css, .code-example.tour--active .code-example__app, .code-example.tour--active .code-example__data {
+    height: 440px;
+  }
+}
+.code-example.tour--active .tour__info, .code-example.tour--active .tour__backdrop, .code-example.tour--active .tour__extra-scroll-area {
+  display: block;
+}
+.code-example.tour--active .tour__info {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.55s both;
+  transform: translate3d(0, 0, 0);
+}
+
+.code-example.tour--no-focus-element .tour__info {
+  top: 24px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.tour__extra-scroll-area {
+  display: none;
+}
+
+.tour__backdrop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.65;
+}
+
+.tour__step {
+  position: relative;
+}
+
+.tour__step--active {
+  z-index: 1;
+}
+.tour__step--active .tour__step-overlay {
+  display: block;
+}
+.tour__step--active .tour__step-connecting-line {
+  animation: grow 1s forwards;
+}
+
+@keyframes grow {
+  30% {
+    height: 0px;
+  }
+  100% {
+    height: 140px;
+  }
+}
+.tour__step-overlay {
+  display: none;
+  position: absolute;
+  top: -8px;
+  left: -10px;
+  padding: 2px 6px;
+  border: 4px solid #fff;
+  background-color: #212529;
+  border-radius: 5px;
+}
+
+.tour__step-connecting-line {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 0;
+  width: 4px;
+  background-color: #fff;
+  transition: height 0.3s;
+}
+
+.tour__info {
+  display: none;
+  white-space: normal;
+  position: absolute;
+  z-index: 2;
+  top: 80px;
+  left: 22px;
+  font-size: 15px;
+  max-height: 280px;
+  width: calc(100% - 38px);
+  background-color: #2B303B;
+}
+@media (max-width: 800px) {
+  .tour__info {
+    left: 12px;
+    width: calc(100% - 24px);
+  }
+}
+
+.tour__info-content {
+  padding: 15px 17px 16px;
+  border: 4px solid #fff;
+  border-bottom-width: 0;
+  background-color: #2B303B;
+}
+
+.tour__info-title {
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.tour__info-text {
+  margin-bottom: 10px;
+}
+
+.tour__info-text:last-child {
+  margin-bottom: 0;
+}
+
+.tour__highlight {
+  display: inline-block;
+  margin-top: 14px;
+  margin-bottom: 11px;
+  border-bottom: 2px solid #FFD43B;
+}
+
+.tour__start-container {
+  text-align: center;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.tour__start::before {
+  display: none;
+}
+
+.tour__explain {
+  display: flex;
+  justify-content: center;
+  line-height: 1.28;
+  text-align: left;
+}
+
+.tour__explain-inner {
+  max-width: 700px;
+  padding: 1.25rem 1.5rem;
+  background-color: #fff;
+  border: 1px solid #cde2e5;
+  border-radius: 6px;
+}
+
+.tour__explain-intro-line {
+  margin-bottom: 1.25em;
+}
+
+.tour__explain-items {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5em;
+}
+
+.tour__explain-item {
+  width: 33%;
+  margin-right: 1.5rem;
+  margin-bottom: 0.5em;
+  padding: 12px 16px 14px;
+  background: #f1f3f5;
+  color: #212529;
+  border-radius: 7px;
+}
+.tour__explain-item--fourth {
+  margin-right: 0;
+}
+
+.tour__explain-conclusion-line {
+  margin-top: 0.75rem;
+}
+
+.tour__explain-magic-icon {
+  position: relative;
+  top: -2px;
+}
+
+@media (max-width: 800px) {
+  .tour__explain-items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tour__explain-item {
+    min-width: 140px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+.tour__info-buttons {
+  display: flex;
+}
+
+.tour .tour__info-button {
+  flex: 1 1 auto;
+  padding: 9px 0 10px;
+  border: 4px solid #fff;
+  background-color: #414858;
+}
+.tour .tour__info-button:hover {
+  background-color: #566076;
+}
+
+.tour .tour__info-button--close {
+  width: 34%;
+  border-right: 2px solid #fff;
+}
+
+.tour .tour__info-button--next {
+  width: 55%;
+  border-left: 2px solid #fff;
+}

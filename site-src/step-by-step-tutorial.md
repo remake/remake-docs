@@ -102,3 +102,5 @@ bodyClasses: app-tab-open data-tab-open wide-layout
   </div>
 </div>
 {% endraw %}
+
+<button class="tour__start">Take tour</button>

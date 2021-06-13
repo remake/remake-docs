@@ -1,0 +1,244 @@
+.code-example button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  outline: none;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+.code-example button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.code-example {
+  display: flex;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto 72px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.code-example--show-notification-bubble .code-example__notification-bubble {
+  display: block;
+}
+.code-example--show-notification-bubble button.code-example__button--data {
+  padding-right: 34px;
+}
+
+.code-example p {
+  margin: 0;
+}
+
+.code-example__notification-bubble {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  border-radius: 50%;
+  font-weight: bold;
+  background: #f03e3e;
+  color: #fff;
+}
+
+.code-example__code-container, .code-example__app-container {
+  flex: 0 0 auto;
+  width: calc(50% - 8px);
+  background-color: #343A40;
+}
+
+.code-example__code-container {
+  padding: 14px 8px 16px 14px;
+  border-radius: 5px 0 0 5px;
+}
+
+.code-example__app-container {
+  padding: 14px 14px 16px 8px;
+  border-radius: 0 5px 5px 0;
+}
+
+.code-example__buttons {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.code-example .code-example__button {
+  align-self: flex-start;
+  overflow: hidden;
+  position: relative;
+  margin-right: 8px;
+  padding: 6px 11px 7px;
+  letter-spacing: 0.3px;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #495057;
+}
+.code-example .code-example__button:hover {
+  background-color: #495057;
+}
+.code-example .code-example__button::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background-color: #6c7681;
+}
+
+.code-tab-open .code-example__button--code, .app-tab-open .code-example__button--app, .css-tab-open .code-example__button--css, .data-tab-open .code-example__button--data {
+  padding-bottom: 8px;
+  background-color: #495057;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.code-tab-open .code-example__button--code::before, .app-tab-open .code-example__button--app::before, .css-tab-open .code-example__button--css::before, .data-tab-open .code-example__button--data::before {
+  background-color: #FFD43B;
+}
+
+.code-example__code, .code-example__css, .code-example__app, .code-example__data {
+  overflow: scroll;
+  height: 360px;
+  padding: 12px;
+  white-space: pre;
+  background-color: #212529;
+  border-radius: 3px;
+}
+
+.code-example .code-example__button--tour {
+  margin-left: auto;
+  background: linear-gradient(240deg, #4158D0 0%, #C850C0 100%);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.45);
+}
+.code-example .code-example__button--tour:hover {
+  background: linear-gradient(90deg, #fc466b 0%, #a951aa 100%);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+}
+
+.code-example__code {
+  overflow: visible;
+  padding: 0;
+}
+
+.code-example__code-scrollable {
+  height: 100%;
+  overflow: scroll;
+  padding: 12px;
+}
+
+.tour__info, .code-example__code, .code-example__css, .code-example__app, .code-example__data {
+  line-height: 1.5em;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  color: #fff;
+}
+
+.code-example i {
+  font-style: normal;
+}
+.code-example i.pink {
+  color: #f92672;
+}
+.code-example i.green {
+  color: #a6e22e;
+}
+.code-example i.yellow {
+  color: #e6db74;
+}
+.code-example i.blue {
+  color: #65d6ec;
+}
+
+.code-example__app {
+  padding: 1.75rem 1.5rem 0 1.5rem;
+  white-space: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #fff;
+  color: #212529;
+}
+.code-example__app h2 {
+  margin-bottom: 1rem;
+  color: #7048e8;
+  font-size: 24px;
+  font-weight: 700;
+}
+.code-example__app .text-light {
+  position: relative;
+  top: -1px;
+  opacity: 0.6;
+  font-size: 18px;
+  color: #7048e8 !important;
+}
+.code-example__app .todos {
+  list-style-type: none;
+  margin: 0 0 1.25rem 0;
+  padding: 0;
+  max-width: 320px;
+}
+.code-example__app .todo {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 5px 12px 7px;
+  color: #6741d9;
+  background-color: #f3f0ff;
+  border: 1px solid #9775fa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.code-example__app .todo:hover {
+  background-color: #e5dbff;
+  border: 1px solid #845ef7;
+}
+.code-example__app .add-todo {
+  padding: 8px 16px 10px;
+  color: #fff;
+  background-color: #7048e8;
+  border-radius: 5px;
+}
+.code-example__app .add-todo:hover {
+  opacity: 0.85;
+}
+
+.code-example__data {
+  position: relative;
+}
+
+.code-example__notice {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 6px 13px 7px;
+  border-radius: 5px 0 5px 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: -3px -3px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 800px) {
+  .code-example {
+    display: block;
+    max-width: 600px;
+  }
+
+  .code-example__code-container, .code-example__app-container {
+    min-width: 360px;
+    min-width: auto;
+    width: 100%;
+    padding: 14px 14px 16px 14px;
+    border-radius: 5px;
+  }
+
+  .code-example__code-container {
+    margin-bottom: 16px;
+  }
+}

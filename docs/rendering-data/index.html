@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/normalize-min.css?v=901">
     <link rel="stylesheet" href="/static/prism.css?v=901">
     <link rel="stylesheet" href="/static/slideout.css?v=901">
+    <link rel="stylesheet" href="/static/css/code-example.css?v=901"></link>
     <link rel="stylesheet" href="/static/style.css?v=901">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
     <!-- favicon: -->
@@ -29,7 +30,7 @@
       <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//rendering-data/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
-  <body>
+  <body class="">
     <div id="menu">
     </div>
     <div id="panel">
@@ -39,15 +40,27 @@
             <div class="sidebar__list-heading">INTRO</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/">What is Remake?</a>
-              <a class="sidebar__list-item " href="/why-build-with-remake">Why Build With Remake</a>
+            </div>
+          </div>
+          <div class="sidebar__list-container">
+            <div class="sidebar__list-heading">OVERVIEW</div>
+            <div class="sidebar__list">
+              <a class="sidebar__list-item " href="/why-build-with-remake">Why Build With Remake?</a>
               <a class="sidebar__list-item " href="/high-level-overview">High-level Overview</a>
+            </div>
+          </div>
+          <div class="sidebar__list-container">
+            <div class="sidebar__list-heading">EXAMPLE CODE</div>
+            <div class="sidebar__list">
+              <a class="sidebar__list-item " href="/a-simple-example-app">A Simple Todo App</a>
+              <a class="sidebar__list-item " href="/interactive-demos">Interactive Demos</a>
+              <a class="sidebar__list-item " href="/step-by-step-tutorial">Step-by-Step Tutorial</a>
             </div>
           </div>
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">GETTING STARTED</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/install-and-setup">Install &amp; Setup</a>
-              <a class="sidebar__list-item " href="/a-simple-example-app">A Simple Example App</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -146,6 +159,11 @@
       </div>
     </div>
     <a class="toggle-button" href="#">☰ Menu</a>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crostini@latest/dist/crostini.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/remake/remake-framework@2.4.5/_remake/dist/remake/js/remake.min.js"></script>
+    <script src="/static/js/classmatic.min.js"></script>
+    <script src="/static/js/code-example.js?v=901"></script>
     <script src="/static/slideout.min.js?v=901"></script>
     <script src="/static/prism.js?v=901"></script>
     <script src="https://cdn.jsdelivr.net/npm/polite-email-popup@0.9.3/dist/polite-email-popup.umd.js"></script>

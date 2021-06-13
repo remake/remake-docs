@@ -184,6 +184,11 @@ img {
 
 /* MAIN CONTENT */
 
+.wide-layout .main {
+  width: 900px;
+  padding: 32px 24px 48px;
+}
+
 .main {
   position: relative;
   width: 800px;

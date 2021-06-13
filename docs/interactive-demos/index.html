@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>A High Level Overview - Remake Documentation</title>
-      <meta name="description" content="Remake is an open-source framework that lets you build interactive web apps with only HTML!">
+      <title>Interactive Demos - Remake Documentation</title>
+      <meta name="description" content="Play with these demos to see how Remake works without installing anything!">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=901">
     <link rel="stylesheet" href="/static/prism.css?v=901">
@@ -24,10 +24,10 @@
     <meta name="theme-color" content="#ffffff">
     <!-- OG meta tags -->
     
-    <meta name="og:title" content="A High Level Overview - Remake Docs">
+    <meta name="og:title" content="Interactive Demos - Remake Docs">
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
-      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//high-level-overview/">
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//interactive-demos/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
   <body class="">
@@ -46,14 +46,14 @@
             <div class="sidebar__list-heading">OVERVIEW</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/why-build-with-remake">Why Build With Remake?</a>
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/high-level-overview">High-level Overview</a>
+              <a class="sidebar__list-item " href="/high-level-overview">High-level Overview</a>
             </div>
           </div>
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">EXAMPLE CODE</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/a-simple-example-app">A Simple Todo App</a>
-              <a class="sidebar__list-item " href="/interactive-demos">Interactive Demos</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/interactive-demos">Interactive Demos</a>
               <a class="sidebar__list-item " href="/step-by-step-tutorial">Step-by-Step Tutorial</a>
             </div>
           </div>
@@ -140,36 +140,7 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h2>A High Level Overview</h2>
-<h4>In Remake, HTML is converted to data</h4>
-<p>Attach the following attributes to your page to convert static HTML into an interactive web app.</p>
-<ul>
-<li>Tag an element as an <code>object</code> or <code>array</code> and they'll be converted to <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a></li>
-<li><code>object</code> and <code>array</code> are the two data structures Remake exports from the page
-<ul>
-<li>The <code>object</code> attribute marks an HTML element as a JSON object</li>
-<li>The <code>array</code> attribute marks an HTML element as a JSON array</li>
-</ul>
-</li>
-<li>An attribute starting with <code>key:</code> is used for adding data to an object</li>
-<li>An attribute starting with <code>edit:</code> creates a popover where your users can easily edit the page data</li>
-<li>An attribute starting with <code>update:</code> is used for changing data inside <code>key:</code> attribute</li>
-</ul>
-<img class="image--small" src="/static/data-mockup.png">
-<h4>Data flow through a Remake web app</h4>
-<p>In practice, this is how data usually flows in Remake:</p>
-<ol>
-<li>A user logs in to your application</li>
-<li>They click an element with an <code>edit:</code> attribute</li>
-<li>A built-in popover pops up</li>
-<li>The user edits the data in the popover</li>
-<li>The user clicks the &quot;save&quot; button</li>
-<li>Data from the popover is synced back into the page</li>
-<li>The data on the page is saved into the user's account</li>
-</ol>
-<h4>Plugins</h4>
-<p>In the future, Remake will ship with more types of editable areas (for file uploads, image cropping, calendar input, etc.), as well as a plugin architecture that will let developers build on them.</p>
-<p><a href="https://form.remaketheweb.com/">Subscribe for updates</a></p>
+          <h2>Interactive Demos</h2>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>

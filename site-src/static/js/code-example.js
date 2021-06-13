@@ -14,6 +14,8 @@ Remake.init({
     let todoElemToInsert = todoElem.cloneNode(true);
     todoElemToInsert.innerText = "New todo";
     todosElem.append(todoElemToInsert);
+
+    Remake.callSaveFunction(todosElem);
   },
 });
 

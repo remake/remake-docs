@@ -184,11 +184,6 @@ img {
 
 /* MAIN CONTENT */
 
-.wide-layout .main {
-  width: 900px;
-  padding: 32px 24px 48px;
-}
-
 .main {
   position: relative;
   width: 800px;
@@ -319,6 +314,10 @@ img {
 }
 
 /* UTILS */
+
+.relative {
+  position: relative;
+}
 
 .side-by-side {
   display: flex;
@@ -474,6 +473,77 @@ img {
   .side-by-side {
     display: block;
   }
+}
+
+
+/* cool button */
+
+.cool-button {
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  align-content: center;
+  align-items: center;
+  background-color: #1a73e8;
+  background-position: 0 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  height: 36px;
+  justify-content: space-around;
+  letter-spacing: .5px;
+  margin: 0;
+  min-width: 72px;
+  overflow: hidden;
+  padding: 0px 14px 1px;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: optimizelegibility;
+  text-shadow: 1px 1px 0 #1567d3;
+  transition: background-color .2s, box-shadow .2s, color .2s;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.cool-button--large {
+  height: 54px;
+  padding: 0px 20px 1px;
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.cool-button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.cool-button:active {
+  background-color: #174ea6;
+  box-shadow: rgba(60,64,67,.3) 0 1px 2px 0,rgba(60,64,67,.15) 0 1px 3px 1px;
+  outline: 5px auto -webkit-focus-ring-color;
+  text-shadow: none;
+}
+
+.cool-button:hover {
+  background-color: #185abc;
+  box-shadow: rgba(60,64,67,.3) 0 1px 2px 0,rgba(60,64,67,.15) 0 1px 3px 1px;
+  outline: 0;
+  text-shadow: none;
+}
+
+.cool-button:focus {
+  background-color: #185abc;
+  box-shadow: #aecbfa 0 0 0 2px;
+  outline: 0;
+  text-shadow: none;
+  transition: none 0s;
 }
 
 

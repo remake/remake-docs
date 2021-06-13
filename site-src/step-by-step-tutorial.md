@@ -2,10 +2,32 @@
 layout: layout.hbs
 title: Step-by-Step Tutorial
 description: Learn Remake's syntax by walking through each attribute step-by-step
-bodyClasses: app-tab-open data-tab-open wide-layout
+bodyClasses: app-tab-open data-tab-open
+head:
+  <link rel="stylesheet" href="/static/css/code-example.css?v=902"></link>
+  <link rel="stylesheet" href="/static/css/code-tour.css?v=902"></link>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/crostini@latest/dist/crostini.umd.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/remake/remake-framework@2.4.5/_remake/dist/remake/js/remake.min.js" defer></script>
+  <script src="/static/js/classmatic.min.js" defer></script>
+  <script src="/static/js/code-example.js?v=902" defer></script>
 ---
 
 ## Step-by-Step Tutorial
+
+### Learn Remake faster
+
+Want to get a feel for Remake's syntax fast?
+
+- Learn all the basic attributes in 5 minutes
+- You can build a real web app with what you learn!
+
+We'll take you through the todo app code attribute by attribute and explain each one.
+
+You'll come away with a deeper understanding than most people &mdash; and the ability to build an app that supports data editing, sortable data, nested data, and user accounts.
+
+<div class="spacer--24"></div>
 
 {% raw %}
 <div class="code-example tour relative">
@@ -103,4 +125,20 @@ bodyClasses: app-tab-open data-tab-open wide-layout
 </div>
 {% endraw %}
 
-<button class="tour__start">Take tour</button>
+<div style="display: flex; justify-content: center;">
+  <button class="tour__start cool-button cool-button--large" data-click-to-add-class="code-tab-open" data-click-to-remove-class="[app-tab-open,css-tab-open]">&#8594; Start step-by-step tutorial</button>
+</div>
+
+<div class="spacer--48"></div>
+
+### Play with Remake demos
+
+Ready to go further?
+
+Try our interactive demos, where you you can edit Remake code and see it work live! With no need to install anything.
+
+<div class="spacer--8"></div>
+
+<a class="slanted-link" href="/interactive-demos/"><span>&rarr; 2 interactive demo apps</span></a>
+
+<div class="spacer--32"></div>

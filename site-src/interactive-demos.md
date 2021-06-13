@@ -14,11 +14,9 @@ Play around with Remake in your browser
 - Data is saved locally and is persistent, so it feels like a real app
 - Use it to learn all of Remake's syntax and features!
 
-Here are the two demos! 
-
-*You can edit and play around with the code entirely in the browser!*
-
 ### Todo app
+
+You can edit and play around with the code entirely in the browser
 
 <p class="codepen" data-height="470" data-theme-id="39612" data-default-tab="html,result" data-user="panphora" data-slug-hash="rNMVYZz" data-editable="true" style="height: 470px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Todo App (Remake Demo)">
   <span>See the Pen <a href="https://codepen.io/panphora/pen/rNMVYZz">
@@ -28,13 +26,15 @@ Here are the two demos!
 
 ### Kanban app
 
+You can edit and play around with the code entirely in the browser
+
 <p class="codepen" data-height="470" data-theme-id="39612" data-default-tab="html,result" data-user="panphora" data-slug-hash="ZEpGXZG" data-editable="true" style="height: 470px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Kanban App (Remake Demo)">
   <span>See the Pen <a href="https://codepen.io/panphora/pen/ZEpGXZG">
   Kanban App (Remake Demo)</a> by David Miranda (<a href="https://codepen.io/panphora">@panphora</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
-### Learn all of Remake!
+### Learn all of Remake
 
 You're ready to gain full Remake power! 
 

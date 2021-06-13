@@ -168,14 +168,13 @@
   color: #212529;
 }
 .code-example__app h2 {
-  margin-bottom: 1rem;
+  margin: 0 0 .15rem 0;
   color: #7048e8;
   font-size: 24px;
   font-weight: 700;
 }
 .code-example__app .text-light {
-  position: relative;
-  top: -1px;
+  margin-bottom: 1rem;
   opacity: 0.6;
   font-size: 18px;
   color: #7048e8 !important;

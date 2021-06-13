@@ -17,7 +17,8 @@ bodyClasses: app-tab-open data-tab-open wide-layout
     </div>
     <div class="code-example__app" data-show-if=".app-tab-open">
       <div object>
-        <h2>Todos <span class="text-light">(sort, add, remove, and edit)</span></h2>
+        <h2>Todos</h2>
+        <div class="text-light">You can edit and sort these todos!</div>
         <ul class="todos" key="todos" array sortable>
           <li class="todo" object key:text="@innerText" edit:text>Finish designing website</li>
           <li class="todo" object key:text="@innerText" edit:text>Create app prototype</li>

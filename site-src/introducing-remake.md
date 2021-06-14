@@ -15,7 +15,7 @@ We're going to build a simple, but fully-functional Trello clone in about 30 min
 
 Remake takes a simpler approach to web development.
 
-1. You only have to learn ~9 new HTML attributes to build a full application
+1. You only have to learn 9 new HTML attributes to build a full application
 2. You only need to know HTML and [JSON](https://www.w3schools.com/whatis/whatis_json.asp)
 3. You retain complete control over your front-end design
 4. User accounts, inline edit popovers, and persistent data are taken care of!

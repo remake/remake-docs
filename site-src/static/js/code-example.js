@@ -219,9 +219,19 @@ function endTour () {
 }
 
 // event listeners
-document.querySelector(".tour__start").addEventListener("click", startTour);
-document.querySelector(".tour__info-button--close").addEventListener("click", endTour);
-document.querySelector(".tour__info-button--next").addEventListener("click", triggerNextStep);
+let selectorToEvent = {
+  ".tour__start": startTour,
+  ".tour__info-button--close": endTour,
+  ".tour__info-button--next": triggerNextStep
+};
+
+document.addEventListener("click", e => {
+  Object.keys(selectorToEvent).forEach(selector => {
+    if (e.target.closest(selector)) {
+      selectorToEvent[selector]();
+    }
+  });
+});
 
 
 

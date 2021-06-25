@@ -67,17 +67,16 @@ Remake puts your database on the front-end and treats HTML as your app's source 
 
 <div style="max-width: 120px; margin-right: 2rem;"><img src="/static/images/me-circle-small.png"></div>
 <p>Hi, I'm David!</p>
-<p>I'm a UX designer &amp; full-stack web dev who's constantly making new products.</p>
-<p>In 2019 I started getting tired of my projects taking me 14+ months to release. I wanted everyone to be able to release beautiful products in under a month.</p>
+<p>I'm a UX designer & full-stack web dev who's constantly <a href="http://davidmiranda.info/"> making new products.</a></p>
+<p>After spending a decade building startups, I realized the more often you publish and update your app, the more likely you are to experience success.</p>
 <p>I built Remake so you can spend more time:</p>
-<div>
-  <div style="margin-bottom: 1rem;">🤩 Marketing &amp; talking to users!</div>
-  <div style="margin-bottom: 1rem;">👩‍💻 Experimenting with new ideas!</div>
-  <div style="margin-bottom: 1rem;">🦸‍♂️ Building a profitable business!</div>
-</div>
+<div style="margin-bottom: 1rem;">🤩 Marketing & talking to users!</div>
+<div style="margin-bottom: 1rem;">👩‍💻 Experimenting with new ideas!</div>
+<div style="margin-bottom: 1rem;">🦸‍♂️ Building a profitable business!</div>
 <p>And less time configuring your web app stack.</p>
 <hr>
-<p>If you want to build web apps faster than ever before, <a href="https://discord.gg/FB3gNxw">join our Discord community</a> or <a href="https://form.remaketheweb.com/">subscribe to our newsletter</a>.</p>
+<p>Interested?</p>
+<p><a href="https://discord.gg/FB3gNxw">Join our Discord community</a> or <a href="https://form.remaketheweb.com/">subscribe to our newsletter</a>.</p>
 
 
 

@@ -17,7 +17,7 @@ After you sign up for a paid account through [the Remake website](https://remake
 npx remake deploy
 ```
 
-When you sign up / login to your account, use the same email you used for your paid account.
+When you deploy, use the same email for your account that you used when creating your paid account.
 
 🎉 **Your app will be instantly deployed to our servers!**
 

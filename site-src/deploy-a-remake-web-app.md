@@ -15,8 +15,9 @@ Run this in your app's directory and follow the instructions:
 npx remake deploy
 ```
 
-You'll need to create an account with Remake if this is your first deploy.
-
 🥳 **Now you have a public web app you can share with friends!**
 
+**Note:** You need to purchase a paid Remake account in order to use the deploy command, but you can always [deploy Remake on your own server](/hosting/).
+
+For following this Remake tutorial to the end, I'd like to offer you a special 20% discount on the [Remake Founder's plan](https://remaketheweb.com/#founders-deal). Just use the code **REMAKE20**! (Founder's Plan will be discontinued after 2021).
 

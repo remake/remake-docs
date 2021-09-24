@@ -154,6 +154,15 @@ img {
   max-width: 100%;
 }
 
+/* HELPERS */
+
+.hide {
+  display: none;
+}
+
+
+/* VIDEO CONTAINER */
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -460,6 +469,14 @@ img {
 
 
 @media (max-width: 1100px) {
+  .search-docs {
+    margin-top: 3.5rem;
+  }
+
+  .search-docs__label {
+    width: 100%;
+  }
+
   .toggle-button {
     display: block;
   }

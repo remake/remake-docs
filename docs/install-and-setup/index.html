@@ -49,17 +49,17 @@
             </div>
           </div>
           <div class="sidebar__list-container">
+            <div class="sidebar__list-heading">GETTING STARTED</div>
+            <div class="sidebar__list">
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/install-and-setup">Getting Started</a>
+            </div>
+          </div>
+          <div class="sidebar__list-container">
             <div class="sidebar__list-heading">EXAMPLE CODE</div>
             <div class="sidebar__list">
               <a class="sidebar__list-item " href="/a-simple-example-app">A Simple Todo App</a>
               <a class="sidebar__list-item " href="/interactive-demos">Interactive Demos</a>
               <a class="sidebar__list-item " href="/step-by-step-tutorial">Step-by-Step Tutorial</a>
-            </div>
-          </div>
-          <div class="sidebar__list-container">
-            <div class="sidebar__list-heading">GETTING STARTED</div>
-            <div class="sidebar__list">
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/install-and-setup">Install &amp; Setup</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -140,35 +140,97 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h3>Install &amp; Setup</h3>
-<p><strong>⚡️ 1. Generate a Remake project</strong></p>
-<p>You'll need to install <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://git-scm.com/downloads">Git</a> first. Then use the following command to generate your first Remake app:</p>
+          <div class="signup-welcome hide" style="margin-top: 32px; padding: 16px 21px 18px; border: 3px solid #2f9e44; background-color: #d3f9d8; border-radius: 10px;">
+  <h5 style="margin-bottom: 8px; font-size: 24px;">Welcome to the Remake community! 👩‍💻🚀</h5>
+  <div>Follow the instructions below to make your first app.</div>
+</div>
+<h3>Getting Started</h3>
+<p><strong>⚡️ 1. Create an app</strong></p>
+<p>You'll need to install <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://git-scm.com/downloads">Git</a> first. Then use the following command on the command line to generate your first Remake app:</p>
 <pre><code class="language-bash">npx remake create my-app
 </code></pre>
+<div style="margin-top: -16px; margin-bottom: 32px; padding: 5px 12px 6px; font-weight: 600; font-size: 16px; background-color: #fff3bf; color: #d6660b; border-radius: 5px;">If you're unfamiliar with the command line, start with <a style="color: #be5b09;" href="https://www.youtube.com/watch?v=2V1UUhBJ62Y">this command line tutorial</a>.</div>
 <img src="/static/images/example-apps.png">
 <p>You'll be able to choose between:</p>
 <ul>
-  <li>The default app <span style="opacity: .5;">(blank)</span></li>
-  <li>The kanban starter app</li>
+  <li>The default app <span style="opacity: .4; font-weight: 500;">(blank, empty app)</span></li>
+  <li>The kanban starter app <span style="opacity: .4; font-weight: 500;">(recommended)</span></li>
   <li>The reading list sharing app</li>
   <li>The resume/cv builder app</li>
 </ul>
+<hr>
 <p><strong>🚀 2. Start the local server</strong></p>
 <pre><code class="language-bash">cd my-app
 npm run dev
 </code></pre>
-<p><strong>📺 3. View your Remake app</strong></p>
+<hr>
+<p><strong>📺 3. View your running app</strong></p>
 <p>Go to <a href="http://localhost:3000">http://localhost:3000</a> in your browser to view the example app.</p>
-<p><strong>🎨 4. Make your own app</strong></p>
+<hr>
+<p><strong>🎨 4. Customize your app</strong></p>
 <p>All of the code for your Remake app is in the <code>app/</code> directory.</p>
 <p>Learn how to create an app from <a href="https://docs.remaketheweb.com/introducing-remake/">the step-by-step tutorial</a>.</p>
-<p><strong>🌏 5. Deploy your first Remake app!</strong></p>
+<hr>
+<p><strong>🌏 5. Deploy your app</strong></p>
 <pre><code class="language-bash">npx remake deploy
 </code></pre>
 <p>Now anyone will be able to sign up for an account and use your app!</p>
-<h3>🍕 Remake Recipes</h3>
-<h4>👉 <a href="https://recipes.remaketheweb.com/">Check out Remake Recipes!</a></h4>
-<p>It's a quick &amp; easy way to learn what you can build with Remake.</p>
+<hr>
+<h3>Learn Remake Fast</h3>
+<style>
+  .recipes-link {
+    display: block;
+    max-width: 460px;
+    margin: 12px auto 3.5rem;
+    padding: 19px 24px 18px;
+    text-decoration: none;
+    border: 1px solid #6741d9;
+    background-color: #f3f0ff;
+    border-radius: 16px;
+  }
+
+  .recipes-link:hover {
+    border: 1px solid #5f3dc4;
+    background-color: #e5dbff;
+  }
+
+  .recipes-link:hover .recipes-link__heading-inner {
+    text-decoration: none;
+  }
+
+  .recipes-link__heading {
+    display:block;
+    margin-bottom: .5rem;
+    line-height: 1.15;
+    font-size: 36px;
+    font-weight: bold;
+    color: #212529;
+  }
+
+  .recipes-link__heading-inner {
+    text-decoration: underline;
+  }
+
+  .recipes-link__text {
+    display:block;
+    line-height: 1.25;
+    font-weight: bold;
+    font-size: 24px;
+    color: #7950f2;
+  }
+
+  .recipes-link__arrow {
+    color: #7950f2;
+  }
+
+  .recipes-link__icon {
+    float: right;
+  }
+</style>
+<a class="recipes-link" href="https://recipes.remaketheweb.com/">
+  <span class="recipes-link__heading"><span class="recipes-link__icon">🌈</span><span class="recipes-link__arrow">&#10132;</span> <span class="recipes-link__heading-inner">Remake Recipes</span></span>
+  <span class="recipes-link__text">Explore what Remake can do with these simple recipes</span>
+</a>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake" target="_blank"><img src="/static/github.svg"> View on GitHub</a>
@@ -181,6 +243,7 @@ npm run dev
     <script src="https://cdn.jsdelivr.net/npm/polite-email-popup@0.9.3/dist/polite-email-popup.umd.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
     <script src="/static/main.js?v=902"></script>
+      <script> let searchParams = new URLSearchParams(window.location.search); if (searchParams.has("signup")) { document.querySelector(".signup-welcome").classList.remove("hide"); } </script>
     <script>// GOOGLE ANALYTICS
       (function(a,b,c){var d=a.history,e=document,f=navigator||{},g=localStorage,
       h=encodeURIComponent,i=d.pushState,k=function(){return Math.random().toString(36)},

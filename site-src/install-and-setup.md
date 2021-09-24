@@ -73,7 +73,7 @@ Now anyone will be able to sign up for an account and use your app!
 
 ---
 
-### Learn Remake Fast 🏃‍♂️💨
+### Learn Remake Fast
 
 <a class="recipes-link" href="https://recipes.remaketheweb.com/">
   <span class="recipes-link__heading"><span class="recipes-link__icon">🌈</span><span class="recipes-link__arrow">&#10132;</span> <span class="recipes-link__heading-inner">Remake Recipes</span></span>

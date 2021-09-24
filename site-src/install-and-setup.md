@@ -73,58 +73,8 @@ Now anyone will be able to sign up for an account and use your app!
 
 ---
 
-### Learn Remake Fast
+### Learn Remake Fast 🏃‍♂️💨
 
-<style>
-  .recipes-link {
-    display: block;
-    max-width: 460px;
-    margin: 12px auto 3.5rem;
-    padding: 19px 24px 18px;
-    text-decoration: none;
-    border: 1px solid #6741d9;
-    background-color: #f3f0ff;
-    border-radius: 16px;
-  }
-
-  .recipes-link:hover {
-    border: 1px solid #5f3dc4;
-    background-color: #e5dbff;
-  }
-
-  .recipes-link:hover .recipes-link__heading-inner {
-    text-decoration: none;
-  }
-
-  .recipes-link__heading {
-    display:block;
-    margin-bottom: .5rem;
-    line-height: 1.15;
-    font-size: 36px;
-    font-weight: bold;
-    color: #212529;
-  }
-
-  .recipes-link__heading-inner {
-    text-decoration: underline;
-  }
-
-  .recipes-link__text {
-    display:block;
-    line-height: 1.25;
-    font-weight: bold;
-    font-size: 24px;
-    color: #7950f2;
-  }
-
-  .recipes-link__arrow {
-    color: #7950f2;
-  }
-
-  .recipes-link__icon {
-    float: right;
-  }
-</style>
 <a class="recipes-link" href="https://recipes.remaketheweb.com/">
   <span class="recipes-link__heading"><span class="recipes-link__icon">🌈</span><span class="recipes-link__arrow">&#10132;</span> <span class="recipes-link__heading-inner">Remake Recipes</span></span>
   <span class="recipes-link__text">Explore what Remake can do with these simple recipes</span>

@@ -34,7 +34,7 @@ For example:
 ```html
 <div object key:my-favorite-link-name="@search" key:my-favorite-link-url="@search">
   <div>
-    <a target:my-favorite-link-url="@href" href="{{myFavoriteLinkUrl}}" target="_blank">
+    <a target:my-favorite-link-url="@href" href="{{myFavoriteLinkUrl}}">
       <span target:my-favorite-link-name="@innerText">{{myFavoriteLinkName}}</span>
     </a>
   </div>

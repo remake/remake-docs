@@ -73,8 +73,6 @@ npx remake deploy
 
 Now anyone will be able to sign up for an account and use your app!
 
----
-
 ### Learn Remake Fast 🐇
 
 <a class="recipes-link" href="https://recipes.remaketheweb.com/">

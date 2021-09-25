@@ -1,6 +1,6 @@
 ---
 layout: layout.hbs
-title: Install & Setup
+title: Getting Started
 scripts:
   <script>
     let searchParams = new URLSearchParams(window.location.search);
@@ -55,9 +55,11 @@ Go to [http://localhost:3000](http://localhost:3000) in your browser to view the
 
 ---
 
-**🎨 4. Customize your app**
+**🎨 4. Edit your app**
 
 All of the code for your Remake app is in the `app/` directory.
+
+<div style="margin-top: -16px; margin-bottom: 32px; padding: 5px 12px 6px; font-weight: 600; font-size: 16px; background-color: #fff3bf; color: #d6660b; border-radius: 5px;">Start with the file <b>app/pages/app-index.hbs</b> (that's where all the app code lives)</div>
 
 Learn how to create an app from [the step-by-step tutorial](https://docs.remaketheweb.com/introducing-remake/).
 
@@ -73,7 +75,7 @@ Now anyone will be able to sign up for an account and use your app!
 
 ---
 
-### Learn Remake Fast
+### Learn Remake Fast 🐇
 
 <a class="recipes-link" href="https://recipes.remaketheweb.com/">
   <span class="recipes-link__heading"><span class="recipes-link__icon">🌈</span><span class="recipes-link__arrow">&#10132;</span> <span class="recipes-link__heading-inner">Remake Recipes</span></span>

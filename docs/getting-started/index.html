@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Attributes Overview - Remake Documentation</title>
-      <meta name="description" content="Get an overview of all of Remake&#x27;s attributes">
+      <title>Getting Started - Remake Documentation</title>
+      <meta name="description" content="Remake is an open-source framework that lets you build interactive web apps with only HTML!">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="/static/normalize-min.css?v=902">
     <link rel="stylesheet" href="/static/prism.css?v=902">
@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#ffffff">
     <!-- OG meta tags -->
     
-    <meta name="og:title" content="Attributes Overview - Remake Docs">
+    <meta name="og:title" content="Getting Started - Remake Docs">
     <meta name="og:site_name" content="Remake Documentation">
     <meta name="og:type" content="website">
-      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//attributes-overview/">
+      <meta property="og:image" content="https://mugshotbot.com/m?theme=two_up&mode=dark&color=ff1765&pattern=none&image=25ab3aad&hide_watermark=true&url=https://docs.remaketheweb.com//getting-started/">
       <meta property="twitter:card" content="summary_large_image">
   </head>
   <body class="">
@@ -51,7 +51,7 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">GETTING STARTED</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item " href="/getting-started">Getting Started</a>
+              <a class="sidebar__list-item sidebar__list-item--selected" href="/getting-started">Getting Started</a>
             </div>
           </div>
           <div class="sidebar__list-container">
@@ -93,7 +93,7 @@
           <div class="sidebar__list-container">
             <div class="sidebar__list-heading">REMAKE'S ATTRIBUTES</div>
             <div class="sidebar__list">
-              <a class="sidebar__list-item sidebar__list-item--selected" href="/attributes-overview">Attributes overview</a>
+              <a class="sidebar__list-item " href="/attributes-overview">Attributes overview</a>
               <a class="sidebar__list-item " href="/saving-data-attributes">Saving data</a>
               <a class="sidebar__list-item " href="/updating-data-attributes">Updating data</a>
               <a class="sidebar__list-item " href="/reacting-to-data-attributes">Reacting to data</a>
@@ -140,106 +140,48 @@
               <input class="search-docs__input" placeholder="Search docs" type="text" >
             </label>
           </div>
-          <h2>Remake's Attributes</h2>
-<p>The core of Remake is custom HTML attributes.</p>
-<p>They gives Remake the ability to:</p>
+          <div class="signup-welcome hide" style="margin-top: 32px; padding: 16px 21px 18px; border: 3px solid #2f9e44; background-color: #d3f9d8; border-radius: 10px;">
+  <h5 style="margin-bottom: 8px; font-size: 24px;">Welcome to the Remake community! 👩‍💻🚀</h5>
+  <div>Follow the instructions below to make your first app.</div>
+</div>
+<h3>Getting Started</h3>
+<p><strong>⚡️ 1. Create an app</strong></p>
+<p>You'll need to install <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://git-scm.com/downloads">Git</a> first. Then use the following command on the command line to generate your first Remake app:</p>
+<pre><code class="language-bash">npx remake create my-app
+</code></pre>
+<div style="margin-top: -16px; margin-bottom: 32px; padding: 5px 12px 6px; font-weight: 600; font-size: 16px; background-color: #fff3bf; color: #d6660b; border-radius: 5px;">If you're unfamiliar with the command line, start with <a style="color: #be5b09;" href="https://www.youtube.com/watch?v=2V1UUhBJ62Y">this command line tutorial</a>.</div>
+<img src="/static/images/example-apps.png">
+<p>You'll be able to choose between:</p>
 <ul>
-<li><a href="/saving-data-attributes/">Save data</a></li>
-<li><a href="/updating-data-attributes/">Update data</a></li>
-<li><a href="/reacting-to-data-attributes/">React to data</a></li>
-<li><a href="/temporary-data/">Use temporary data</a></li>
-<li><a href="/advanced-attributes/">Add more advanced behavior</a></li>
+  <li>The default app <span style="opacity: .4; font-weight: 500;">(blank, empty app)</span></li>
+  <li>The kanban starter app <span style="opacity: .4; font-weight: 500;">(recommended)</span></li>
+  <li>The reading list sharing app</li>
+  <li>The resume/cv builder app</li>
 </ul>
-<h3>Remake Attributes Overview</h3>
-<p>All of the functionality that Remake allows us to build so quickly — creating a complete Kanban app from scratch in record time — is done by only 9 custom attributes (used a total of 22 times).</p>
-<p><strong>If you learn only the following 9 custom attributes, you'll be able to build some pretty powerful apps with Remake!</strong></p>
-<ul>
-<li><b><code>object</code></b>
-<ul>
-<li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> object</li>
-<li>Elements nested inside this element will be nested inside the object
-<ul>
-<li>For example, if you add an <code>array</code> element with a <code>key</code> inside this element, then Remake will see the data like this: <code>{keyName: []}</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>array</code></b>
-<ul>
-<li>This marks an element as a <a href="https://www.w3schools.com/whatis/whatis_json.asp">JSON</a> array</li>
-<li>Elements nested inside this element will be nested inside the array
-<ul>
-<li>For example, if you add a series of three elements inside this element that all have the <code>object</code> attribute, then Remake will see the data like this: <code>[{}, {}, {}]</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>key:</code></b>
-<ul>
-<li>Only elements with the <code>object</code> attribute can have this attribute</li>
-<li>This attribute lets you name a piece of data and tell Remake where it's located
-<ul>
-<li>For example, this HTML: <code>&lt;div object key:name=&quot;@innerText&quot;&gt;David&lt;/div&gt;</code> produces this data: <code>{name:&quot;David&quot;}</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>key</code></b>
-<ul>
-<li>If you want to nest the data of one element inside another one, use this attribute</li>
-<li>Whatever value you give to key will be the label that the nested has inside the parent element
-<ul>
-<li>For example, this HTML: <code>&lt;div object&gt;&lt;div array key=&quot;myArray&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code> produces this data: <code>{myArray:[]}</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>edit:</code></b>
-<ul>
-<li>The easiest way to make a <code>key:</code> editable</li>
-<li>Just pass in a key name and put this on the same element as the key (or inside it) and Remake will automatically make it editable!
-<ul>
-<li>For example, the data in this element will be editable: <code>&lt;div object key:name=&quot;@innerText&quot; edit:name&gt;David&lt;/div&gt;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>default:</code></b>
-<ul>
-<li>If a user edits a piece of data and sets it to nothing, that <code>key:</code> will be set to this matching <code>default:</code> value instead</li>
-</ul>
-</li>
-<li><b><code>new:</code></b>
-<ul>
-<li>Adds a new item to the page.
-<ul>
-<li>The item's name must match a partial template's name or an item from a <code>{{#for}}</code> loop</li>
-<li>The item is rendered automatically by Remake and added to the nearest <code>array</code> element</li>
-<li>For example, if you have a for loop like <code>{{#for item in items}}...</code> then you can use <code>&lt;button new:item&gt;Create new item!&lt;/button&gt;</code> to render a new item and add it to the list!</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>sortable</code></b>
-<ul>
-<li>All elements directly inside this element can be dragged and reordered
-<ul>
-<li>For example: <code>&lt;div array sortable&gt;&lt;!--Elements here can be sorted--&gt;&lt;/div&gt;</code>.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b><code>target:</code></b>
-<ul>
-<li>This is a special, but important attribute. It lets you attach a <code>key:</code> on higher-level element, but reference a value on a lower-level element.</li>
-<li>If you pass the <code>@search</code> command into a <code>key:</code> attribute, then that key will look for its value inside its element until it finds a matching <code>target:</code> element
-<ul>
-<li>For example, with: <code>&lt;div object key:name=&quot;@search&quot;&gt;&lt;span target:name=&quot;@innerText&quot;&gt;Sam&lt;/span&gt;&lt;/div&gt;</code>, the value of the key &quot;name&quot; is &quot;Sam&quot;.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<hr>
+<p><strong>🚀 2. Start the local server</strong></p>
+<pre><code class="language-bash">cd my-app
+npm run dev
+</code></pre>
+<hr>
+<p><strong>📺 3. View your running app</strong></p>
+<p>Go to <a href="http://localhost:3000">http://localhost:3000</a> in your browser to view the example app.</p>
+<hr>
+<p><strong>🎨 4. Edit your app</strong></p>
+<p>All of the code for your Remake app is in the <code>app/</code> directory.</p>
+<div style="margin-top: -16px; margin-bottom: 32px; padding: 5px 12px 6px; font-weight: 600; font-size: 16px; background-color: #fff3bf; color: #d6660b; border-radius: 5px;">Start with the file <b>app/pages/app-index.hbs</b> (that's where all the app code lives)</div>
+<p>Learn how to create an app from <a href="https://docs.remaketheweb.com/introducing-remake/">the step-by-step tutorial</a>.</p>
+<hr>
+<p><strong>🌏 5. Deploy your app</strong></p>
+<pre><code class="language-bash">npx remake deploy
+</code></pre>
+<p>Now anyone will be able to sign up for an account and use your app!</p>
+<hr>
+<h3>Learn Remake Fast 🐇</h3>
+<a class="recipes-link" href="https://recipes.remaketheweb.com/">
+  <span class="recipes-link__heading"><span class="recipes-link__icon">🌈</span><span class="recipes-link__arrow">&#10132;</span> <span class="recipes-link__heading-inner">Remake Recipes</span></span>
+  <span class="recipes-link__text">Explore what Remake can do with these simple recipes</span>
+</a>
 
           <div class="spacer--16"></div>
           <a class="github-link github-link--footer" href="https://github.com/remake/remake"><img src="/static/github.svg"> View on GitHub</a>
@@ -252,6 +194,7 @@
     <script src="https://cdn.jsdelivr.net/npm/polite-email-popup@0.9.3/dist/polite-email-popup.umd.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
     <script src="/static/main.js?v=902"></script>
+      <script> let searchParams = new URLSearchParams(window.location.search); if (searchParams.has("signup")) { document.querySelector(".signup-welcome").classList.remove("hide"); } </script>
     <script>// GOOGLE ANALYTICS
       (function(a,b,c){var d=a.history,e=document,f=navigator||{},g=localStorage,
       h=encodeURIComponent,i=d.pushState,k=function(){return Math.random().toString(36)},

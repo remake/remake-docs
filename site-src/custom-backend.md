@@ -30,6 +30,16 @@ This is a live, working demo &mdash; try editing the code to see the app change!
 
 Read on to see how to can plug this demo into any backend (with a little elbow greese)!
 
+**To get it working locally &mdash;**
+
+1. Go to [the Codepen page](https://codepen.io/panphora/pen/rNMVYZz)
+2. Click ["Export .zip"](https://blog.codepen.io/documentation/exporting-pens/#export-zip-1) button in the Export menu (bottom right of your screen)
+<div style="margin: -12px 0 16px 0; max-width: 280px;">
+  <img src="/static/images/export-button-codepen.png" alt="Codepen export button">
+</div>
+3. You'll need to login to Codepen first, but you <b>don't</b> need a Pro account for this.
+<br>
+
 ### Build your own backend
 
 You can use the client-side demo above as the foundation for building your own stack on top of Remake.

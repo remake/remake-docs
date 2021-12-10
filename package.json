@@ -19,8 +19,8 @@
     "docs"
   ],
   "scripts": {
-    "site-serve": "eleventy --serve",
-    "site-build": "eleventy"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.9.0",
